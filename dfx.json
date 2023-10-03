@@ -1,0 +1,35 @@
+{
+  "canisters": {
+    "backend": {
+      "type": "motoko",
+      "main": "backend/Backend.mo"
+    },
+    "dynamicNftMotoko": {
+      "type": "motoko",
+      "main": "backend/nftdinamicodip721.mo"
+    },
+    "frontend": {
+      "dependencies": ["internet_identity", "backend"],
+     "type": "assets",
+     "source": ["dist/"],
+     "entrypoint": "dist/index.html"
+   },
+     "internet_identity": {
+     "type": "custom",
+     "candid": "https://github.com/dfinity/internet-identity/releases/download/release-2023-09-08/internet_identity.did",
+     "wasm": "https://github.com/dfinity/internet-identity/releases/download/release-2023-09-08/internet_identity_dev.wasm.gz",
+     "remote": {
+       "id": {
+         "ic": "rdmx6-jaaaa-aaaaa-aaadq-cai"
+       }
+     }
+   }
+  },
+  "defaults": {
+    "build": {
+      "packtool": "npm run --silent sources"
+    }
+  },
+  "output_env_file": ".env",
+  "version": 2
+}
