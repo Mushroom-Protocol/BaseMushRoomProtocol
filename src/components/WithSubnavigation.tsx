@@ -1,7 +1,7 @@
 'use client'
 import ColorModeToggle from './ColorModeToggle';
-import { ConnectButton, ConnectDialog, Connect2ICProvider,useConnect  } from "@connect2ic/react";
-import "@connect2ic/core/style.css";
+//import { ConnectButton, ConnectDialog, Connect2ICProvider,useConnect  } from "@connect2ic/react";
+//import "@connect2ic/core/style.css";
 import {
   Box,
   Flex,
@@ -21,12 +21,16 @@ import {
   Stack,
 } from '@chakra-ui/react'
 import { HamburgerIcon, CloseIcon, AddIcon } from '@chakra-ui/icons'
+import { Link as ReactRouterLink } from 'react-router-dom'
+import { Link as ChakraLink, LinkProps } from '@chakra-ui/react'
+
+
 
 interface Props {
   children: React.ReactNode
 }
 
-const Links = ['Swap', 'Launchpad', 'Marketplace','FungiDAO', 'Staking','Vault']
+const Links = ['Home', 'Launchpad', 'Marketplace','FungiDAO', 'Staking','Vault']
 const NavLink = (props: Props) => {
   const { children } = props
   return (
@@ -39,13 +43,13 @@ const NavLink = (props: Props) => {
         textDecoration: 'none',
         bg: useColorModeValue('gray.200', 'gray.700'),
       }}
-      href={'#'}>
+      href='/Home'>
       {children}
     </Box>
   )
 }
 
-export default function WithAction() {
+export default function WithSubnavigation() {
   const { isOpen, onOpen, onClose } = useDisclosure()
 
   return (
@@ -70,12 +74,27 @@ export default function WithAction() {
               </Box>
             <HStack as={'nav'} spacing={4} display={{ base: 'none', md: 'flex' }}>
               {Links.map((link) => (
-                <NavLink key={link}>{link}</NavLink>
+                //<Text key={link}>{link}</Text>
+                 <Box
+                 px={2}
+                 py={5}
+                 rounded={'md'}
+                 _hover={{
+                   textDecoration: 'none',
+                   bg: useColorModeValue('gray.200', 'gray.700'),
+                 }} key={link}>
+            <ChakraLink as={ReactRouterLink} to={`/${link}`}>
+                <Text fontSize='2xl' as='b'>
+                  {link}
+                </Text>                  
+              </ChakraLink>
+              </Box>
+                //<NavLink key={link}><Text fontSize='2xl' as='b'>{link}</Text></NavLink>
               ))}
             </HStack>
           </HStack>
           <Flex alignItems={'center'}>
-          <ConnectButton />
+          
           <ColorModeToggle/>
             <Button
               variant={'solid'}

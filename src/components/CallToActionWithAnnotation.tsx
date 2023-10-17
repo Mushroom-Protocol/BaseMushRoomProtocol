@@ -14,18 +14,19 @@ import {
 export default function CallToActionWithAnnotation() {
   return (
     <>
-      <Container maxW={'3xl'}>
+      <Container maxW={'6xl'}>
         <Stack
           as={Box}
           textAlign={'center'}
           spacing={{ base: 8, md: 14 }}
-          py={{ base: 20, md: 36 }}>
+          py={{ base: 20, md: 8 }}>
           <Heading
-            fontWeight={600}
-            fontSize={{ base: '2xl', sm: '4xl', md: '5xl' }}
-            lineHeight={'110%'}>
-            Financiamiento descentralizado <br />
-            <Text as={'span'} color={'cyan'}>en biotecnología</Text>
+            fontWeight={650}
+            fontSize={{ base: '2xl', sm: '4xl', md: '4xl' }}
+            lineHeight={'110%'}
+            color={'#1FAFC8'}
+            noOfLines={1}>
+            FINANCIAMIENTO DESCENTRALIZADO EN BIOTECNOLOGÍA
           </Heading>
           <Text fontSize={{ base: '2xl', sm: '3xl', md: '3xl' }} color={'white'}>
           Impulsando la revolución financiera en ciencia y tecnología
@@ -41,27 +42,15 @@ export default function CallToActionWithAnnotation() {
             >
             <Button
               colorScheme={'green'}
-              bg={'cyan'}
+              bg={'#1FAFC8'}
               //rounded={'full'}
-              px={6}
-              size='md'
+              px={30}
+              size='lg'
               _hover={{
                 bg: 'green.500',
               }}>
-              NFTs
-            </Button>
-            <Button
-              colorScheme={'green'}
-              bg={'cyan'}
-              //rounded={'full'}
-              px={6}
-              size='md'
-              _hover={{
-                bg: 'green.500',
-              }}>
-              Aplicar
-            </Button>
-            
+              CONNECT WALLET
+            </Button>           
           </Stack>
         </Stack>
       </Container>
