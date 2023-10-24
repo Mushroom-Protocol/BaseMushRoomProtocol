@@ -41,13 +41,14 @@ export default function CallToActionWithAnnotation() {
             direction='row'
             >
             <Button
-              colorScheme={'green'}
+              colorScheme={'blue'}
+              borderRadius={"full"}
               bg={'#1FAFC8'}
               //rounded={'full'}
               px={30}
               size='lg'
               _hover={{
-                bg: 'green.500',
+                bg: 'blue.500',
               }}>
               CONNECT WALLET
             </Button>           
