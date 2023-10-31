@@ -23,7 +23,7 @@ export default function ShowTeam(){
 <SimpleGrid columns={[2,null,3]} spacingX='80px' spacingY='40px'>
    <Box height='80px' alignItems='center'>
   <Flex  alignItems='center'>
-  <Avatar src='../assets/Esteban.jpeg' size='xl' />
+  <Avatar src='/assets/Esteban.jpeg' size='xl' />
   <Box ml='3'>
     <Text fontWeight='bold' fontSize='xl'>
       Esteban Arenillas
@@ -34,7 +34,7 @@ export default function ShowTeam(){
   </Box>
   <Box height='80px'>
   <Flex  alignItems='center'>
-  <Avatar src='../assets/Tomás.jpg' size='xl' />
+  <Avatar src='/assets/Tomás.jpg' size='xl' />
   <Box ml='3'>
     <Text fontWeight='bold' fontSize='xl'>
       Tomas Ortega
@@ -45,7 +45,7 @@ export default function ShowTeam(){
   </Box>
   <Box height='80px'>
   <Flex  alignItems='center'>
-  <Avatar src='../assets/Andrés.jpg' size='xl' />
+  <Avatar src='/assets/Andrés.jpg' size='xl' />
   <Box ml='3'>
     <Text fontWeight='bold' fontSize='xl'>
       Andrés Peña
@@ -56,7 +56,7 @@ export default function ShowTeam(){
   </Box>
   <Box height='80px' alignItems='center'>
   <Flex  alignItems='center'>
-  <Avatar src='../assets/Alfonso.jpg' size='xl' />
+  <Avatar src='/assets/Alfonso.jpg' size='xl' />
   <Box ml='3'>
     <Text fontWeight='bold' fontSize='xl'>
       Alfonso Segovia
@@ -67,7 +67,7 @@ export default function ShowTeam(){
   </Box>
   <Box height='80px'>
   <Flex  alignItems='center'>
-  <Avatar src='../assets/Ariel.jpg' size='xl' />
+  <Avatar src='/assets/Ariel.jpg' size='xl' />
   <Box ml='3'>
     <Text fontWeight='bold' fontSize='xl'>
       Ariel Robotti
@@ -78,7 +78,7 @@ export default function ShowTeam(){
   </Box>
   <Box height='80px'>
   <Flex  alignItems='center'>
-  <Avatar src='../assets/Luz_Dary.jpg' size='xl' />
+  <Avatar src='/assets/Luz_Dary.jpg' size='xl' />
   <Box ml='3'>
     <Text fontWeight='bold' fontSize='xl'>
       Luz Dary López
@@ -89,7 +89,7 @@ export default function ShowTeam(){
   </Box>
   <Box height='80px' alignItems='center'>
   <Flex  alignItems='center'>
-  <Avatar src='../assets/Dimitri.jpg' size='xl' />
+  <Avatar src='/assets/Dimitri.jpg' size='xl' />
   <Box ml='3'>
     <Text fontWeight='bold' fontSize='xl'>
       Dimitri Orga
@@ -100,7 +100,7 @@ export default function ShowTeam(){
   </Box>
   <Box height='80px'>
   <Flex  alignItems='center'>
-  <Avatar src='../assets/Mariano.jpg' size='xl' />
+  <Avatar src='/assets/Mariano.jpg' size='xl' />
   <Box ml='3'>
     <Text fontWeight='bold' fontSize='xl'>
       Mariano Camere
@@ -111,7 +111,7 @@ export default function ShowTeam(){
   </Box>
   <Box height='80px'>
   <Flex  alignItems='center'>
-  <Avatar src='../assets/Martín.jpg' size='xl' />
+  <Avatar src='/assets/Martín.jpg' size='xl' />
   <Box ml='3'>
     <Text fontWeight='bold' fontSize='xl'>
       Martín Sangiacomo

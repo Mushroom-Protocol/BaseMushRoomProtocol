@@ -1,6 +1,9 @@
 import React from "react";
 import { Heading, HStack, VStack, Box, Flex, Text, Image } from "@chakra-ui/react";
-
+import mainImg1 from "./../../assets/patch768x768.jpg"
+import logoNathera from "./../../assets/Nathera-logo.png"
+import nanoCouting from "./../../assets/nanocouting.jpg"
+import logoEon from "./../../assets/EON-logo-v2.png"
 const FundedProjects = () => {
   return (
     <>
@@ -32,12 +35,12 @@ const FundedProjects = () => {
                     textAlign="center"
                   >
                     <Image
-                      src="./assets/patch768x768.jpg"
+                      src={mainImg1}
                       alt="Main Image 1"
                     />
                     <Box display="flex" alignItems="center" mt="20px">
                       <Image
-                        src="./assets/Nathera-logo.png"
+                        src={logoNathera}
                         alt="Secondary Image 1"
                         w="50px"
                         h="50px"
@@ -84,13 +87,13 @@ const FundedProjects = () => {
                 textAlign="center"
               >
                 <Image
-                  src="./assets/nanocouting.jpg"
+                  src={nanoCouting}
                   alt="Main Image 2"
                 />
 
                 <Box display="flex" alignItems="center" mt="20px">
                   <Image
-                    src="./assets/EON-logo-v2.png"
+                    src={logoEon}
                     alt="Secondary Image 2"
                     w="50px"
                     h="50px"

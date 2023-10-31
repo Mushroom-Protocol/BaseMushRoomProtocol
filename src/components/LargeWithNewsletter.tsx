@@ -16,6 +16,7 @@ import {
 import { ReactNode } from 'react'
 import { FaInstagram, FaTwitter, FaYoutube } from 'react-icons/fa'
 import { BiMailSend } from 'react-icons/bi'
+import LogoM from './../assets/Logo.png' 
 
 const Logo = (props: any) => {
   return (
@@ -85,7 +86,7 @@ export default function LargeWithNewsletter() {
             <Image 
               boxSize='160px'
               height='100%'
-              src='../assets/Logo.png' 
+              src={LogoM}
               alt='Logo Mushhroom'
               />
             </Box>

@@ -1,6 +1,6 @@
 import React from "react";
 import { Box, Flex, Heading, Text, Button, Image } from "@chakra-ui/react";
-
+import imgHome1 from "./assets/1.png"
 const Banner = () => {
   return (
     <Flex
@@ -38,7 +38,7 @@ const Banner = () => {
         Launchpad
       </Button>
       <Image
-        src="https://mushroomprotocol.io/wp-content/uploads/2023/03/24-1024x991.png"
+        src={imgHome1}
         alt="Imagen"
         boxSize="300px"
         position="absolute"

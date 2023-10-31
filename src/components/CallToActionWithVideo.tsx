@@ -15,7 +15,7 @@ import {
   IconProps,
   useColorModeValue,
 } from '@chakra-ui/react'
-
+import imgHome1 from "./../assets/1.png"
 export default function CallToActionWithVideo() {
   return (
     <Container maxW={'7xl'}>
@@ -64,7 +64,7 @@ export default function CallToActionWithVideo() {
             rounded={'2xl'}
             boxShadow={'2xl'}
             width={'full'}>
-            <Image src="./assets/1.png" alt="Imagen" w="100%" h="auto"></Image>
+            <Image src={imgHome1} alt="Imagen" w="100%" h="auto"></Image>
             <Box
                 position="absolute"
                 top="70%"

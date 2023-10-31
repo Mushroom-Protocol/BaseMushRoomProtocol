@@ -14,6 +14,7 @@ import {
 } from '@chakra-ui/react'
 import { IoAnalyticsSharp, IoLogoBitcoin, IoSearchSharp } from 'react-icons/io5'
 import { ReactElement } from 'react'
+import imghome1 from './../assets/1.png'
 
 interface FeatureProps {
   text: string
@@ -78,9 +79,7 @@ export default function SplitWithImage() {
           <Image
             rounded={'md'}
             alt={'feature image'}
-            src={
-              '../assets/1.png'
-            }
+            src={imghome1}
             objectFit={'cover'}
           />
         </Flex>

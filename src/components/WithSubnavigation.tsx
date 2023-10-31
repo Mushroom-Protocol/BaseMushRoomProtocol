@@ -19,12 +19,13 @@ import {
   useDisclosure,
   useColorModeValue,
   Stack,
+  Alert,
+  AlertIcon
 } from '@chakra-ui/react'
 import { HamburgerIcon, CloseIcon, AddIcon } from '@chakra-ui/icons'
 import { Link as ReactRouterLink } from 'react-router-dom'
 import { Link as ChakraLink, LinkProps } from '@chakra-ui/react'
-
-
+import Logo  from './../assets/Logo.png' 
 
 interface Props {
   children: React.ReactNode
@@ -68,7 +69,7 @@ export default function WithSubnavigation() {
               <Image 
               boxSize='140px'
               height='30%'
-              src='../assets/Logo.png' 
+              src={Logo} 
               alt='Logo Mushhroom'
               />
               </Box>
@@ -104,6 +105,7 @@ export default function WithSubnavigation() {
               leftIcon={<AddIcon />}>
               Action
             </Button>
+            <div id="botonConexion"></div>
             <Menu>
               <MenuButton
                 as={Button}
@@ -111,12 +113,6 @@ export default function WithSubnavigation() {
                 variant={'link'}
                 cursor={'pointer'}
                 minW={0}>
-                <Avatar
-                  size={'sm'}
-                  src={
-                    'https://images.unsplash.com/photo-1493666438817-866a91353ca9?ixlib=rb-0.3.5&q=80&fm=jpg&crop=faces&fit=crop&h=200&w=200&s=b616b2c5b373a80ffc9636ba24f7a4a9'
-                  }
-                />
               </MenuButton>
               <MenuList>
                 <MenuItem>Link 1</MenuItem>
@@ -138,6 +134,10 @@ export default function WithSubnavigation() {
           </Box>
         ) : null}
       </Box>
+      <Alert status='info'>
+      <AlertIcon />
+      <div id="DialogoConexion"></div>
+      </Alert>
     </>
   )
 }

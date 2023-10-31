@@ -1,5 +1,5 @@
 import { Box, Text, Button, Image, Flex } from "@chakra-ui/react";
-
+import imgHome7 from "./assets/7.png"
 const JoinDiscord = () => {
   return (
     <Flex
@@ -11,7 +11,7 @@ const JoinDiscord = () => {
       paddingY="20px"
     >
       <Image
-        src="https://mushroomprotocol.io/wp-content/uploads/2023/03/26.png"
+        src={imgHome7}
         alt="Discord Image"
         width="300px"
         height="300px"

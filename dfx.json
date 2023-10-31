@@ -4,10 +4,6 @@
       "type": "motoko",
       "main": "backend/Backend.mo"
     },
-    "dynamicNftMotoko": {
-      "type": "motoko",
-      "main": "backend/nftdinamicodip721.mo"
-    },
     "frontend": {
       "dependencies": ["internet_identity", "backend"],
      "type": "assets",
