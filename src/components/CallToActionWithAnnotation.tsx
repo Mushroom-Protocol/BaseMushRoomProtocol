@@ -18,7 +18,7 @@ export default function CallToActionWithAnnotation() {
         <Stack
           as={Box}
           textAlign={'center'}
-          spacing={{ base: 8, md: 14 }}
+          
           py={{ base: 20, md: 8 }}>
           <Heading
             fontWeight={650}
@@ -26,10 +26,10 @@ export default function CallToActionWithAnnotation() {
             lineHeight={'110%'}
             color={'#1FAFC8'}
             noOfLines={1}>
-            FINANCIAMIENTO DESCENTRALIZADO EN BIOTECNOLOGÍA
+            DECENTRALIZED FINANCING IN BIOTECHNOLOGY
           </Heading>
           <Text fontSize={{ base: '2xl', sm: '3xl', md: '3xl' }} color={'white'}>
-          Impulsando la revolución financiera en ciencia y tecnología
+          Driving the financial revolution in science and technology
           </Text>          
           <Stack
             //direction={'column'}

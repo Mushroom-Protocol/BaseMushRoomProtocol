@@ -9,13 +9,15 @@ import FungiDAOPage from "../pages/FungiDAOPage";
 import MarketPlacePage from "../pages/MarketPlacePage";
 import StakingPage from "../pages/StakinPage";
 import VaultPage from "../pages/VaultPage";
-
+import { EstadoProvider } from '../components/utils/estadoContex';
 function Layout() {
   return (
       <>
+      <EstadoProvider>
         <WithSubnavigation />
         <Outlet />
         <LargeWithNewsletter />
+        </EstadoProvider>
       </>
   );
 }

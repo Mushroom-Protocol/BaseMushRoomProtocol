@@ -2,6 +2,7 @@
 import ColorModeToggle from './ColorModeToggle';
 //import { ConnectButton, ConnectDialog, Connect2ICProvider,useConnect  } from "@connect2ic/react";
 //import "@connect2ic/core/style.css";
+
 import {
   Box,
   Flex,
@@ -26,12 +27,16 @@ import { HamburgerIcon, CloseIcon, AddIcon } from '@chakra-ui/icons'
 import { Link as ReactRouterLink } from 'react-router-dom'
 import { Link as ChakraLink, LinkProps } from '@chakra-ui/react'
 import Logo  from './../assets/Logo.png' 
-
+import { useEffect, useState } from 'react';
+import React, { useContext } from 'react';
+import { EstadoContext } from './utils/estadoContex'; 
+import { backend } from '../declarations/backend';
 interface Props {
   children: React.ReactNode
 }
-
 const Links = ['Home', 'Launchpad', 'Marketplace','FungiDAO', 'Staking','Vault']
+//const { estado, setEstado } = useContext(EstadoContext);
+
 const NavLink = (props: Props) => {
   const { children } = props
   return (
@@ -52,6 +57,31 @@ const NavLink = (props: Props) => {
 
 export default function WithSubnavigation() {
   const { isOpen, onOpen, onClose } = useDisclosure()
+  const [loading, setLoading] = useState(false);
+  const estadoContext = useContext(EstadoContext);
+if (!estadoContext) {
+  throw new Error('El componente debe estar dentro de un estadoContext');
+}
+
+const { estado, setEstado } = estadoContext;
+
+const fetchMessage = async () => {
+  try {
+    setLoading(true);
+    const estado1 = await backend.getMessage1();
+    setEstado(estado1); 
+  } catch (err) {
+    console.error(err);
+  } finally {
+   console.log("El mensaje del backend es" + estado);     
+    setLoading(false);
+  }
+};
+
+// Fetch the message on page load
+useEffect(() => {
+fetchMessage();
+}, [estado]);
 
   return (
     <>
@@ -97,14 +127,6 @@ export default function WithSubnavigation() {
           <Flex alignItems={'center'}>
           
           <ColorModeToggle/>
-            <Button
-              variant={'solid'}
-              colorScheme={'teal'}
-              size={'sm'}
-              mr={4}
-              leftIcon={<AddIcon />}>
-              Action
-            </Button>
             <div id="botonConexion"></div>
             <Menu>
               <MenuButton
@@ -134,10 +156,9 @@ export default function WithSubnavigation() {
           </Box>
         ) : null}
       </Box>
-      <Alert status='info'>
-      <AlertIcon />
-      <div id="DialogoConexion"></div>
-      </Alert>
+      <Box shadow='md' borderWidth='1px' bg='blue.500' w='100%' p={4} color='white'>
+      { "This message comes from backend: " + estado }
+      </Box>
     </>
   )
 }

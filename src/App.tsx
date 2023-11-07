@@ -18,11 +18,14 @@ import { BiLike,BiChat,BiShare } from 'react-icons/bi';
 import { FaShare } from 'react-icons/fa';
 import { router } from './router/AppRouter';
 import { RouterProvider } from "react-router-dom";
+import { useEffect, useState,useContext } from 'react';
+import { Alert,AlertIcon } from '@chakra-ui/react';
+import { EstadoProvider, EstadoContext } from './components/utils/estadoContex';
 
 const client = createClient({
-   // canisters: {
-    //  backend,
-   // },
+  /*  canisters: {
+      backend,
+   },*/
     providers: [
       new InternetIdentity({ 
         //providerUrl: "http://127.0.0.1:4943/?canisterId=br5f7-7uaaa-aaaaa-qaaca-cai"
@@ -36,24 +39,47 @@ const client = createClient({
        */
       dev: true,
     },
-  })
-  
+  })  
+
 
 function App() {
+  //const [estado, setEstado] = useState('');
+  //  const [loading, setLoading] = useState(false);
+  // @connect2ic
+const { isConnected, principal, activeProvider } = useConnect({
+  onConnect: () => {
+    // Signed in
 
-  return (
+  },
+  onDisconnect: () => {
+    // Signed out
+  }
+});
+  // @connect2ic
+
+
+
+  
+
+  return ( 
     <>
-    <RouterProvider router={router}/>
-    </> 
-
-  )
+     <Alert status='info'>
+    <AlertIcon />    
+    <ConnectButton/>
+    <ConnectDialog/>
+    <h1 className="h1 text-center border-b border-gray-500 pb-2">Hi {principal ? principal : ", connect your Internet Identity or Wallet to have a better experience in the MushRoom Protocol platform."}!</h1> 
+    </Alert>    
+    <EstadoProvider>
+    <RouterProvider router={router}/>    
+     </EstadoProvider>
+     </>
+  )  
 };
 
 export default () => (
   <Connect2ICProvider client={client}> 
-  <ConnectButton/>
-  <ConnectDialog/>
-         <App />          
-     </Connect2ICProvider>
- )
+  <App />         
+  </Connect2ICProvider>
+)
 
+// export default App;

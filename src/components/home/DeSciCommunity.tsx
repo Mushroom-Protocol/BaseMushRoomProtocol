@@ -59,6 +59,7 @@ const DeSciCommunity = () => {
   ];
 
   return (
+    <>
     <Flex
     color="#FFFFFF"
     flexDirection="column"
@@ -80,11 +81,11 @@ const DeSciCommunity = () => {
         <Box  
         borderColor="#1FAFC8"
         borderWidth="6px"
-        width="50%"
+        width="100%"
         borderRadius="lg"
         >
         <Table
-        width='70%'
+        width='90%'
         >
         <Thead>
           <Tr>
@@ -122,56 +123,13 @@ const DeSciCommunity = () => {
         </Tbody>
       </Table>
         </Box>
-        <Box  
-        borderColor="#1FAFC8"
-        borderWidth="6px"
-        width="50%"
-        borderRadius="lg"
-        >
-          {/* Tabla 2*/}
-          <Table
-         width="50%"
-      >
-        <Thead>
-          <Tr>
-            <Th fontSize="18px" color="#FFFFFF" textTransform="capitalize">
-              User
-            </Th>
-            <Th fontSize="18px" color="#FFFFFF" textTransform="capitalize">
-              Financed Capital
-            </Th>
-            <Th fontSize="18px" color="#FFFFFF" textTransform="capitalize">
-              N° Projects
-            </Th>
-            <Th fontSize="18px" color="#FFFFFF" textTransform="capitalize">
-              Favourite Industry
-            </Th>
-          </Tr>
-        </Thead>
-        <Tbody>
-          {topUsers.map((user, index) => (
-            <Tr key={index}>
-              <Td fontSize="16px" color="#737373">
-                {capitalizeFirstLetter(user.name)}
-              </Td>
-              <Td fontSize="16px" color="#737373">
-                {user.capital}
-              </Td>
-              <Td fontSize="16px" color="#737373">
-                {user.projects}
-              </Td>
-              <Td fontSize="16px" color="#737373">
-                {user.industry}
-              </Td>
-            </Tr>
-          ))}
-        </Tbody>
-      </Table>
-        </Box>
+       
         </HStack>
 
        
     </Flex>
+    <Flex p={6}></Flex>
+    </>
   );
 };
 

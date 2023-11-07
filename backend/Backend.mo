@@ -16,25 +16,19 @@ actor class Backend() {
 	type NFTId = Nat32;
 	stable var NftId: NFTId = 0;
     type Identity = Principal;
-  let listaDeIdentidades : Buffer.Buffer<Text> = Buffer.Buffer<Text>(5);
-  let miIdentidad: Text = "yntkk-7zjdu-xwlcq-kofb6-tbdou-mlpjd-it25q-cbv42-ox2qr-qkjfc-qqe!";
-  listaDeIdentidades.add(miIdentidad);
+ 
 
+    let website: Text = "mushroomprotocol.io";
+    var message: Text = "Bienvenido a MushRoom Protocol";
 
-  public func permitirAcceso(identidad: Text): async () {
-   listaDeIdentidades.add(identidad);
-  };
-
-  public shared(msg) func verificarAcceso(identidad: Text): async Bool {
-	//let accesoPermitido = Buffer.indexOf<Text>(identidad, listaDeIdentidades, Text.equal);
-	let accesoPermitido: Bool = Buffer.contains<Text>(listaDeIdentidades, identidad, Text.equal);
-	return accesoPermitido;
+     public query func getMessage1(): async Text {
+        return message;
     };
-	
-private func generateNftId() : Nat32 {
-		NftId += 1;
-		return NftId;
-	};
+
+    public func changeMessage(newMessage: Text): async () {
+        message := newMessage;
+    };
+
 
 	public query ({caller}) func whoami() : async Principal {
 		return caller;
