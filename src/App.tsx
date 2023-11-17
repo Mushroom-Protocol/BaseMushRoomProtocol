@@ -28,8 +28,8 @@ const client = createClient({
    },*/
     providers: [
       new InternetIdentity({ 
-        //providerUrl: "http://127.0.0.1:4943/?canisterId=br5f7-7uaaa-aaaaa-qaaca-cai"
-        providerUrl: "https://identity.ic0.app/"
+        providerUrl: "http://127.0.0.1:4943/?canisterId=br5f7-7uaaa-aaaaa-qaaca-cai"
+        //providerUrl: "https://identity.ic0.app/"
       })
     ],
     globalProviderConfig: {

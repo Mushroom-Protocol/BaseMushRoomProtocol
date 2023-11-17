@@ -2,7 +2,7 @@ import {  createBrowserRouter, Navigate } from "react-router-dom";
 import { WithSubnavigation,CallToActionWithAnnotation,BasicStatistics,LargeWithNewsletter } from '../components'
 
 import { HomePage } from "../pages/HomePage";
-import { LaunchPadPage } from "../pages/LaunchPadPage";
+import LaunchPadPage from '../pages/LaunchPadPage';
 import ErrorPage from "../pages/error-page";
 import { Outlet } from "react-router-dom";
 import FungiDAOPage from "../pages/FungiDAOPage";
