@@ -34,7 +34,7 @@ import { backend } from '../declarations/backend';
 interface Props {
   children: React.ReactNode
 }
-const Links = ['Home', 'Launchpad', 'Marketplace','FungiDAO', 'Staking','Vault']
+const Links = ['Home', 'Launchpad', 'Marketplace','FungiDAO']
 //const { estado, setEstado } = useContext(EstadoContext);
 
 const NavLink = (props: Props) => {
