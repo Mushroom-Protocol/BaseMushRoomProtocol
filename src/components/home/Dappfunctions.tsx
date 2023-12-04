@@ -18,12 +18,12 @@ const Dappfunctions = () => {
       alignItems="center"
       position="relative"
       width="100vw"
-        height="70vh"
+        height="85vh"
     >
       
-      <Heading>
-        Dapp functions
-      </Heading>
+      <Text fontSize="36px" mt="20px">
+      Dapp functions
+      </Text>
       <Flex p={6}></Flex>
       <HStack spacing='100px'>
       <VStack maxW='sm' spacing='30px'>
@@ -42,28 +42,28 @@ const Dappfunctions = () => {
       </Box>
 
       <Box maxW='sm'>
-        <Text fontSize="25px">FungiDAO</Text>
+        <Text fontSize="25px">Apply for funds</Text>
         <Text color="#737373" fontSize="22px">
-          Trade your NFTs in a decentralized way
+          Register and apply for on-chain funds
         </Text>
       </Box>
       </VStack>
       <VStack maxW='sm' spacing='30px' alignItems='left'>
       <Box alignItems='left'>
         <Text fontSize="25px">
-          Staking <span style={badgeStyle}>Coming Soon</span>
+          FungiDAO <span style={badgeStyle}>Coming Soon</span>
         </Text>
         <Text color="#737373" fontSize="22px">
-          Lock your NFTs and earn rewards
+        Vote and participate in the development of Mushroom Protocol
         </Text>
       </Box>
 
       <Box alignItems='left'>
         <Text fontSize="25px">
-          Vault <span style={badgeStyle}>Coming Soon</span>
+          DeFi <span style={badgeStyle}>Coming Soon</span>
         </Text>
         <Text color="#737373" fontSize="22px">
-          Store your NFTs safely and earn profits
+        Earn rewards for investing in science through Stanking and Vaults
         </Text>
       </Box>
       </VStack>

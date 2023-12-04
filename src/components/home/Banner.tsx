@@ -1,9 +1,10 @@
 import React from "react";
 import { Box, Flex, Heading, Text, Button, Image } from "@chakra-ui/react";
-import imgHome1 from "./assets/1.png"
+
 const Banner = () => {
   return (
     <Flex
+      
       color="#FFFFFF"
       flexDirection="row"
       justifyContent="center"
@@ -20,12 +21,14 @@ const Banner = () => {
         textAlign="left"
         maxWidth="40%"
       >
-        <Heading fontSize="38px">
+        <Heading fontSize="35px">
           Supports the science and technology development in LATAM
         </Heading>
       </Box>
       <Button
-        bg="#1FAFC8"
+        colorScheme="teal"
+        backgroundColor="#1FAFC8"
+        variant="solid"
         color="#FFFFFF"
         fontSize="xl"
         borderRadius="full"
@@ -33,12 +36,11 @@ const Banner = () => {
         position="absolute"
         top="300px"
         left="50px"
-        colorScheme={'green'}
       >
         Launchpad
       </Button>
       <Image
-        src={imgHome1}
+        src="https://mushroomprotocol.io/wp-content/uploads/2023/03/24-1024x991.png"
         alt="Imagen"
         boxSize="300px"
         position="absolute"

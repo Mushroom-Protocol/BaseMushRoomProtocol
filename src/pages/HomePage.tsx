@@ -11,7 +11,7 @@ import {
 } from '@chakra-ui/react';
 import CallToActionWithVideo from '../components/CallToActionWithVideo';
 import DeSciEcosystem from '../components/home/DeSciEcosystem';
-import DeSciCommunity from '../components/home/DeSciCommunity';
+import JoinDiscord from '../components/home/JoinDiscord';
 
 export const HomePage = () => {
   return (
@@ -20,13 +20,13 @@ export const HomePage = () => {
       <CallToActionWithAnnotation/>
       <BasicStatistics/>  
       <Flex p={8}></Flex>
-      <CallToActionWithVideo/>
+      <Banner/>
       <Flex p={8}></Flex>
       <FundedProjects/>
       <Flex p={8}></Flex>
       <Dappfunctions/>
       <DeSciEcosystem/>
-      <DeSciCommunity/>
+      <JoinDiscord/>
       
       {/*<TableTopUser4iIndustria/>*/}   
     </>

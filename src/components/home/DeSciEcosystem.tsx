@@ -8,7 +8,6 @@ import {
   Tr,
   Th,
   Td,
-  Heading
 } from "@chakra-ui/react";
 
 const DeSciEcosystem = () => {
@@ -18,63 +17,59 @@ const DeSciEcosystem = () => {
       treasury: "$20,000",
       projects: "1",
       raised: "$12,000",
-      industry: "Health"
+      industry: "Health",
     },
     {
-      tag: "Agro Tech",
+      tag: "AgroFood Tech",
       treasury: "$20,000",
       projects: "1",
       raised: "$12,000",
-      industry: "Agriculture"
-    },
-    {
-      tag: "Food Tech",
-      treasury: "$0",
-      projects: "0",
-      raised: "$0",
-      industry: "Food"
+      industry: "Agriculture",
     },
     {
       tag: "Green Tech",
-      treasury: "$1",
+      treasury: "$40,000",
+      projects: "1",
+      raised: "$30,000",
+      industry: "Sustainability",
+    },
+    {
+      tag: "Synthetic Tech",
+      treasury: "$0",
       projects: "0",
       raised: "$0",
-      industry: "Sustainability"
+      industry: "Data & Energy",
     },
     {
       tag: "Mining Tech",
-      treasury: "$2",
+      treasury: "$0",
       projects: "0",
       raised: "$0",
-      industry: "Mining"
-    }
+      industry: "Mining",
+    },
   ];
 
   return (
-    <>
     <Flex
+      
       color="#FFFFFF"
       flexDirection="column"
       alignItems="center"
-      position="relative"
-      width="100%"
-      height="80vh"  
-      align="center"
-      justify="center"
+      width="1024px"
+      height="450px"
+      top="50px"
     >
-      
-      <Heading>
-         DeSci Ecosystem
-      </Heading>
-      <Flex p={3}></Flex>
-      <Box
-      borderColor="#1FAFC8"
-      borderWidth="6px"
-      width="85%"
-      borderRadius="lg"
-      >
+      <Text fontSize="36px" mt="20px">
+        DeSci Ecosystem
+      </Text>
       <Table
-        width="100%"
+        borderColor="#1FAFC8"
+        borderWidth="1px"
+        variant="unstyled"
+        size="md"
+        width="85%"
+        mt="20px"
+        borderRadius="15px"
       >
         <Thead>
           <Tr>
@@ -117,9 +112,7 @@ const DeSciEcosystem = () => {
           ))}
         </Tbody>
       </Table>
-      </Box>
     </Flex>
-    </>
   );
 };
 
