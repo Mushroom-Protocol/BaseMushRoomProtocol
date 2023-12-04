@@ -34,7 +34,7 @@ import { backend } from '../declarations/backend';
 interface Props {
   children: React.ReactNode
 }
-const Links = ['Home', 'Launchpad', 'Marketplace','FungiDAO']
+const Links = ['Home', 'Launchpad', 'Apply']
 //const { estado, setEstado } = useContext(EstadoContext);
 
 const NavLink = (props: Props) => {
@@ -147,7 +147,7 @@ fetchMessage();
         </Flex>
 
         {isOpen ? (
-          <Box pb={4} display={{ md: 'none' }}>
+          <Box pb={40} display={{ md: 'none' }}>
             <Stack as={'nav'} spacing={4}>
               {Links.map((link) => (
                 <NavLink key={link}>{link}</NavLink>

@@ -14,7 +14,7 @@ import {
   useColorModeValue,
 } from '@chakra-ui/react'
 import { ReactNode } from 'react'
-import { FaInstagram, FaTwitter, FaYoutube } from 'react-icons/fa'
+import { FaLinkedin, FaTwitter, FaYoutube, FaDiscord, FaGithub } from 'react-icons/fa'
 import { BiMailSend } from 'react-icons/bi'
 import LogoM from './../assets/Logo.png' 
 
@@ -93,37 +93,40 @@ export default function LargeWithNewsletter() {
             <Text fontSize={'sm'}>© 2023 MushRoom Protocol. All rights reserved</Text>
             <Stack direction={'row'} spacing={6}>
               <SocialButton label={'Twitter'} href={'https://twitter.com/MushromProtocol'}>
-                <FaTwitter />
+              <FaTwitter />
               </SocialButton>
-              <SocialButton label={'YouTube'} href={'#'}>
+              <SocialButton label={'YouTube'} href={'https://youtube.com/@Mushroom_Protocol'}>
                 <FaYoutube />
               </SocialButton>
-              <SocialButton label={'Instagram'} href={'#'}>
-                <FaInstagram />
+              <SocialButton label={'Linkedin'} href={'https://www.linkedin.com/company/mushroom-protocol/'}>
+              <FaLinkedin />
+              </SocialButton>
+              <SocialButton label={'Discord'} href={'https://discord.gg/wxe4aMwZWT'}>
+              <FaDiscord />
+              </SocialButton>
+              <SocialButton label={'Github'} href={'https://github.com/Mushroom-Protocol'}>
+              <FaGithub />
               </SocialButton>
             </Stack>
           </Stack>
           <Stack align={'flex-start'}>
             <ListHeader>Company</ListHeader>
-            <Box as="a" href={'#'}>
+            <Box as="a" href={'https://mushroomprotocol.io/biotech/'}>
               About us
             </Box>
-            <Box as="a" href={'#'}>
+            <Box as="a" href={'https://mushroomprotocol.io/blog/'}>
               Blog
             </Box>
-            <Box as="a" href={'#'}>
-              Contact us
+            <Box as="a" href={'https://mushroomprotocol.gitbook.io/docs/'}>
+              Documentation
             </Box>
-            <Box as="a" href={'#'}>
-              Pricing
-            </Box>
-            <Box as="a" href={'#'}>
-              Testimonials
+            <Box as="a" href={'https://ethereum.org/es/desci/'}>
+              DeSci
             </Box>
           </Stack>
           <Stack align={'flex-start'}>
             <ListHeader>Support</ListHeader>
-            <Box as="a" href={'#'}>
+            <Box as="a" href={'https://discord.com/channels/1078044033391263774/1181346614934241391'}>
               Help Center
             </Box>
             <Box as="a" href={'#'}>
@@ -135,8 +138,8 @@ export default function LargeWithNewsletter() {
             <Box as="a" href={'#'}>
               Privacy Policy
             </Box>
-            <Box as="a" href={'#'}>
-              Satus
+            <Box as="a" href={'https://discord.com/channels/1078044033391263774/1095529539624509550'}>
+              Status
             </Box>
           </Stack>
           <Stack align={'flex-start'}>

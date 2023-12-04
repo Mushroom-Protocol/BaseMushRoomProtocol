@@ -19,7 +19,7 @@ const Banner = () => {
         top="50px"
         left="50px"
         textAlign="left"
-        maxWidth="40%"
+        maxWidth="50%"
       >
         <Heading fontSize="35px">
           Supports the science and technology development in LATAM
@@ -34,7 +34,7 @@ const Banner = () => {
         borderRadius="full"
         ml="16px"
         position="absolute"
-        top="300px"
+        top="210px"
         left="50px"
       >
         Launchpad
@@ -42,17 +42,17 @@ const Banner = () => {
       <Image
         src="https://mushroomprotocol.io/wp-content/uploads/2023/03/24-1024x991.png"
         alt="Imagen"
-        boxSize="300px"
+        boxSize="400px"
         position="absolute"
-        top="50px"
-        right="50px"
+        top="0px"
+        right="0px"
       />
       <Text
         fontSize="18px"
         position="absolute"
-        top="260px"
-        right="50px"
-        maxWidth="40%"
+        top="300px"
+        right="0px"
+        maxWidth="50%"
         textAlign="justify"
       >
         Join our mission to advance biotechnology by funding impact research.

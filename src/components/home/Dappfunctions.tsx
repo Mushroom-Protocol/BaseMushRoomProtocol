@@ -27,24 +27,26 @@ const Dappfunctions = () => {
       <Flex p={6}></Flex>
       <HStack spacing='100px'>
       <VStack maxW='sm' spacing='30px'>
-      <Box maxW='sm'>
-        <Text fontSize="25px">Launchpad NFT</Text>
-        <Text color="#737373" fontSize="22px">
-          Mint NFTs based in R&D and finance biotechnology
-        </Text>
-      </Box>
-
-      <Box maxW='sm'>
-        <Text fontSize="25px">Marketplace NFT</Text>
-        <Text color="#737373" fontSize="22px">
-          Trade your NFTs in a decentralized way
-        </Text>
-      </Box>
-
-      <Box maxW='sm'>
+      <Box alignItems="left">
         <Text fontSize="25px">Apply for funds</Text>
         <Text color="#737373" fontSize="22px">
           Register and apply for on-chain funds
+        </Text>
+      </Box>
+
+      <Box alignItems="left">
+        <Text fontSize="25px">Launchpad NFT</Text>
+        <Text color="#737373" fontSize="22px">
+        Mint NFTs based in R&D and finance biotechnology
+        </Text>
+      </Box>
+
+      <Box alignItems="left">
+        <Text fontSize="25px">
+          Marketplace NFT <span style={badgeStyle}>Coming Soon</span>
+          </Text>
+        <Text color="#737373" fontSize="22px">
+          Trade your NFTs in a decentralized way
         </Text>
       </Box>
       </VStack>

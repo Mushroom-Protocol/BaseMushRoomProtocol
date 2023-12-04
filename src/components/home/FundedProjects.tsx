@@ -19,7 +19,7 @@ const FundedProjects = () => {
 
       {/* Caja 1 - Izquierda */}
       <Box
-        backgroundColor="#242222"
+        
         border="1px solid #1FAFC8"
         borderRadius="8px"
         width="320px" // Cambiar el tamaño a 300px
@@ -75,7 +75,7 @@ const FundedProjects = () => {
 
       {/* Caja 2 - Centro (Nueva) */}
       <Box
-        backgroundColor="#242222"
+        
         border="1px solid #1FAFC8"
         borderRadius="8px"
         width="320px" // Tamaño igual al de la Caja 1
@@ -130,7 +130,7 @@ const FundedProjects = () => {
       </Box>
 
       <Box
-        backgroundColor="#242222"
+        
         border="1px solid #1FAFC8"
         borderRadius="8px"
         width="320px" // Cambiar el tamaño a 300px
