@@ -126,9 +126,10 @@ fetchMessage();
           <Flex alignItems={'center'}>
           
           
-            <div id="botonConexion"></div>
+            <div id="botonConexion"><ConnectButton/></div>
             <Menu>
               <MenuButton
+
                 as={Button}
                 rounded={'full'}
                 variant={'link'}
