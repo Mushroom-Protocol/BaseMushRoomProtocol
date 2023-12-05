@@ -1,7 +1,10 @@
 import React from "react";
 import { Box, Flex, Text, Button, Image,Stack } from "@chakra-ui/react";
+import { useNavigate } from 'react-router-dom';
 
 const BannerLaunchpad = () => {
+
+
   return (
     <Stack
     align={'center'}
@@ -11,7 +14,7 @@ const BannerLaunchpad = () => {
       //bg="#242222"
       color="#FFFFFF"
       width="1024px"
-      height="500px"
+      height="400px"
       display="flex"
       justifyContent="space-between"
       alignItems="center"
@@ -25,20 +28,23 @@ const BannerLaunchpad = () => {
           Mushroom Protocol Launchpad
         </Text>
         <Button
-          colorScheme="teal"
+          colorScheme="blue"
           backgroundColor="#1FAFC8"
           variant="solid"
           mt="20px"
           borderRadius="full"
+          _hover={{
+            bg: '#01B994',
+          }}
         >
-          View All
+          VIEW ALL
         </Button>
       </Box>
       <Image
         src="https://mushroomprotocol.io/wp-content/uploads/2023/03/25.png"
         alt="Mushroom Protocol"
-        width="450px"
-        height="450px"
+        width="350px"
+        height="350px"
       />
     </Box>
     </Stack>

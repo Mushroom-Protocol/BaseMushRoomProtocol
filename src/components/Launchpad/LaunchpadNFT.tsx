@@ -8,8 +8,10 @@ import {
   Center,
   Flex
 } from "@chakra-ui/react";
+import { useNavigate } from 'react-router-dom';
 
 const LaunchpadNFT = () => {
+  const navigate = useNavigate();
   return (
   <Center>
     <Box
@@ -95,9 +97,13 @@ const LaunchpadNFT = () => {
               colorScheme="teal"
               backgroundColor="#1FAFC8"
               variant="solid"
-              color="#FFFFFF"
+              color="#000000"
               fontSize="xl"
               borderRadius="5px"
+              _hover={{
+                bg: '#01B994',
+              }}
+              onClick= {() => navigate("/Nathera")}
             >
               Details
             </Button>
@@ -162,9 +168,12 @@ const LaunchpadNFT = () => {
               colorScheme="teal"
               backgroundColor="#1FAFC8"
               variant="solid"
-              color="#FFFFFF"
+              color="#000000"
               fontSize="xl"
               borderRadius="5px"
+              _hover={{
+                bg: '#01B994',
+              }}
             >
               Details
             </Button>
@@ -229,9 +238,12 @@ const LaunchpadNFT = () => {
               colorScheme="teal"
               backgroundColor="#1FAFC8"
               variant="solid"
-              color="#FFFFFF"
+              color="#000000"
               fontSize="xl"
               borderRadius="5px"
+              _hover={{
+                bg: '#01B994',
+              }}
             >
               Details
             </Button>

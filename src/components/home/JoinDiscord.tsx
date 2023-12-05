@@ -31,11 +31,15 @@ const JoinDiscord = () => {
         Finances the biotechnology companies of tomorrow, contributes to their growth and promotes the advancement of science in Latin America.
         </Text>
         <Button
-          fontSize="18px"
-          color="#FFFFFF"
+          colorScheme="blue"
           backgroundColor="#1FAFC8"
-          borderRadius="20px"
+          variant="solid"
+          fontSize="18px"
+          borderRadius="full"
           marginTop="20px"
+          _hover={{
+            bg: '#01B994',
+          }}
           onClick={handleJoinDiscord}
         >
           Join Discord

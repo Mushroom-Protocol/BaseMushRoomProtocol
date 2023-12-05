@@ -58,17 +58,17 @@ const { isConnected, principal, activeProvider } = useConnect({
   // @connect2ic
 
 
-
-  
-
-  return ( 
-    <>
-     <Alert status='info'>
+/*<Alert status='info'>
     <AlertIcon />    
     <ConnectButton/>
     <ConnectDialog/>
     <h1 className="h1 text-center border-b border-gray-500 pb-2">Hi {principal ? principal : ", connect your Internet Identity or Wallet to have a better experience in the MushRoom Protocol platform."}!</h1> 
-    </Alert>    
+    </Alert>  */  
+  
+
+  return ( 
+    <>
+    
     <EstadoProvider>
     <RouterProvider router={router}/>    
      </EstadoProvider>

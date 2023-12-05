@@ -48,7 +48,7 @@ export default function CallToActionWithAnnotation() {
               px={30}
               size='lg'
               _hover={{
-                bg: 'blue.500',
+                bg: '#01B994',
               }}>
               CONNECT WALLET
             </Button>           

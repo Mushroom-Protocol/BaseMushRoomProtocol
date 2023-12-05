@@ -1,15 +1,29 @@
 // theme.ts
+import { extendTheme, ThemeConfig } from '@chakra-ui/react';
 
-// 1. import `extendTheme` function
-import { extendTheme, type ThemeConfig } from '@chakra-ui/react'
-
-// 2. Add your color mode config
+// Configuración del tema
 const config: ThemeConfig = {
-  initialColorMode: 'dark',
-  useSystemColorMode: false
-}
+  
+};
 
-// 3. extend the theme
-const theme = extendTheme({ config })
+// Extiende el tema y agrega tus modificaciones
+const theme = extendTheme({
+  config,
+  styles: {
+    global: {
+      body: {
+        bg: '#FFFFFF', // 
+        color: 'yourFontColor',
+      },
+    },
+  },
+  fonts: {
+    // Agrega configuraciones de fuente según sea necesario
+    body: 'system-ui, sans-serif',
+    heading: 'Georgia, serif',
+    // ...
+  },
+  // Agrega otras modificaciones según sea necesario
+});
 
 export default theme;

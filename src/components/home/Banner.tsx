@@ -1,7 +1,14 @@
 import React from "react";
 import { Center, Box, Flex, Heading, Text, Button, Image } from "@chakra-ui/react";
+import { useNavigate } from 'react-router-dom';
 
 const Banner = () => {
+  const navigate = useNavigate();
+
+const handleLaunchPadClick = () => {
+  navigate('/Launchpad');
+};
+
   return (
   <Center>
     <Flex
@@ -18,7 +25,7 @@ const Banner = () => {
         p={4}
         position="absolute"
         top="50px"
-        left="0px"
+        left="-20px"
         textAlign="left"
         maxWidth="50%"
       >
@@ -27,19 +34,24 @@ const Banner = () => {
         </Heading>
       </Box>
       <Button
-        colorScheme="teal"
-        backgroundColor="#1FAFC8"
-        variant="solid"
-        color="#FFFFFF"
-        fontSize="xl"
-        borderRadius="full"
-        ml="16px"
-        position="absolute"
-        top="210px"
-        left="0px"
-      >
-        Launchpad
-      </Button>
+      colorScheme="blue"
+      backgroundColor="#1FAFC8"
+      variant="solid"
+      fontSize="18px"
+      borderRadius="full"
+      ml="16px"
+      position="absolute"
+      top="210px"
+      left="-20px"
+      size='lg'
+      px={10}
+      _hover={{
+        bg: '#01B994',
+      }}
+      onClick={handleLaunchPadClick} // Usa la función de redirección al hacer clic
+    >
+      LAUNCHPAD
+    </Button>
       <Image
         src="https://mushroomprotocol.io/wp-content/uploads/2023/03/24-1024x991.png"
         alt="Imagen"

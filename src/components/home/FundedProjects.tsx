@@ -23,10 +23,10 @@ const FundedProjects = () => {
         
         border="1px solid #1FAFC8"
         borderRadius="8px"
-        width="320px" // Cambiar el tamaño a 300px
+        width="340px" // Cambiar el tamaño a 300px
         position="absolute"
         top="100px"
-        left="0px"
+        left="-10px"
         display="flex"
         flexDirection="column"
         alignItems="center"
@@ -36,8 +36,11 @@ const FundedProjects = () => {
         <Image
           src="https://mushroomprotocol.io/wp-content/uploads/2023/09/patch-768x768.jpg"
           alt="Main Image 1"
-          w="200px"
-          h="200px"
+          style={{
+            width: "100%"
+          }}
+            w="250px"
+            h="250px"
         />
 
         <Box display="flex" alignItems="center" mt="20px">
@@ -79,10 +82,10 @@ const FundedProjects = () => {
         
         border="1px solid #1FAFC8"
         borderRadius="8px"
-        width="320px" // Tamaño igual al de la Caja 1
+        width="340px" // Tamaño igual al de la Caja 1
         position="absolute"
         top="100px"
-        left="352px" // Espacio adicional para acomodar la tercera caja
+        left="342px" // Espacio adicional para acomodar la tercera caja
         display="flex"
         flexDirection="column"
         alignItems="center"
@@ -92,8 +95,11 @@ const FundedProjects = () => {
         <Image
           src="https://mushroomprotocol.io/wp-content/uploads/2023/11/biopolimero.jpg"
           alt="Main Image 2"
-          w="200px"
-          h="200px"
+          style={{
+          width: "100%"
+        }}
+          w="250px"
+          h="250px"
         />
 
         <Box display="flex" alignItems="center" mt="20px">
@@ -121,7 +127,7 @@ const FundedProjects = () => {
         <Text
           fontSize="16px"
           backgroundColor="#64B344"
-          color="#FFFFFF"
+          color="#000000"
           p="8px"
           borderRadius="8px"
           mt="20px"
@@ -134,10 +140,10 @@ const FundedProjects = () => {
         
         border="1px solid #1FAFC8"
         borderRadius="8px"
-        width="320px" // Cambiar el tamaño a 300px
+        width="340px"
         position="absolute"
         top="100px"
-        right="0px"
+        right="-10px"
         display="flex"
         flexDirection="column"
         alignItems="center"
@@ -147,8 +153,11 @@ const FundedProjects = () => {
         <Image
           src="https://mushroomprotocol.io/wp-content/uploads/2023/10/nanocouting.jpg"
           alt="Main Image 2"
-          w="200px"
-          h="200px"
+          style={{
+            width: "100%"
+          }}
+            w="250px"
+            h="250px"
         />
 
         <Box display="flex" alignItems="center" mt="20px">
@@ -176,7 +185,7 @@ const FundedProjects = () => {
         <Text
           fontSize="16px"
           backgroundColor="#EA332B"
-          color="#FFFFFF"
+          color="#000000"
           p="8px"
           borderRadius="8px"
           mt="20px"

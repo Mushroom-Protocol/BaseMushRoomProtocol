@@ -1,6 +1,6 @@
 'use client'
-//import { ConnectButton, ConnectDialog, Connect2ICProvider,useConnect  } from "@connect2ic/react";
-//import "@connect2ic/core/style.css";
+import { ConnectButton, ConnectDialog, Connect2ICProvider,useConnect  } from "@connect2ic/react";
+import "@connect2ic/core/style.css";
 
 import {
   Box,
@@ -85,7 +85,7 @@ fetchMessage();
   return (
     <>
       <Box bg="#000000" px={10}>
-        <Flex h={100} alignItems={'center'} justifyContent={'space-between'}>
+        <Flex h="90px" alignItems={'center'} justifyContent={'space-between'}>
           <IconButton
             size={'md'}
             icon={isOpen ? <CloseIcon /> : <HamburgerIcon />}
@@ -114,7 +114,7 @@ fetchMessage();
                    bg: useColorModeValue('gray.200', 'gray.700'),
                  }} key={link}>
             <ChakraLink as={ReactRouterLink} to={`/${link}`}>
-                <Text fontSize='24px'>
+                <Text fontSize='22px'>
                   {link}
                 </Text>                  
               </ChakraLink>
@@ -154,9 +154,6 @@ fetchMessage();
             </Stack>
           </Box>
         ) : null}
-      </Box>
-      <Box shadow='md' borderWidth='1px' bg='blue.500' w='100%' p={4} color='white'>
-      { "This message comes from backend: " + estado }
       </Box>
     </>
   )

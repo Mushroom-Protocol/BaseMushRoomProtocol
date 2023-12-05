@@ -47,6 +47,10 @@ export const router = createBrowserRouter([
                         element:<FungiDAOPage/>
                     },
                     {
+                        path:"Nathera", 
+                        element:<NatheraPage/>
+                    },
+                    {
                     path:"MarketPlace", 
                     element:<MarketPlacePage/>
                     },

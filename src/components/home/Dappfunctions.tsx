@@ -3,7 +3,7 @@ import { Box, Flex, HStack, Text,VStack,Heading } from "@chakra-ui/react";
 
 const badgeStyle = {
   backgroundColor: "#1FAFC8", // Color de fondo celeste
-  color: "#FFFFFF", // Color de letras blancas
+  color: "#000000", // Color de letras blancas
   fontSize: "18px", // Tamaño de letra 18
   padding: "5px 10px",
   borderRadius: "10px",
