@@ -11,6 +11,7 @@ import {
 
 const LaunchpadNFT = () => {
   return (
+  <Center>
     <Box
     
       color="#FFFFFF"
@@ -238,6 +239,7 @@ const LaunchpadNFT = () => {
         </Box>
       </Box>
     </Box>
+  </Center>
   );
 };
 

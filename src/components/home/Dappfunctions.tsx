@@ -18,17 +18,17 @@ const Dappfunctions = () => {
       alignItems="center"
       position="relative"
       width="100vw"
-        height="85vh"
+        height="80vh"
     >
       
       <Text fontSize="36px" mt="20px">
       Dapp functions
       </Text>
-      <Flex p={6}></Flex>
+      <Flex p={4}></Flex>
       <HStack spacing='100px'>
-      <VStack maxW='sm' spacing='30px'>
+      <VStack maxW='sm' spacing='20px'>
       <Box alignItems="left">
-        <Text fontSize="25px">Apply for funds</Text>
+        <Text fontSize="25px">Apply for Sciences</Text>
         <Text color="#737373" fontSize="22px">
           Register and apply for on-chain funds
         </Text>

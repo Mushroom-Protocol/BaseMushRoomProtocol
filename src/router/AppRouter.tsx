@@ -9,7 +9,7 @@ import FungiDAOPage from "../pages/FungiDAOPage";
 import MarketPlacePage from "../pages/MarketPlacePage";
 import StakingPage from "../pages/StakinPage";
 import VaultPage from "../pages/VaultPage";
-import NatheraPage from "../pages/NatheraPage"
+import NatheraPage from "../pages/NatheraPage";
 import { EstadoProvider } from '../components/utils/estadoContex';
 function Layout() {
   return (

@@ -1,5 +1,4 @@
 'use client'
-import ColorModeToggle from './ColorModeToggle';
 //import { ConnectButton, ConnectDialog, Connect2ICProvider,useConnect  } from "@connect2ic/react";
 //import "@connect2ic/core/style.css";
 
@@ -26,7 +25,7 @@ import {
 import { HamburgerIcon, CloseIcon, AddIcon } from '@chakra-ui/icons'
 import { Link as ReactRouterLink } from 'react-router-dom'
 import { Link as ChakraLink, LinkProps } from '@chakra-ui/react'
-import Logo  from './../assets/Logo.png' 
+import MpFavicon  from './../assets/MpFavicon.png' 
 import { useEffect, useState } from 'react';
 import React, { useContext } from 'react';
 import { EstadoContext } from './utils/estadoContex'; 
@@ -85,8 +84,8 @@ fetchMessage();
 
   return (
     <>
-      <Box bg={useColorModeValue('gray.100', 'gray.900')} px={4}>
-        <Flex h={16} alignItems={'center'} justifyContent={'space-between'}>
+      <Box bg="#000000" px={10}>
+        <Flex h={100} alignItems={'center'} justifyContent={'space-between'}>
           <IconButton
             size={'md'}
             icon={isOpen ? <CloseIcon /> : <HamburgerIcon />}
@@ -97,9 +96,9 @@ fetchMessage();
           <HStack spacing={8} alignItems={'center'}>
             <Box>
               <Image 
-              boxSize='140px'
+              boxSize='90px'
               height='30%'
-              src={Logo} 
+              src={MpFavicon}
               alt='Logo Mushhroom'
               />
               </Box>
@@ -107,7 +106,7 @@ fetchMessage();
               {Links.map((link) => (
                 //<Text key={link}>{link}</Text>
                  <Box
-                 px={2}
+                 px={4}
                  py={5}
                  rounded={'md'}
                  _hover={{
@@ -115,7 +114,7 @@ fetchMessage();
                    bg: useColorModeValue('gray.200', 'gray.700'),
                  }} key={link}>
             <ChakraLink as={ReactRouterLink} to={`/${link}`}>
-                <Text fontSize='2xl' as='b'>
+                <Text fontSize='24px'>
                   {link}
                 </Text>                  
               </ChakraLink>
@@ -126,7 +125,7 @@ fetchMessage();
           </HStack>
           <Flex alignItems={'center'}>
           
-          <ColorModeToggle/>
+          
             <div id="botonConexion"></div>
             <Menu>
               <MenuButton

@@ -1,8 +1,9 @@
 import React from "react";
-import { Box, Flex, Text, Image } from "@chakra-ui/react";
+import { Center, Box, Flex, Text, Image } from "@chakra-ui/react";
 
 const FundedProjects = () => {
   return (
+  <Center>
     <Flex
       
       color="#FFFFFF"
@@ -11,7 +12,7 @@ const FundedProjects = () => {
       width="1024px"
       height="700px"
       position="relative"
-      marginLeft="10px"
+      marginLeft="0px"
     >
       <Text fontSize="36px" mt="20px" alignItems="center">
         Funded Projects
@@ -25,7 +26,7 @@ const FundedProjects = () => {
         width="320px" // Cambiar el tamaño a 300px
         position="absolute"
         top="100px"
-        left="20px"
+        left="0px"
         display="flex"
         flexDirection="column"
         alignItems="center"
@@ -136,7 +137,7 @@ const FundedProjects = () => {
         width="320px" // Cambiar el tamaño a 300px
         position="absolute"
         top="100px"
-        right="20px"
+        right="0px"
         display="flex"
         flexDirection="column"
         alignItems="center"
@@ -184,6 +185,7 @@ const FundedProjects = () => {
         </Text>
       </Box>
     </Flex>
+  </Center>
   );
 };
 

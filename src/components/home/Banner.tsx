@@ -1,8 +1,9 @@
 import React from "react";
-import { Box, Flex, Heading, Text, Button, Image } from "@chakra-ui/react";
+import { Center, Box, Flex, Heading, Text, Button, Image } from "@chakra-ui/react";
 
 const Banner = () => {
   return (
+  <Center>
     <Flex
       
       color="#FFFFFF"
@@ -17,7 +18,7 @@ const Banner = () => {
         p={4}
         position="absolute"
         top="50px"
-        left="50px"
+        left="0px"
         textAlign="left"
         maxWidth="50%"
       >
@@ -35,7 +36,7 @@ const Banner = () => {
         ml="16px"
         position="absolute"
         top="210px"
-        left="50px"
+        left="0px"
       >
         Launchpad
       </Button>
@@ -60,6 +61,7 @@ const Banner = () => {
         that will improve the lives of millions of people
       </Text>
     </Flex>
+    </Center>
   );
 };
 

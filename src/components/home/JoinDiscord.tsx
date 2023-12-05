@@ -1,4 +1,4 @@
-import { Box, Text, Button, Image, Flex } from "@chakra-ui/react";
+import { Center, Box, Text, Button, Image, Flex } from "@chakra-ui/react";
 import imgHome7 from "/home/udo/Front/BaseMushRoomProtocol/src/assets/7.png";
 
 const JoinDiscord = () => {
@@ -9,6 +9,7 @@ const JoinDiscord = () => {
   };
 
   return (
+  <Center>
     <Flex
       width="1024px"
       height="380px"
@@ -41,6 +42,7 @@ const JoinDiscord = () => {
         </Button>
       </Box>
     </Flex>
+    </Center>
   );
 };
 

@@ -1,4 +1,5 @@
 import {
+  Center,
   Box,
   Flex,
   Text,
@@ -50,6 +51,7 @@ const DeSciEcosystem = () => {
   ];
 
   return (
+  <Center>
     <Flex
       
       color="#FFFFFF"
@@ -113,6 +115,7 @@ const DeSciEcosystem = () => {
         </Tbody>
       </Table>
     </Flex>
+  </Center>
   );
 };
 
