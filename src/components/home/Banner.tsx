@@ -48,9 +48,9 @@ const handleLaunchPadClick = () => {
       _hover={{
         bg: '#01B994',
       }}
-      onClick={handleLaunchPadClick} // Usa la función de redirección al hacer clic
+      onClick= {() => navigate("/Launchpad")}
     >
-      LAUNCHPAD
+      View Ip-NFT
     </Button>
       <Image
         src="https://mushroomprotocol.io/wp-content/uploads/2023/03/24-1024x991.png"

@@ -68,7 +68,7 @@ const FundedProjects = () => {
         <Text
           fontSize="16px"
           backgroundColor="#1FAFC8"
-          color="#FFFFFF"
+          color="#1E1E1E"
           p="8px"
           borderRadius="8px"
           mt="20px"

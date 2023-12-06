@@ -96,7 +96,7 @@ fetchMessage();
           <HStack spacing={8} alignItems={'center'}>
             <Box>
               <Image 
-              boxSize='90px'
+              boxSize='75px'
               height='30%'
               src={MpFavicon}
               alt='Logo Mushhroom'
@@ -111,7 +111,7 @@ fetchMessage();
                  rounded={'md'}
                  _hover={{
                    textDecoration: 'none',
-                   bg: useColorModeValue('gray.200', 'gray.700'),
+                   bg: "#1E1E1E",
                  }} key={link}>
             <ChakraLink as={ReactRouterLink} to={`/${link}`}>
                 <Text fontSize='22px'>
@@ -155,6 +155,7 @@ fetchMessage();
             </Stack>
           </Box>
         ) : null}
+        <ConnectDialog/>
       </Box>
     </>
   )

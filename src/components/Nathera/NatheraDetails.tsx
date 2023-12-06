@@ -1,5 +1,6 @@
 import React from "react";
 import {
+  Center,
   Grid,
   GridItem,
   Box,
@@ -13,17 +14,18 @@ import {
 
 const NatheraDetails = () => {
   return (
+    <Center>
     <Grid
       templateColumns="40% 60%"
       templateRows="1fr"
-      h="530px"
+      h="620px"
       w="1024px"
-      bg="#242222"
+     
       color="#FFFFFF"
-      p="20px"
+      p="25px"
     >
       <GridItem
-        bg="#1E1E1E"
+        bg="#000000"
         p="20px"
         border="1px"
         borderColor="#1FAFC8"
@@ -48,24 +50,12 @@ const NatheraDetails = () => {
           <br />
         </Text>
         <Text fontSize="15px" color="#737373" textAlign="justify">
-          The project is developing a treatment for musculoskeletal diseases
-          such as osteoarthritis, low back pain and rheumatoid arthritis using
-          nanotechnology.
-          <br />
-          <br />
-          Country: Chile
-          <br />
-          Team Leader: Aline Alfaro
-          <br />
-          Industry: Health Tech
-          <br />
-          Valuation Pre-money: $20.000
-          <br />
-          Status: Early
-        </Text>
+        <br></br>Nathera is a pioneering startup dedicated to the advancement of HealthTech through cutting-edge nanotechnology solutions. Focused on addressing the pressing concerns of musculoskeletal ailments like osteoarthritis, low back pain, and rheumatoid arthritis, the project stands at the forefront of innovative treatments in the health tech industry.
+        <br></br><br></br>
+        Founded  from Chile, Nathera is led by the visionary Aline Alfaro, whose leadership spearheads a team committed to revolutionizing the landscape of musculoskeletal disease management. With an early-stage status and a valuation pre-money of $20,000, the startup navigates the frontier of healthcare innovation, driven by a relentless pursuit of groundbreaking therapeutic advancements.  </Text>
       </GridItem>
-      <GridItem bg="#242222">
-        <Tabs color="#737373" size="md" ml="10" mr="10">
+      <GridItem>
+        <Tabs color="#737373" size="md" ml="20" mr="0">
           <TabList>
             <Tab>Collection</Tab>
             <Tab>Tokenomics</Tab>
@@ -77,7 +67,7 @@ const NatheraDetails = () => {
             <TabPanel>
               {/* Contenido para la pestaña "Collection" */}
               <p>
-                <Text fontSize="11px" color="#737373" textAlign="justify">
+                <Text fontSize="12px" color="#737373" textAlign="justify">
                   The NFT collection "Nathera: Warrior Cells" is an innovative
                   initiative designed to fund scientific research and develop
                   revolutionary biomedical solutions. With a visionary approach,
@@ -98,14 +88,14 @@ const NatheraDetails = () => {
                     Utilities
                   </Text>
                   <br />
-                  <Text fontSize="10px" color="#FFFFFF">
+                  <Text fontSize="12px" color="#FFFFFF">
                     GOVERNANCE:
                   </Text>
                   Each NFT holder has the power to vote and oversee the
                   development of research and project progress on the FungiDAO.
                   <br />
                   <br />
-                  <Text fontSize="10px" color="#FFFFFF">
+                  <Text fontSize="12px" color="#FFFFFF">
                     IP-NFT:
                   </Text>
                   The NFT accredits part of the ownership of the intellectual
@@ -113,14 +103,14 @@ const NatheraDetails = () => {
                   with the funds.
                   <br />
                   <br />
-                  <Text fontSize="10px" color="#FFFFFF">
+                  <Text fontSize="12px" color="#FFFFFF">
                     MEMBERSHIP:
                   </Text>
                   Get privileged access to cutting-edge scientific content and
                   exclusive services on the future Mushroom Protocol platform.
                   <br />
                   <br />
-                  <Text fontSize="10px" color="#FFFFFF">
+                  <Text fontSize="12px" color="#FFFFFF">
                     DEFI:
                   </Text>
                   The NFT becomes a valuable asset that can be used in various
@@ -144,6 +134,7 @@ const NatheraDetails = () => {
         </Tabs>
       </GridItem>
     </Grid>
+    </Center>
   );
 };
 

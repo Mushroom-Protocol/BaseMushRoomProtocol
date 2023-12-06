@@ -3,8 +3,11 @@ import { Box, Flex, Text, Button, Image,Stack } from "@chakra-ui/react";
 import { useNavigate } from 'react-router-dom';
 
 const BannerLaunchpad = () => {
+  const GitbookLink = "https://mushroomprotocol.gitbook.io/docs/";
 
-
+  const handleLearnMore = () => {
+    window.open(GitbookLink, "_blank");
+  };
   return (
     <Stack
     align={'center'}
@@ -18,14 +21,14 @@ const BannerLaunchpad = () => {
       display="flex"
       justifyContent="space-between"
       alignItems="center"
-      paddingX="50px"
+      paddingX="30px"
     >
       <Box>
         <Text fontSize="22px" color="#737373" textAlign="left">
           Finance the Biotechnology companies of the future
         </Text>
-        <Text fontSize="38px" textAlign="left" mt="10px">
-          Mushroom Protocol Launchpad
+        <Text fontSize="38px" textAlign="left" mt="0px">
+        Mushroom Protocol Launchpad
         </Text>
         <Button
           colorScheme="blue"
@@ -35,9 +38,11 @@ const BannerLaunchpad = () => {
           borderRadius="full"
           _hover={{
             bg: '#01B994',
+          
           }}
+          onClick={handleLearnMore}
         >
-          VIEW ALL
+          Learn More
         </Button>
       </Box>
       <Image

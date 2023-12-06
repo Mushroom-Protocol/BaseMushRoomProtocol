@@ -18,7 +18,7 @@ const LaunchpadNFT = () => {
     
       color="#FFFFFF"
       w="1024px"
-      h="600px"
+      h="700px"
       display="flex"
       flexDirection="column"
       justifyContent="center"
@@ -31,12 +31,13 @@ const LaunchpadNFT = () => {
       <Box
         
         borderWidth="0.5px"
-        borderRadius="25px"
-        borderColor="#1FAFC8"
-        w="90%"
+        borderRadius="15px"
+        borderColor="#FFFFFFF"
+        backgroundColor="#000000"
+        w="100%"
         display="flex"
         alignItems="center"
-        p="20px"
+        p="55px"
       >
         <Box w="300px" h="460px"  borderRadius="25px">
           <Center>

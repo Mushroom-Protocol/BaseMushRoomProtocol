@@ -58,23 +58,24 @@ const DeSciEcosystem = () => {
         width="1024px"
         height="450px"
         top="50px"
+        
       >
         <Text fontSize="36px" mt="20px">
           DeSci Ecosystem
         </Text>
         <Table
-          borderColor="#1FAFC8"
-          borderWidth="1px"
-          variant="unstyled"
+          borderColor="#000000"
+          
+          variant="simple"
           size="md"
-          width="85%"
-          mt="20px"
-          borderRadius="15px"
+          width="100%"
+          mt="30px"
+          borderRadius="full"
         >
           <Thead>
             <Tr>
               <Th fontSize="18px" color="#FFFFFF" textTransform="capitalize">
-                Tag
+                Badge
               </Th>
               <Th fontSize="18px" color="#FFFFFF" textTransform="capitalize">
                 Treasury

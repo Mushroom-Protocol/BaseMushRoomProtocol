@@ -27,7 +27,7 @@ const Dappfunctions = () => {
       <Flex p={4}></Flex>
       <HStack spacing='100px'>
       <VStack maxW='sm' spacing='20px'>
-      <Box alignItems="left">
+      <Box alignItems="left" marginLeft="-20px">
         <Text fontSize="25px">Apply for Sciences</Text>
         <Text color="#737373" fontSize="22px">
           Register and apply for on-chain funds
@@ -41,7 +41,7 @@ const Dappfunctions = () => {
         </Text>
       </Box>
 
-      <Box alignItems="left">
+      <Box alignItems="left" marginLeft="-8px">
         <Text fontSize="25px">
           Marketplace NFT <span style={badgeStyle}>Coming Soon</span>
           </Text>
