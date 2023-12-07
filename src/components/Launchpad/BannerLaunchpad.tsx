@@ -17,7 +17,7 @@ const BannerLaunchpad = () => {
       //bg="#242222"
       color="#FFFFFF"
       width="1024px"
-      height="400px"
+      height="300px"
       display="flex"
       justifyContent="space-between"
       alignItems="center"
@@ -48,8 +48,8 @@ const BannerLaunchpad = () => {
       <Image
         src="https://mushroomprotocol.io/wp-content/uploads/2023/03/25.png"
         alt="Mushroom Protocol"
-        width="350px"
-        height="350px"
+        width="250px"
+        height="250px"
       />
     </Box>
     </Stack>

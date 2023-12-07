@@ -93,7 +93,7 @@ fetchMessage();
             display={{ md: 'none' }}
             onClick={isOpen ? onClose : onOpen}
           />
-          <HStack spacing={8} alignItems={'center'}>
+          <HStack spacing={10} alignItems={'center'}>
             <Box>
               <Image 
               boxSize='75px'
@@ -102,12 +102,12 @@ fetchMessage();
               alt='Logo Mushhroom'
               />
               </Box>
-            <HStack as={'nav'} spacing={4} display={{ base: 'none', md: 'flex' }}>
+            <HStack as={'nav'} spacing={8} display={{ base: 'none', md: 'flex' }}>
               {Links.map((link) => (
                 //<Text key={link}>{link}</Text>
                  <Box
-                 px={4}
-                 py={5}
+                 px={3}
+                 py={3}
                  rounded={'md'}
                  _hover={{
                    textDecoration: 'none',

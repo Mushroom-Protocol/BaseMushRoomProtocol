@@ -5,12 +5,17 @@ import {
   GridItem,
   Box,
   Text,
+  Flex,
   Tabs,
   TabList,
   Tab,
   TabPanels,
-  TabPanel
+  TabPanel,
+  Image,
+  Card, Stack, Heading, Button, IconButton,
 } from "@chakra-ui/react";
+import { FaLinkedin } from "react-icons/fa";
+import TokenomicsNathera from "/home/udo/Front/BaseMushRoomProtocol/src/assets/TokenomicsNathera.png"
 
 const NatheraDetails = () => {
   return (
@@ -58,8 +63,8 @@ const NatheraDetails = () => {
         <Tabs color="#737373" size="md" ml="20" mr="0">
           <TabList>
             <Tab>Collection</Tab>
-            <Tab>Tokenomics</Tab>
             <Tab>R&D Project</Tab>
+            <Tab>Tokenomics</Tab>
             <Tab>Team</Tab>
           </TabList>
 
@@ -119,16 +124,143 @@ const NatheraDetails = () => {
               </p>
             </TabPanel>
             <TabPanel>
-              {/* Contenido para la pestaña "Tokenomics" */}
-              <p>Coming Soon.</p>
+              {/* Contenido para la pestaña "R&D Project" */}
+              <p><text>
+                <Text fontSize="15px" color="#FFFFFF">
+                2024 - Q2
+                </Text>
+                Stage 1: Create Startup
+                <br />
+                Stage 2: In vivo study of nanofilaments in a tissue damage model.
+                <br /><br />
+                <Text fontSize="15px" color="#FFFFFF">
+                2024 - Q3
+                </Text>
+                Stage 3: Develop and validate Nathera technology
+                <br />
+                Stage 4: Preparation of a commercial formulation of the nanofilament.
+                <br /><br />
+                <Text fontSize="15px" color="#FFFFFF">
+                2025 - Q1
+                </Text>
+                Stage 5: Nathera Commercial and Proprietary Rights
+                <br /><br />
+                
+                <Text fontSize="15px" color="#FFFFFF">
+                MILESTONES AND INDICATORS
+                </Text>
+                1. In vivo study
+                <br />
+                2. Commercial formulation
+                <br /><br />
+                <Text fontSize="15px" color="#FFFFFF">
+                DURATION:
+                </Text>
+                16 Months
+              </text></p>
             </TabPanel>
             <TabPanel>
-              {/* Contenido para la pestaña "R&D Project" */}
-              <p>Coming Soon.</p>
+              {/* Contenido para la pestaña "tOKENOMICS" */}
+              <p><Text color="#737373" textAlign="justify">
+              Collection tokenomics allocates 60% of the tokens to the Public Sale of 600 NFTs, funding biomedical research. 15% rewards Inventors with 150 NFTs. 8% goes to the Stability Reserve Fund, and 10% supports Advisors and Collaborators with 100 NFTs. In addition, 6% is set aside for Airdrops and 1% for liquidity in the DEX.
+              </Text>
+              <Image src={TokenomicsNathera}
+              width="380px"
+              height="350px"
+              ml="50px"
+              />
+              </p>
             </TabPanel>
             <TabPanel>
               {/* Contenido para la pestaña "Team" */}
-              <p>Coming Soon.</p>
+              <p>    
+    <Flex
+            backgroundColor="#1E1E1E"
+            borderRadius="lg"
+            p={4}
+            alignItems="center"
+            boxShadow="md"
+          >
+            <Image
+              objectFit="cover"
+              width="150px"
+              height="150px"
+              borderRadius="full" // Hace que la imagen sea circular
+              src="https://mushroomprotocol.io/wp-content/uploads/2023/09/1566328195834.jpg"
+              alt="Profile"
+            />
+
+            <Box ml={9}>
+              <Heading textColor="#FFFFFF" size="md">Aline Alfaro</Heading>
+
+              <Text py={2} fontSize="12px" color="#737373">
+                Team leader
+                <br />
+                Center for the Development of Nanoscience and Nanotechnology CEDENNA.
+                <br />
+                Biochemistry / University of Santiago de Chile
+              </Text>
+
+              <Flex mt={1}>
+                {/* Cambié el botón a un IconButton con el icono de LinkedIn */}
+                <IconButton
+                  as="a"
+                  href="https://www.linkedin.com/in/aline-alfaro-ramirez-49a322170/"
+                  target="_blank"
+                  aria-label="LinkedIn"
+                  icon={<FaLinkedin />}
+                  color="black"
+                  backgroundColor="white"
+                  variant="solid"
+                  borderRadius="full"
+                />
+             </Flex>
+      </Box>
+    </Flex>
+    <Flex
+            backgroundColor="#1E1E1E"
+            borderRadius="lg"
+            p={4}
+            alignItems="center"
+            boxShadow="md"
+          >
+            <Image
+              objectFit="cover"
+              width="150px"
+              height="150px"
+              borderRadius="full" // Hace que la imagen sea circular
+              src="https://mushroomprotocol.io/wp-content/uploads/2023/09/1517500806749.jpg"
+              alt="Profile"
+            />
+
+            <Box ml={9}>
+              <Heading textColor="#FFFFFF" size="md">Pedro Orihuela</Heading>
+
+              <Text py={2} fontSize="12px" color="#737373">
+              Senior Researcher
+                <br />
+                PhD Cell Physiology
+                <br />
+                University of Santiago de Chile
+              </Text>
+
+              <Flex mt={1}>
+                {/* Cambié el botón a un IconButton con el icono de LinkedIn */}
+                <IconButton
+                  as="a"
+                  href="https://www.linkedin.com/in/pedro-orihuela-759b9148/"
+                  target="_blank"
+                  aria-label="LinkedIn"
+                  icon={<FaLinkedin />}
+                  color="black"
+                  backgroundColor="white"
+                  variant="solid"
+                  borderRadius="full"
+                />
+             </Flex>
+      </Box>
+    </Flex>
+    </p>
             </TabPanel>
           </TabPanels>
         </Tabs>

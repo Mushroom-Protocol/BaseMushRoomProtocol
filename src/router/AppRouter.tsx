@@ -1,5 +1,5 @@
 import {  createBrowserRouter, Navigate } from "react-router-dom";
-import { WithSubnavigation,BasicStatistics,LargeWithNewsletter } from '../components'
+import { WithSubnavigation,LargeWithNewsletter } from '../components'
 
 import { HomePage } from "../pages/HomePage";
 import LaunchPadPage from '../pages/LaunchPadPage';
@@ -10,6 +10,8 @@ import MarketPlacePage from "../pages/MarketPlacePage";
 import StakingPage from "../pages/StakinPage";
 import VaultPage from "../pages/VaultPage";
 import NatheraPage from "../pages/NatheraPage";
+import FoundersPage from "../pages/FoundersPage";
+import ApplyPage from "../pages/ApplyPage";
 import { EstadoProvider } from '../components/utils/estadoContex';
 function Layout() {
   return (
@@ -43,18 +45,26 @@ export const router = createBrowserRouter([
                     element:<LaunchPadPage/>
                     },
                     {   
-                        path:"FungiDAO", 
-                        element:<FungiDAOPage/>
-                    },
-                    {
                         path:"Nathera", 
                         element:<NatheraPage/>
+                    },
+                    {
+                        path:"Founders", 
+                        element:<FoundersPage/>
+                    },
+                    {
+                        path:"Apply", 
+                        element:<ApplyPage/>
                     },
                     {
                     path:"MarketPlace", 
                     element:<MarketPlacePage/>
                     },
                     {   
+                        path:"FungiDAO", 
+                        element:<FungiDAOPage/>
+                    },
+                    {
                         path:"Staking", 
                         element:<StakingPage/>
                     },
