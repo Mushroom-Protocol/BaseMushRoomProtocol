@@ -165,7 +165,7 @@ const NatheraDetails = () => {
               Collection tokenomics allocates 60% of the tokens to the Public Sale of 600 NFTs, funding biomedical research. 15% rewards Inventors with 150 NFTs. 8% goes to the Stability Reserve Fund, and 10% supports Advisors and Collaborators with 100 NFTs. In addition, 6% is set aside for Airdrops and 1% for liquidity in the DEX.
               </Text>
               <Image src={TokenomicsNathera}
-              width="380px"
+              width="400px"
               height="350px"
               ml="50px"
               />

@@ -1,6 +1,6 @@
 import React from "react";
 import { Center, Box, Flex, Text, Image } from "@chakra-ui/react";
-
+import PathNathera from "../../assets/PathNathera.jpg"
 const FundedProjects = () => {
   return (
   <Center>
@@ -34,7 +34,7 @@ const FundedProjects = () => {
         textAlign="center"
       >
         <Image
-          src="https://mushroomprotocol.io/wp-content/uploads/2023/09/patch-768x768.jpg"
+          src={PathNathera}
           alt="Main Image 1"
           style={{
             width: "100%"

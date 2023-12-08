@@ -252,7 +252,6 @@ const LaunchpadNFT = () => {
             </Button>
           </Flex>
         </Box>
-       
       </Box>
     </Box>
   </Center>

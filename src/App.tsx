@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { WithSubnavigation,CallToActionWithAnnotation,BasicStatistics,ShowTeam,LargeWithNewsletter } from './components'
+//import { WithSubnavigation,LargeWithNewsletter } from './components'
 //data de Colecciones de NFTS de pruebas
 import micollection from './data/collections';
 // IMPORTACIONES PARA LA CONEXION CON INTERNET IDENTITY Y OTRAS WALLETS
