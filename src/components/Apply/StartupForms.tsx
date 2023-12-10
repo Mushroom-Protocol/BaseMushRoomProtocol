@@ -11,14 +11,19 @@ import {
   useDisclosure,
   FormControl,
   FormLabel,
+  Collapse,
   Input,
   Select,
   Textarea,
   FormHelperText,
 } from '@chakra-ui/react';
-import { PiNumberCircleOne } from 'react-icons/pi';
+import { Tooltip } from '@chakra-ui/react'
+import { PiNumberCircleOneThin } from "react-icons/pi";
+import { IoInformationCircleOutline } from "react-icons/io5";
 
-const ApplyForms = () => {
+
+
+const StartupForms = () => {
   const { isOpen, onToggle } = useDisclosure();
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
@@ -28,26 +33,27 @@ const ApplyForms = () => {
 
   return (
     <Center>
+      <Flex direction="row" align="center" gap={5} >
       <Flex direction="column" align="center">
+      
         <Button
           as={Flex}
           direction="row"
           alignItems="center"
           bg="#000000"
-          borderColor="#FFFFFF"
+          borderColor="#1FAFC8"
           borderWidth="1px"
           p={10}
           boxShadow="sm"
           width="230px"
           size="lg"
-          border="1px"
           borderRadius="20px"
           fontSize="16px"
           _hover={{ bg: '#1FAFC8' }}
           _active={{ bg: '#1FAFC8' }}
           onClick={onToggle}
         >
-          <Icon as={PiNumberCircleOne} boxSize={12} marginRight={2} />
+          <Icon as={PiNumberCircleOneThin} boxSize={12} marginRight={2} />
           <Box>
             <Text fontWeight="bold" fontSize="lg" color="white">
               First Step
@@ -58,12 +64,13 @@ const ApplyForms = () => {
           </Box>
         </Button>
 
-        <Fade in={isOpen}>
+        <Collapse in={isOpen} animateOpacity>
+
           <Box
             p="60px"
             color="white"
             mt="4"
-            bg="#1e1e1e"
+            bg="#000000"
             borderWidth="1px"
             rounded="lg"
         
@@ -186,10 +193,18 @@ const ApplyForms = () => {
               </Button>
             </form>
           </Box>
-        </Fade>
+        </Collapse>
+        </Flex>
+        <Flex direction="column" align="center">
+          <Tooltip label="Es necesario registrarse primero" textColor="#FFFFFF" bg="#000000" fontSize="md" placement="right-start">
+            <Box>
+              <IoInformationCircleOutline size={25} color="#737373" />
+            </Box>
+          </Tooltip>
+      </Flex>
       </Flex>
     </Center>
   );
 };
 
-export default ApplyForms;
+export default StartupForms;

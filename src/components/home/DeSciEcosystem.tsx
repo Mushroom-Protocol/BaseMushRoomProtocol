@@ -65,7 +65,6 @@ const DeSciEcosystem = () => {
         </Text>
         <Table
           borderColor="#000000"
-          
           variant="simple"
           size="md"
           width="100%"

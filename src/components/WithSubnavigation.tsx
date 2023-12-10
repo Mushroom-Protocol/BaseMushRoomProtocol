@@ -84,8 +84,9 @@ fetchMessage();
 
   return (
     <>
-      <Box bg="#000000" px={10}>
-        <Flex h="90px" alignItems={'center'} justifyContent={'space-between'}>
+      <Box bg="#000000" borderWidth="1px" borderLeftColor="#000000"
+    borderRightColor="#000000" borderBottomColor="#FFFFFFF" px={10}>
+        <Flex h="70px" alignItems={'center'} justifyContent={'space-between'}>
           <IconButton
             size={'md'}
             icon={isOpen ? <CloseIcon /> : <HamburgerIcon />}
@@ -96,7 +97,7 @@ fetchMessage();
           <HStack spacing={10} alignItems={'center'}>
             <Box>
               <Image 
-              boxSize='75px'
+              boxSize='60px'
               height='30%'
               src={MpFavicon}
               alt='Logo Mushhroom'
@@ -114,7 +115,7 @@ fetchMessage();
                    bg: "#1E1E1E",
                  }} key={link}>
             <ChakraLink as={ReactRouterLink} to={`/${link}`}>
-                <Text fontSize='22px'>
+                <Text fontSize='18px'>
                   {link}
                 </Text>                  
               </ChakraLink>

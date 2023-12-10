@@ -8,7 +8,7 @@ export default function NatheraPage() {
     <>
     <NatheraItems/>
     <NatheraDetails/>
-    <JoinDiscord/>
+
     </>
   )
 }

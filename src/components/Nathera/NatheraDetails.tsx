@@ -16,6 +16,9 @@ import {
 } from "@chakra-ui/react";
 import { FaLinkedin } from "react-icons/fa";
 import TokenomicsNathera from "/home/udo/Front/BaseMushRoomProtocol/src/assets/TokenomicsNathera.png"
+import Natheralogo from "../../assets/Natheralogo.png"
+import NatheraTeamAA from "../../assets/NatheraTeamAA.jpg"
+import NatheraTeamPO from "../../assets/NatheraTeamPO.jpg"
 
 const NatheraDetails = () => {
   return (
@@ -38,7 +41,7 @@ const NatheraDetails = () => {
       >
         <Box display="flex" alignItems="center" mb="20px">
           <img
-            src="https://mushroomprotocol.io/wp-content/uploads/2023/09/Nathera-logo.png"
+            src={Natheralogo}
             alt="Nathera Logo"
             width="50px"
             height="50px"
@@ -165,7 +168,7 @@ const NatheraDetails = () => {
               Collection tokenomics allocates 60% of the tokens to the Public Sale of 600 NFTs, funding biomedical research. 15% rewards Inventors with 150 NFTs. 8% goes to the Stability Reserve Fund, and 10% supports Advisors and Collaborators with 100 NFTs. In addition, 6% is set aside for Airdrops and 1% for liquidity in the DEX.
               </Text>
               <Image src={TokenomicsNathera}
-              width="400px"
+              width="420px"
               height="350px"
               ml="50px"
               />
@@ -175,7 +178,6 @@ const NatheraDetails = () => {
               {/* Contenido para la pestaña "Team" */}
               <p>    
     <Flex
-            backgroundColor="#1E1E1E"
             borderRadius="lg"
             p={4}
             alignItems="center"
@@ -186,7 +188,7 @@ const NatheraDetails = () => {
               width="150px"
               height="150px"
               borderRadius="full" // Hace que la imagen sea circular
-              src="https://mushroomprotocol.io/wp-content/uploads/2023/09/1566328195834.jpg"
+              src={NatheraTeamAA}
               alt="Profile"
             />
 
@@ -205,7 +207,7 @@ const NatheraDetails = () => {
                 {/* Cambié el botón a un IconButton con el icono de LinkedIn */}
                 <IconButton
                   as="a"
-                  href="https://www.linkedin.com/in/aline-alfaro-ramirez-49a322170/"
+                  href={"https://www.linkedin.com/in/aline-alfaro-ramirez-49a322170/"}
                   target="_blank"
                   aria-label="LinkedIn"
                   icon={<FaLinkedin />}
@@ -218,7 +220,7 @@ const NatheraDetails = () => {
       </Box>
     </Flex>
     <Flex
-            backgroundColor="#1E1E1E"
+
             borderRadius="lg"
             p={4}
             alignItems="center"
@@ -229,7 +231,7 @@ const NatheraDetails = () => {
               width="150px"
               height="150px"
               borderRadius="full" // Hace que la imagen sea circular
-              src="https://mushroomprotocol.io/wp-content/uploads/2023/09/1517500806749.jpg"
+              src={NatheraTeamPO}
               alt="Profile"
             />
 

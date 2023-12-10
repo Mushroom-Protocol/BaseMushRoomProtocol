@@ -30,8 +30,8 @@ import {
         px={{ base: 2, md: 4 }}
         py={'5'}
         shadow={'xl'}
-        border={'1.8px solid'}
-        borderColor="#000000"
+        borderWidth="1px"
+        borderColor="#FFFFFFF"
         rounded={'lg'}>
         <Flex justifyContent={'space-between'}>
           <Box pl={{ base: 2, md: 4 }}>

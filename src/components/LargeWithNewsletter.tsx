@@ -63,6 +63,7 @@ const SocialButton = ({
     </chakra.button>
   )
 }
+import LogoNegro from "../assets/LogoNegro.png"
 
 const ListHeader = ({ children }: { children: ReactNode }) => {
   return (
@@ -75,7 +76,11 @@ const ListHeader = ({ children }: { children: ReactNode }) => {
 export default function LargeWithNewsletter() {
   return (
     <Box
-      bg="#000000"
+    borderTopColor="#FFFFFFF"
+    borderLeftColor="#000000"
+    borderRightColor="#000000"
+    borderWidth="1px"
+    bg="#000000"
       color={useColorModeValue('gray.700', 'gray.200')}>
       <Container as={Stack} maxW={'6xl'} py={10}>
         <SimpleGrid
@@ -84,9 +89,9 @@ export default function LargeWithNewsletter() {
           <Stack spacing={6}>
             <Box> 
             <Image 
-              boxSize='160px'
+              boxSize='200px'
               height='100%'
-              src={LogoM}
+              src={LogoNegro}
               alt='Logo Mushhroom'
               />
             </Box>
@@ -131,9 +136,6 @@ export default function LargeWithNewsletter() {
             </Box>
             <Box as="a" href={'#'}>
               Terms of Service
-            </Box>
-            <Box as="a" href={'#'}>
-              Legal
             </Box>
             <Box as="a" href={'#'}>
               Privacy Policy

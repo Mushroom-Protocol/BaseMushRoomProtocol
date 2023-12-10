@@ -1,14 +1,23 @@
 import React from 'react'
+import { Flex, Center } from '@chakra-ui/react';
 import BannerApply from "../components/Apply/BannerApply"
-import ApplyForms from "../components/Apply/ApplyForms"
+import StartupForms from "../components/Apply/StartupForms"
+import ProyectForms from "../components/Apply/ProyectForms"
+import ColecctionForm from "../components/Apply/ColecctionForm"
 import JoinDiscord from '../components/home/JoinDiscord'
 
 export default function ApplyPage() {
   return (
     <>
     <BannerApply/>
-    <ApplyForms/>
-    <JoinDiscord/>
+    <StartupForms/>
+    <br />
+    <ProyectForms/>
+    <br />
+    <ColecctionForm/>
+
+    <br />
+    <br />
     </>
   )
 }

@@ -4,7 +4,7 @@ import { Box, Heading, Container, Text, Button, Stack } from '@chakra-ui/react';
 import { Link } from 'react-router-dom'; // Importa Link para la navegación
 
 // Define el componente CallToActionWithAnnotation
-const CallToActionWithAnnotation = () => {
+const PrincipalBanner = () => {
   return (
     <Container maxW={'6xl'}>
       <Stack as={Box} textAlign={'center'} py={{ base: 20, md: 8 }}>
@@ -45,4 +45,4 @@ const CallToActionWithAnnotation = () => {
   );
 };
 
-export default CallToActionWithAnnotation;
+export default PrincipalBanner;

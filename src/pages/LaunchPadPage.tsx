@@ -8,7 +8,7 @@ export default function LaunchPadPage() {
     <>
     <BannerLaunchpad/>   
     <LaunchpadNFT/> 
-    <JoinDiscord/>
+  
     </>
   )
 }

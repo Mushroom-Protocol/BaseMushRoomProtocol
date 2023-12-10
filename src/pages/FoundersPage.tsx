@@ -8,7 +8,6 @@ export default function FoundersPage() {
     <>
     <FoundersItems/>
     <FoundersDetails/>
-    <JoinDiscord/>
     </>
   )
 }

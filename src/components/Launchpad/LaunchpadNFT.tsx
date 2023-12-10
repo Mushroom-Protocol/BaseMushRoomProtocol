@@ -9,6 +9,14 @@ import {
   Flex
 } from "@chakra-ui/react";
 import { useNavigate } from 'react-router-dom';
+import Natheralogo from "../../assets/Natheralogo.png"
+import Landoppicon from "../../assets/Landopp_icon.png"
+import EONlogo from "../../assets/EONlogo.png"
+import NatheraNFTBoceto from "../../assets/NatheraNFTBoceto.png"
+import MushroomFoundersBoceto from "../../assets/MushroomFoundersBoceto.png"
+import EONNFTboceto from "../../assets/EONNFTboceto.png"
+import favicon from "../../assets/favicon.ico"
+import MpFavicon  from '../../assets/MpFavicon.png' 
 
 const LaunchpadNFT = () => {
   const navigate = useNavigate();
@@ -18,7 +26,7 @@ const LaunchpadNFT = () => {
     
       color="#FFFFFF"
       w="1024px"
-      h="700px"
+      h="550px"
       display="flex"
       flexDirection="column"
       justifyContent="center"
@@ -34,24 +42,26 @@ const LaunchpadNFT = () => {
         borderRadius="15px"
         borderColor="#FFFFFFF"
         backgroundColor="#000000"
-        w="100%"
+        w="120%"
         display="flex"
         alignItems="center"
-        p="55px"
+        px="150px"
+        py="20px"
+        marginBottom={100}
       >
-        <Box w="300px" h="460px"  borderRadius="25px">
+       <Box w="320px" h="460px"  borderRadius="25px">
           <Center>
             <Image
-              src="https://mushroomprotocol.io/wp-content/uploads/2023/09/Nathera-NFT.png"
+              src={NatheraNFTBoceto}
               alt="Nathera NFT"
-              w="350px"
+              w="500px"
               h="290px"
               mt="0px"
             />
           </Center>
           <Box mt="5px" ml="58px" display="flex" alignItems="center">
             <Image
-              src="https://mushroomprotocol.io/wp-content/uploads/2023/09/Nathera-logo.png"
+              src={Natheralogo}
               alt="Nathera Logo"
               w="40px"
               h="40px"
@@ -86,7 +96,7 @@ const LaunchpadNFT = () => {
             >
               5
               <Image
-                src="https://marketplace.funded.app/icp.svg"
+                src={favicon}
                 alt="ICP logo"
                 w="25px"
                 h="25px"
@@ -110,10 +120,10 @@ const LaunchpadNFT = () => {
             </Button>
           </Flex>
         </Box>
-        <Box w="300px" h="460px"  borderRadius="25px">
+        <Box w="320px" h="460px"  borderRadius="25px">
           <Center>
             <Image
-              src="https://mushroomprotocol.io/wp-content/uploads/2023/10/Mushroom-Founders.png"
+              src={MushroomFoundersBoceto}
               alt="Founders NFT"
               w="350px"
               h="290px"
@@ -122,7 +132,7 @@ const LaunchpadNFT = () => {
           </Center>
           <Box mt="5px" ml="20px" display="flex" alignItems="center">
             <Image
-              src="https://mushroomprotocol.io/wp-content/uploads/2023/10/Mp-Favicon-1.png"
+              src={MpFavicon}
               alt="Mushroom Logo"
               w="40px"
               h="40px"
@@ -157,7 +167,7 @@ const LaunchpadNFT = () => {
             >
               5
               <Image
-                src="https://marketplace.funded.app/icp.svg"
+                src={favicon}
                 alt="ICP logo"
                 w="25px"
                 h="25px"
@@ -181,10 +191,10 @@ const LaunchpadNFT = () => {
             </Button>
           </Flex>
         </Box>
-        <Box w="300px" h="460px"  borderRadius="25px">
+        <Box w="320px" h="460px"  borderRadius="25px">
           <Center>
             <Image
-              src="https://mushroomprotocol.io/wp-content/uploads/2023/09/EON-NFT.png"
+              src={EONNFTboceto}
               alt="EON NFT"
               w="350px"
               h="290px"
@@ -193,7 +203,7 @@ const LaunchpadNFT = () => {
           </Center>
           <Box mt="5px" ml="48px" display="flex" alignItems="center">
             <Image
-              src="https://mushroomprotocol.io/wp-content/uploads/2023/09/EON-logo-v2.png"
+              src={EONlogo}
               alt="EON Logo"
               w="40px"
               h="40px"
@@ -228,7 +238,7 @@ const LaunchpadNFT = () => {
             >
               5
               <Image
-                src="https://marketplace.funded.app/icp.svg"
+                src={favicon}
                 alt="ICP logo"
                 w="25px"
                 h="25px"

@@ -1,6 +1,7 @@
 import React from "react";
 import { Center, Box, Flex, Heading, Text, Button, Image } from "@chakra-ui/react";
 import { useNavigate } from 'react-router-dom';
+import MushroomMachine from "../../assets/MushroomMachine.png"
 
 const Banner = () => {
   const navigate = useNavigate();
@@ -18,7 +19,7 @@ const handleLaunchPadClick = () => {
       justifyContent="center"
       alignItems="center"
       width="1024px"
-      height="400px"
+      height="430px"
       position="relative"
     >
       <Box
@@ -53,9 +54,9 @@ const handleLaunchPadClick = () => {
       View Ip-NFT
     </Button>
       <Image
-        src="https://mushroomprotocol.io/wp-content/uploads/2023/03/24-1024x991.png"
+        src={MushroomMachine}
         alt="Imagen"
-        boxSize="400px"
+        boxSize="450px"
         position="absolute"
         top="0px"
         right="0px"
@@ -63,7 +64,7 @@ const handleLaunchPadClick = () => {
       <Text
         fontSize="18px"
         position="absolute"
-        top="300px"
+        top="330px"
         right="0px"
         maxWidth="50%"
         textAlign="justify"

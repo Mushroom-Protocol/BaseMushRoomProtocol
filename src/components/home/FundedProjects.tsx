@@ -1,6 +1,12 @@
 import React from "react";
 import { Center, Box, Flex, Text, Image } from "@chakra-ui/react";
 import PathNathera from "../../assets/PathNathera.jpg"
+import biopolimero from "../../assets/biopolimero.jpg"
+import nanocouting from "../../assets/nanocouting.jpg"
+import Natheralogo from "../../assets/Natheralogo.png"
+import Landoppicon from "../../assets/Landopp_icon.png"
+import EONlogo from "../../assets/EONlogo.png"
+
 const FundedProjects = () => {
   return (
   <Center>
@@ -45,7 +51,7 @@ const FundedProjects = () => {
 
         <Box display="flex" alignItems="center" mt="20px">
           <Image
-            src="https://mushroomprotocol.io/wp-content/uploads/2023/09/Nathera-logo.png"
+            src={Natheralogo}
             alt="Secondary Image 1"
             w="50px"
             h="50px"
@@ -93,7 +99,7 @@ const FundedProjects = () => {
         textAlign="center"
       >
         <Image
-          src="https://mushroomprotocol.io/wp-content/uploads/2023/11/biopolimero.jpg"
+          src={biopolimero}
           alt="Main Image 2"
           style={{
           width: "100%"
@@ -104,7 +110,7 @@ const FundedProjects = () => {
 
         <Box display="flex" alignItems="center" mt="20px">
           <Image
-            src="https://mushroomprotocol.io/wp-content/uploads/2023/11/Landopp_icon.png"
+            src={Landoppicon}
             alt="Secondary Image 2"
             w="50px"
             h="50px"
@@ -151,7 +157,7 @@ const FundedProjects = () => {
         textAlign="center"
       >
         <Image
-          src="https://mushroomprotocol.io/wp-content/uploads/2023/10/nanocouting.jpg"
+          src={nanocouting}
           alt="Main Image 2"
           style={{
             width: "100%"
@@ -162,7 +168,7 @@ const FundedProjects = () => {
 
         <Box display="flex" alignItems="center" mt="20px">
           <Image
-            src="https://mushroomprotocol.io/wp-content/uploads/2023/09/EON-logo-v2.png"
+            src={EONlogo}
             alt="Secondary Image 2"
             w="50px"
             h="50px"

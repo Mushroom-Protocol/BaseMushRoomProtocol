@@ -1,5 +1,6 @@
+import React from "react";
 import { Center, Box, Text, Button, Image, Flex } from "@chakra-ui/react";
-import imgHome7 from "/home/udo/Front/BaseMushRoomProtocol/src/assets/7.png";
+import HongoBanner2 from "../../assets/HongoBanner2.png"
 
 const JoinDiscord = () => {
   const discordLink = "https://discord.gg/wxe4aMwZWT";
@@ -14,17 +15,17 @@ const JoinDiscord = () => {
       width="1024px"
       height="380px"
       color="#FFFFFF"
-      paddingX="100px"
+      paddingX="0px"
       paddingY="20px"
     >
       <Image
-        src={imgHome7}
+        src={HongoBanner2}
         alt="Discord Image"
-        width="300px"
-        height="300px"
+        width="350px"
+        height="350px"
       />
       <Box flex="1" textAlign="right">
-        <Text fontSize="36px" marginTop="10px">
+        <Text fontSize="36px" marginTop="70px">
           Join our community
         </Text>
         <Text fontSize="18px" color="#737373" marginTop="10px">

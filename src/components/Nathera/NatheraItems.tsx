@@ -1,10 +1,14 @@
 import React, { useState } from "react";
-import { Flex, Spacer, Center, Grid, GridItem, Box, Text, Button, Tag, TagLabel,
+import { Flex, Image, Spacer, Center, Grid, GridItem, Box, Text, Button, Tag, TagLabel,
   TagLeftIcon,
   TagRightIcon,
   TagCloseButton,
   HStack, } from "@chakra-ui/react";
 import { FaClock } from "react-icons/fa6";
+import Natheralogo from "../../assets/Natheralogo.png"
+import NatheraNFTBoceto from "../../assets/NatheraNFTBoceto.png"
+import favicon from "../../assets/favicon.ico"
+
 
 
 const NatheraItems = () => {
@@ -47,7 +51,7 @@ const NatheraItems = () => {
       >
         <Flex>
         <Box
-          bgImage="url(https://mushroomprotocol.io/wp-content/uploads/2023/09/Nathera-logo.png)"
+          bgImage={Natheralogo}
           bgSize="60px 60px"
           bgRepeat="no-repeat"
           w="60px"
@@ -66,8 +70,7 @@ const NatheraItems = () => {
           </Text>
           <Tag
             variant="subtle"
-            colorScheme="teal"
-            backgroundColor="#242222"
+            backgroundColor="#000000"
             color="#FFFFFF"
             borderColor="#1FAFC8"
             borderWidth="1px"
@@ -84,7 +87,7 @@ const NatheraItems = () => {
           size="lg" // Tamaño del tag (puedes ajustarlo según tus necesidades)
           variant="subtle"
           colorScheme="orange" // Cambia a naranja
-          backgroundColor="#242222"
+          backgroundColor="#000000"
           color="#FFFFFF"
           borderColor="#FFFFFFF"
           textColor="#FFFFFF"
@@ -102,21 +105,21 @@ const NatheraItems = () => {
         </Flex>
       </GridItem>
       <GridItem
-        
-        
-        area="nav"
-        display="flex"
-        alignItems="center"
-        justifyContent="center"
-      >
-        <Box
-          bgImage="url(https://mushroomprotocol.io/wp-content/uploads/2023/10/Nathera-NFT.png)"
-          bgSize="300px 400px"
-          bgRepeat="no-repeat"
-          w="300px"
-          h="400px"
+      area="nav"
+      display="flex"
+      alignItems="center"
+      justifyContent="center"
+    >
+      <Box>
+        <Image
+          src={NatheraNFTBoceto}
+          alt="Descripción de la imagen"
+          objectFit="cover"
+          width="300px" // Ajusta el ancho según tus necesidades
+          height="400px" // Ajusta la altura según tus necesidades
         />
-      </GridItem>
+      </Box>
+    </GridItem>
       <GridItem
        
         bg="#000000"
@@ -139,12 +142,13 @@ const NatheraItems = () => {
             display="flex"
             alignItems="center"
             p="8px"
-            borderRadius="10px"
-            border="1px solid #FFFFFF"
+            borderRadius="15px"
+            border="1px"
+            borderColor="#1FAFC8"
           >
             Price: 5
             <img
-              src="https://marketplace.funded.app/icp.svg"
+              src={favicon}
               alt="Icon"
               width="22"
               height="22"
@@ -154,7 +158,7 @@ const NatheraItems = () => {
         </Box>
         <Box
           backgroundColor="#1E1E1E"
-          height="40px"
+          height="30px"
           width="500px"
           borderRadius="5px"
           marginTop="30px"
@@ -164,7 +168,7 @@ const NatheraItems = () => {
             backgroundColor="#1FAFC8"
             height="100%"
             width="1%" // Ajusta el ancho según el progreso real
-            borderRadius="5px"
+            borderRadius="15px"
             display="flex"
             alignItems="center"
             justifyContent="flex-start"
