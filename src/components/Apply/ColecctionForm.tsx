@@ -53,7 +53,7 @@ const ColecctionForm = () => {
         >
           <Icon as={PiNumberCircleThreeThin} boxSize={12} marginRight={2} />
           <Box>
-            <Text fontWeight="bold" fontSize="lg" color="white">
+            <Text fontWeight="bold" fontSize="lg" color="white" >
               Third Step
             </Text>
             <Text fontSize="md" color="#737373">
@@ -182,7 +182,6 @@ const ColecctionForm = () => {
                 <option>Panama</option>
                 <option>Jamaica</option>
                 <option>Trinidad and Tobago</option>
-                  {/* Agregar más países según sea necesario */}
                 </Select>
               </FormControl>
 
