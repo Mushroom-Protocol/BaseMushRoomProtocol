@@ -18,7 +18,7 @@ import {
   Textarea,
   FormHelperText,
 } from '@chakra-ui/react';
-import { PiNumberCircleTwoThin } from "react-icons/pi";
+import { MdBiotech } from "react-icons/md";
 import { IoInformationCircleOutline } from "react-icons/io5";
 
 
@@ -51,13 +51,13 @@ const ProyectForms = () => {
           _active={{ bg: '#1FAFC8' }}
           onClick={onToggle}
         >
-          <Icon as={PiNumberCircleTwoThin} boxSize={12} marginRight={2} />
+          <Icon as={MdBiotech} boxSize={14} marginRight={4} />
           <Box>
             <Text fontWeight="bold" fontSize="lg" color="white">
-              Second Step
+              Project
             </Text>
-            <Text fontSize="md" color="#737373">
-              Proyect Registration
+            <Text fontWeight="bold" fontSize="lg" color="#737373">
+              Registration
             </Text>
           </Box>
         </Button>
@@ -194,7 +194,7 @@ const ProyectForms = () => {
         </Collapse>
         </Flex>
         <Flex direction="column" align="center">
-          <Tooltip label="Es necesario registrarse primero" textColor="#FFFFFF" bg="#000000" fontSize="md" placement="right-start">
+          <Tooltip label="Your startup must be registered on the platform and have been approved in order to complete this form." textColor="#FFFFFF" bg="#000000" fontSize="md" placement="right-start">
             <Box>
               <IoInformationCircleOutline size={25} color="#737373" />
             </Box>

@@ -18,7 +18,7 @@ import {
   Textarea,
   FormHelperText,
 } from '@chakra-ui/react';
-import { PiNumberCircleThreeThin } from "react-icons/pi";
+import { AiFillPicture } from "react-icons/ai";
 import { IoInformationCircleOutline } from "react-icons/io5";
 
 
@@ -51,13 +51,13 @@ const ColecctionForm = () => {
           _active={{ bg: '#1FAFC8' }}
           onClick={onToggle}
         >
-          <Icon as={PiNumberCircleThreeThin} boxSize={12} marginRight={2} />
+          <Icon as={AiFillPicture} boxSize={12} marginRight={6} />
           <Box>
             <Text fontWeight="bold" fontSize="lg" color="white" >
-              Third Step
-            </Text>
-            <Text fontSize="md" color="#737373">
-             Collection Register
+            Collection
+          </Text>
+          <Text fontWeight="bold" fontSize="lg" color="#737373">
+             Registration
             </Text>
           </Box>
         </Button>
@@ -193,7 +193,7 @@ const ColecctionForm = () => {
         </Collapse>
         </Flex>
         <Flex direction="column" align="center">
-          <Tooltip label="Es necesario registrarse primero" textColor="#FFFFFF" bg="#000000" fontSize="md" placement="right-start">
+          <Tooltip label="Your Startup and R&D Project must be registered on the platform and have been approved in order to complete this form." textColor="#FFFFFF" bg="#000000" fontSize="md" placement="right-start">
             <Box>
               <IoInformationCircleOutline size={25} color="#737373" />
             </Box>

@@ -16,9 +16,11 @@ import {
   Select,
   Textarea,
   FormHelperText,
+  InputGroup,
+  InputRightElement,
 } from '@chakra-ui/react';
 import { Tooltip } from '@chakra-ui/react'
-import { PiNumberCircleOneThin } from "react-icons/pi";
+import { BsFillRocketTakeoffFill } from "react-icons/bs";
 import { IoInformationCircleOutline } from "react-icons/io5";
 
 
@@ -53,13 +55,13 @@ const StartupForms = () => {
           _active={{ bg: '#1FAFC8' }}
           onClick={onToggle}
         >
-          <Icon as={PiNumberCircleOneThin} boxSize={12} marginRight={2} />
+          <Icon as={BsFillRocketTakeoffFill} boxSize={12} marginRight={6} />
           <Box>
             <Text fontWeight="bold" fontSize="lg" color="white">
-              First Step
+              Start-Up
             </Text>
-            <Text fontSize="md" color="#737373">
-              Start-Up Registration
+            <Text fontWeight="bold" fontSize="lg" color="#737373">
+              Registration
             </Text>
           </Box>
         </Button>
@@ -77,15 +79,18 @@ const StartupForms = () => {
 
           >
             <Heading>Start-Up Registration Form</Heading>
+            <Text>*Form open to established startups and research that are taking the first steps towards a startup.</Text>
             <br />
             <form onSubmit={handleSubmit}>
+
+
               <FormControl isRequired>
                 <FormLabel>Start-Up Name</FormLabel>
-                <Input placeholder="Fantasy Name" />
+                <Input placeholder="Brand Name" />
               </FormControl>
 
               <FormControl isRequired mt={4}>
-                <FormLabel>Company Email</FormLabel>
+                <FormLabel>Email</FormLabel>
                 <Input type="email" placeholder="Email" />
               </FormControl>
 
@@ -94,19 +99,33 @@ const StartupForms = () => {
                 <Input placeholder="Website/Profile URL" />
               </FormControl>
 
-              <FormControl isRequired mt={4}>
-                <FormLabel>Short Description</FormLabel>
-                <Textarea placeholder="Describe what your startup does in one sentence" />
+              <FormControl mt={4}>
+                <FormLabel>Startup Slogan</FormLabel>
+                <Input placeholder="e.g. Biotechnology for Life" />
               </FormControl>
 
               <FormControl isRequired mt={4}>
-                <FormLabel>Startup Slogan</FormLabel>
-                <Input placeholder="Short Slogan" />
+                <FormLabel>Short Description</FormLabel>
+                <Textarea placeholder="Describe what your startup does in a paragraph" />
               </FormControl>
+
+              <FormControl mt={4}>
+                  <FormLabel>Upload Logo</FormLabel>
+                  <InputGroup>
+                    <Input type="file" placeholder="Upload Logo" />
+                    <InputRightElement width="5rem">
+                      <Button h="1.75rem" size="sm" colorScheme="teal">
+                        Upload
+                      </Button>
+                    </InputRightElement>
+                  </InputGroup>
+                  <FormHelperText>Recommended size 200x200 px</FormHelperText>
+                </FormControl>
 
               <FormControl isRequired mt={4}>
                 <FormLabel>Startup Status</FormLabel>
                 <Select placeholder="Select status">
+                  <option>Research stage</option>
                   <option>Early Start-Up</option>
                   <option>Pre-seed</option>
                   <option>Seed</option>
@@ -151,7 +170,7 @@ const StartupForms = () => {
                 <FormLabel>Industry / Productive Sector</FormLabel>
                 <Select placeholder="Select Industry">
                   <option>HealthTech</option>
-                  <option>Agro-FoodTech</option>
+                  <option>Agri-foodTech</option>
                   <option>GreenTech</option>
                   <option>SyntheticTech</option>
                   <option>MiningTech</option>
@@ -196,7 +215,7 @@ const StartupForms = () => {
         </Collapse>
         </Flex>
         <Flex direction="column" align="center">
-          <Tooltip label="Es necesario registrarse primero" textColor="#FFFFFF" bg="#000000" fontSize="md" placement="right-start">
+          <Tooltip label="The information you enter in this form will be published for the sponsors." textColor="#FFFFFF" bg="#000000" fontSize="md" placement="right-start">
             <Box>
               <IoInformationCircleOutline size={25} color="#737373" />
             </Box>
