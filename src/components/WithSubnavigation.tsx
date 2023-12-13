@@ -29,7 +29,7 @@ import MpFavicon  from './../assets/MpFavicon.png'
 import { useEffect, useState } from 'react';
 import React, { useContext } from 'react';
 import { EstadoContext } from './utils/estadoContex'; 
-import { backend } from '../declarations/backend';
+import { backend } from '../declarationsx/backend';
 interface Props {
   children: React.ReactNode
 }
@@ -64,23 +64,23 @@ if (!estadoContext) {
 
 const { estado, setEstado } = estadoContext;
 
-const fetchMessage = async () => {
-  try {
-    setLoading(true);
-    const estado1 = await backend.getMessage1();
-    setEstado(estado1); 
-  } catch (err) {
-    console.error(err);
-  } finally {
-   console.log("El mensaje del backend es" + estado);     
-    setLoading(false);
-  }
-};
+//const fetchMessage = async () => {
+ // try {
+  //  setLoading(true);
+   // const estado1 = await backend.getMessage1();
+   // setEstado(estado1); 
+  //} catch (err) {
+   // console.error(err);
+  //} finally {
+   //console.log("El mensaje del backend es" + estado);     
+   // setLoading(false);
+  //}
+//};
 
 // Fetch the message on page load
-useEffect(() => {
-fetchMessage();
-}, [estado]);
+//useEffect(() => {
+//fetchMessage();
+//}, [estado]);
 
   return (
     <>

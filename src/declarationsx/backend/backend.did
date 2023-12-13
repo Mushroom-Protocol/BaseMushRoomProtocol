@@ -1,0 +1,8 @@
+type Backend = 
+ service {
+   changeMessage: (text) -> ();
+   getMessage1: () -> (text) query;
+   whoami: () -> (principal) query;
+   
+ };
+service : () -> Backend

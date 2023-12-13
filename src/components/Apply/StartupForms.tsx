@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from "react";
 import {
   Box,
   Center,
@@ -22,15 +22,40 @@ import {
 import { Tooltip } from '@chakra-ui/react'
 import { BsFillRocketTakeoffFill } from "react-icons/bs";
 import { IoInformationCircleOutline } from "react-icons/io5";
-
-
+import { backend } from "../../declarations/backend"
 
 const StartupForms = () => {
   const { isOpen, onToggle } = useDisclosure();
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const [formData, setFormData] = useState({
+  startUpName: "",
+  email: "",
+  website: "",
+  startUpSlogan: "",
+  shortDes: "Descripción breve",
+  logo: "", // Asegúrate de proporcionar un array válido aquí
+  status: "Activa",
+  tlr: "1",
+  fullNameTl: "Nombre completo del líder técnico",
+  specializationTL: "Especialización del líder técnico",
+  linkedinTL: "Enlace al perfil de LinkedIn del líder técnico",
+  industry: "Industria",
+  country: "País",
+  });
+
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
+
+  const handleSubmit = async(event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    // Aquí puedes agregar la lógica para manejar la presentación del formulario
+    console.log(formData);
+    console.log(await backend.signUpStartup(formData))
   };
 
   return (
@@ -86,33 +111,33 @@ const StartupForms = () => {
 
               <FormControl isRequired>
                 <FormLabel>Start-Up Name</FormLabel>
-                <Input placeholder="Brand Name" />
+                <Input id="startupName" name="startUpName" value={formData.startUpName} onChange={handleChange} placeholder="Brand Name" />
               </FormControl>
 
               <FormControl isRequired mt={4}>
                 <FormLabel>Email</FormLabel>
-                <Input type="email" placeholder="Email" />
+                <Input id="emailCompany" name="email" value={formData.email} onChange={handleChange} type="email" placeholder="Email" />
               </FormControl>
 
               <FormControl mt={4}>
                 <FormLabel>Website or Social Media Profile</FormLabel>
-                <Input placeholder="Website/Profile URL" />
+                <Input id="Website" placeholder="Website/Profile URL" />
               </FormControl>
 
               <FormControl mt={4}>
                 <FormLabel>Startup Slogan</FormLabel>
-                <Input placeholder="e.g. Biotechnology for Life" />
+                <Input id="startupSlogan" placeholder="e.g. Biotechnology for Life" />
               </FormControl>
 
               <FormControl isRequired mt={4}>
                 <FormLabel>Short Description</FormLabel>
-                <Textarea placeholder="Describe what your startup does in a paragraph" />
+                <Input id="shortDes" placeholder="Describe what your startup does in a paragraph" />
               </FormControl>
 
               <FormControl mt={4}>
                   <FormLabel>Upload Logo</FormLabel>
                   <InputGroup>
-                    <Input type="file" placeholder="Upload Logo" />
+                    <Input id="uploadLogo" type="file" placeholder="Upload Logo" />
                     <InputRightElement width="5rem">
                       <Button h="1.75rem" size="sm" colorScheme="teal">
                         Upload
@@ -124,23 +149,23 @@ const StartupForms = () => {
 
               <FormControl isRequired mt={4}>
                 <FormLabel>Startup Status</FormLabel>
-                <Select placeholder="Select status">
-                  <option>Research stage</option>
-                  <option>Early Start-Up</option>
-                  <option>Pre-seed</option>
-                  <option>Seed</option>
+                <Select id="startupStatus" placeholder="Select status">
+                <option value="ResearchStage" selected>Research stage</option>
+                <option value="EarlyStartUp">Early Start-Up</option>
+                <option value="PreSeed" >Pre-seed</option>
+                <option value="Seed">Seed</option>
                 </Select>
               </FormControl>
               {/* Campo para Madurez tecnológica */}
               <FormControl isRequired mt={4}>
                 <FormLabel>Technology Readiness Level (TRL)</FormLabel>
-                <Select placeholder="Select TRL">
-                  <option>TRL-1: Basic principles</option>
-                  <option>TRL-2: Technology concept formulated</option>
-                  <option>TRL-3: Experimental proof of concept</option>
-                  <option>TRL-4: Technology validated in lab</option>
-                  <option>TRL-5: Technology validated in relevant environment</option>
-                  <option>TRL-6 or higher</option>
+                <Select id="tlr" placeholder="Select TRL">
+                  <option value="1" selected>TRL-1: Basic principles</option>
+                  <option value="2">TRL-2: Technology concept formulated</option>
+                  <option value="3">TRL-3: Experimental proof of concept</option>
+                  <option value="4">TRL-4: Technology validated in lab</option>
+                  <option value="5">TRL-5: Technology validated in relevant environment</option>
+                  <option value="6">TRL-6 or higher</option>
                 </Select>
                 <FormHelperText>
                   Please describe the TRL level for your technology.
@@ -150,59 +175,57 @@ const StartupForms = () => {
               {/* Campo para Nombre del representante o team leader */}
               <FormControl isRequired mt={4}>
                 <FormLabel>Full Name of Legal Representative / Team Leader</FormLabel>
-                <Input placeholder="Full Name" />
+                <Input id="fullNameTL" placeholder="Full Name" />
               </FormControl>
 
               {/* Campo para Detalles del representante o team leader */}
-              <FormControl mt={4}>
+              <FormControl isRequired mt={4}>
                 <FormLabel>Specialization Legal Representative / Team Leader</FormLabel>
-                <Input placeholder="Specialization" />
+                <Input id="specializationTL" placeholder="Specialization" />
               </FormControl>
 
               {/* Campo para Perfil de Linkedin o similar */}
               <FormControl isRequired mt={4}>
                 <FormLabel>LinkedIn Profile of Legal Representative / Team Leader</FormLabel>
-                <Input placeholder="LinkedIn Profile URL" />
+                <Input id="linkedinTL" placeholder="LinkedIn Profile URL" />
               </FormControl>
 
               {/* Campo para Industria / sector productivo */}
               <FormControl isRequired mt={4}>
                 <FormLabel>Industry / Productive Sector</FormLabel>
-                <Select placeholder="Select Industry">
-                  <option>HealthTech</option>
-                  <option>Agri-foodTech</option>
-                  <option>GreenTech</option>
-                  <option>SyntheticTech</option>
-                  <option>MiningTech</option>
+                <Select id="industry" placeholder="Select Industry">
+                  <option value="HealthTech" selected>HealthTech</option>
+                  <option value="Agri-FoodTech">Agri-foodTech</option>
+                  <option value="GreenTech">GreenTech</option>
+                  <option value="SyntheticTech">SyntheticTech</option>
+                  <option value="MiningTech">MiningTech</option>
                 </Select>
               </FormControl>
 
               {/* Campo para País de origen */}
               <FormControl isRequired mt={4}>
                 <FormLabel>Country of Origin</FormLabel>
-                <Select placeholder="Select Country">
-                <option>Argentina</option>
-                <option>Brazil</option>
-                <option>Mexico</option>
-                <option>Colombia</option>
-                <option>Peru</option>
-                <option>Venezuela</option>
-                <option>Chile</option>
-                <option>Ecuador</option>
-                <option>Guatemala</option>
-                <option>Cuba</option>
-                <option>Bolivia</option>
-                <option>Dominican Republic</option>
-                <option>Honduras</option>
-                <option>Paraguay</option>
-                <option>El Salvador</option>
-                <option>Nicaragua</option>
-                <option>Costa Rica</option>
-                <option>Puerto Rico</option>
-                <option>Uruguay</option>
-                <option>Panama</option>
-                <option>Jamaica</option>
-                <option>Trinidad and Tobago</option>
+                <Select id="country" name="country">
+                  <option value="ar">Argentina</option>
+                  <option value="bo">Bolivia</option>
+                  <option value="br">Brasil</option>
+                  <option value="cl">Chile</option>
+                  <option value="co">Colombia</option>
+                  <option value="cr">Costa Rica</option>
+                  <option value="cu">Cuba</option>
+                  <option value="do">República Dominicana</option>
+                  <option value="ec">Ecuador</option>
+                  <option value="sv">El Salvador</option>
+                  <option value="gt">Guatemala</option>
+                  <option value="hn">Honduras</option>
+                  <option value="mx">México</option>
+                  <option value="ni">Nicaragua</option>
+                  <option value="pa">Panamá</option>
+                  <option value="py">Paraguay</option>
+                  <option value="pe">Perú</option>
+                  <option value="pr">Puerto Rico</option>
+                  <option value="uy">Uruguay</option>
+                  <option value="ve">Venezuela</option>
                   {/* Agregar más países según sea necesario */}
                 </Select>
               </FormControl>
@@ -225,5 +248,4 @@ const StartupForms = () => {
     </Center>
   );
 };
-
 export default StartupForms;
