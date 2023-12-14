@@ -12,6 +12,7 @@ import VaultPage from "../pages/VaultPage";
 import NatheraPage from "../pages/NatheraPage";
 import FoundersPage from "../pages/FoundersPage";
 import ApplyPage from "../pages/ApplyPage";
+import DashboardPage from "../pages/DashboardPage";
 import { EstadoProvider } from '../components/utils/estadoContex';
 function Layout() {
   return (
@@ -55,6 +56,10 @@ export const router = createBrowserRouter([
                     {
                         path:"Apply", 
                         element:<ApplyPage/>
+                    },
+                    {
+                        path:"Dashboard", 
+                        element:<DashboardPage/>
                     },
                     {
                     path:"MarketPlace", 
