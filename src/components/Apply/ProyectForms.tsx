@@ -1,33 +1,117 @@
-import React from 'react';
+import React, { useState } from "react";
 import {
   Box,
   Center,
-  Tooltip,
   Flex,
   Button,
   Text,
   Heading,
   Icon,
-  Fade,
   useDisclosure,
   FormControl,
   FormLabel,
   Collapse,
   Input,
   Select,
-  Textarea,
   FormHelperText,
+  Textarea,
+  InputGroup,
+  InputRightElement,
+  Tooltip,
+  useToast,
 } from '@chakra-ui/react';
 import { MdBiotech } from "react-icons/md";
 import { IoInformationCircleOutline } from "react-icons/io5";
+import { backend } from "../../declarations/backend";
 
 
 const ProyectForms = () => {
   const { isOpen, onToggle } = useDisclosure();
+  const toast = useToast();
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const [formData, setFormData] = useState({
+    projectTitle: "",
+    problemSolving: "",
+    yoursolution: "",
+    impact: "",
+    productStatus: "",
+    fundsRequired: "", // 
+    projectDuration: "",
+    implementation: "",
+    milestones: "",
+    budget: "",
+    team: "",
+  });
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
+
+  const handleSelectChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    const { name, value } = e.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
+
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    // Aquí puedes agregar la lógica para manejar la presentación del formulario
+  
+    let loadingToastId: string | number | undefined;
+  
+    try {
+      // Muestra un toast de carga con formato sólido y color azul
+      loadingToastId = toast({
+        title: 'Submitting Form',
+        status: 'loading', // 'loading' es el status para el estilo de carga
+        duration: null,
+        isClosable: false,
+        variant: 'solid',
+      });
+  
+  
+      ///////////// CORREGIR LLAMADO AL BACKEND FUNCION DE REGISTRO PROYECTO /////////////////////////
+      //const response = await backend.signUpStartup(formData);
+  
+      // Cierra el toast de carga cuando la acción se completa
+      if (loadingToastId !== undefined) {
+        toast.close(loadingToastId);
+      }
+  
+      // Muestra un toast de éxito con formato sólido y color verde
+      toast({
+        title: 'Successful Submission',
+        description: 'Your form was submitted successfully.',
+        status: 'success', // 'success' es el status para el estilo de éxito
+        duration: 5000,
+        isClosable: true,
+        variant: 'solid',
+      });
+  
+    /////////////  console.log(response); // ACTIVA TOAST DE MENSAJE DE SUBMIT ////////////////////////
+    } catch (error) {
+      // Cierra el toast de carga cuando la acción falla
+      if (loadingToastId !== undefined) {
+        toast.close(loadingToastId);
+      }
+  
+      // Muestra un toast de error con formato sólido y color rojo
+      toast({
+        title: 'Submission Error',
+        description: 'There was an error submitting the form. Please try again.',
+        status: 'error', // 'error' es el status para el estilo de error
+        duration: 5000,
+        isClosable: true,
+        variant: 'solid',
+      });
+  
+      console.error(error);
+    }
   };
 
   return (
@@ -75,117 +159,67 @@ const ProyectForms = () => {
 
           >
             <Heading>Proyect Registration Form</Heading>
+            <Text>*Register your research project.</Text>
             <br />
             <form onSubmit={handleSubmit}>
-              <FormControl isRequired>
-                <FormLabel>Start-Up Name</FormLabel>
-                <Input placeholder="Fantasy Name" />
-              </FormControl>
+            <FormControl isRequired>
+                  <FormLabel>Project Title</FormLabel>
+                  <Input id="projectTitle" name="projectTitle" value={formData.projectTitle} onChange={handleChange} placeholder="Describe what you want to do in one sentence" />
+                </FormControl>
 
-              <FormControl isRequired mt={4}>
-                <FormLabel>Company Email</FormLabel>
-                <Input type="email" placeholder="Email" />
-              </FormControl>
+                <FormControl isRequired mt={4}>
+                  <FormLabel>Problem Solving</FormLabel>
+                  <Input id="problemSolving" name="problemSolving" value={formData.problemSolving} onChange={handleChange} placeholder="How and how many people does it affect?" />
+                </FormControl>
 
-              <FormControl mt={4}>
-                <FormLabel>Website or Social Media Profile</FormLabel>
-                <Input placeholder="Website/Profile URL" />
-              </FormControl>
+                <FormControl isRequired mt={4}>
+                  <FormLabel>Your solution</FormLabel>
+                  <Input id="yoursolution" name="yoursolution" value={formData.yoursolution} onChange={handleChange} placeholder="What do they do and how do they do it?" />
+                </FormControl>
 
-              <FormControl isRequired mt={4}>
-                <FormLabel>Short Description</FormLabel>
-                <Textarea placeholder="Describe what your startup does in one sentence" />
-              </FormControl>
+                <FormControl isRequired mt={4}>
+                  <FormLabel>Impact</FormLabel>
+                  <Input id="impact" name="impact" value={formData.impact} onChange={handleChange} placeholder="What will be the impact of your solution?" />
+                </FormControl>
 
-              <FormControl isRequired mt={4}>
-                <FormLabel>Startup Slogan</FormLabel>
-                <Input placeholder="Short Slogan" />
-              </FormControl>
+                <FormControl isRequired mt={4}>
+                  <FormLabel>Product Statu</FormLabel>
+                  <Select id="productStatus" name="productStatus" value={formData.productStatus} onChange={handleSelectChange} placeholder="Select Status">
+                    <option value="ResearchPhase" selected>Research Phase</option>
+                    <option value="ProductPrototype">Product Prototype</option>
+                    <option value="EarlyAdoption">Early Adoption</option>
+                    <option value="BusinessModelValidation">Business Model Validation</option>
+                    <option value="Product-Market Fit">Product-Market Fit</option>
+                  </Select>
+                </FormControl>
 
-              <FormControl isRequired mt={4}>
-                <FormLabel>Startup Status</FormLabel>
-                <Select placeholder="Select status">
-                  <option>Early Start-Up</option>
-                  <option>Pre-seed</option>
-                  <option>Seed</option>
-                </Select>
-              </FormControl>
-              {/* Campo para Madurez tecnológica */}
-              <FormControl isRequired mt={4}>
-                <FormLabel>Technology Readiness Level (TRL)</FormLabel>
-                <Select placeholder="Select TRL">
-                  <option>TRL-1: Basic principles</option>
-                  <option>TRL-2: Technology concept formulated</option>
-                  <option>TRL-3: Experimental proof of concept</option>
-                  <option>TRL-4: Technology validated in lab</option>
-                  <option>TRL-5: Technology validated in relevant environment</option>
-                  <option>TRL-6 or higher</option>
-                </Select>
-                <FormHelperText>
-                  Please describe the TRL level for your technology.
-                </FormHelperText>
-              </FormControl>
+                {/* Campo para Nombre del representante o team leader */}
+                <FormControl isRequired mt={4}>
+                  <FormLabel>Funds required</FormLabel>
+                  <Input id="fundsRequired" name="fundsRequired" value={formData.fundsRequired} onChange={handleChange} placeholder="Amount in $USD" />
+                </FormControl>
 
-              {/* Campo para Nombre del representante o team leader */}
-              <FormControl isRequired mt={4}>
-                <FormLabel>Full Name of Legal Representative / Team Leader</FormLabel>
-                <Input placeholder="Full Name" />
-              </FormControl>
+                {/* Campo para Detalles del representante o team leader */}
+                <FormControl isRequired mt={4}>
+                  <FormLabel>Project Duration</FormLabel>
+                  <Input id="projectDuration" name="projectDuration" value={formData.projectDuration} onChange={handleChange} placeholder="Type a number from 12 to 24 (months)" />
+                </FormControl>
 
-              {/* Campo para Detalles del representante o team leader */}
-              <FormControl mt={4}>
-                <FormLabel>Specialization Legal Representative / Team Leader</FormLabel>
-                <Input placeholder="Specialization" />
-              </FormControl>
+                {/* Campo para Perfil de Linkedin o similar */}
+                <FormControl isRequired mt={4}>
+                  <FormLabel>Implementation Plan</FormLabel>
+                  <Input id="implementation" name="implementation" value={formData.implementation} onChange={handleChange} placeholder="Objectives to be met during the stages of the project" />
+                </FormControl>
 
-              {/* Campo para Perfil de Linkedin o similar */}
-              <FormControl isRequired mt={4}>
-                <FormLabel>LinkedIn Profile of Legal Representative / Team Leader</FormLabel>
-                <Input placeholder="LinkedIn Profile URL" />
-              </FormControl>
+                <FormControl isRequired mt={4}>
+                  <FormLabel>Budget</FormLabel>
+                  <Input id="budget" name="budget" value={formData.budget} onChange={handleChange} placeholder="Allocate percentage of resources to: Research, Technology, Product, Marketing, Administration and IP." />
+                </FormControl>
 
-              {/* Campo para Industria / sector productivo */}
-              <FormControl isRequired mt={4}>
-                <FormLabel>Industry / Productive Sector</FormLabel>
-                <Select placeholder="Select Industry">
-                  <option>HealthTech</option>
-                  <option>Agro-FoodTech</option>
-                  <option>GreenTech</option>
-                  <option>SyntheticTech</option>
-                  <option>MiningTech</option>
-                </Select>
-              </FormControl>
-
-              {/* Campo para País de origen */}
-              <FormControl isRequired mt={4}>
-                <FormLabel>Country of Origin</FormLabel>
-                <Select placeholder="Select Country">
-                <option>Argentina</option>
-                <option>Brazil</option>
-                <option>Mexico</option>
-                <option>Colombia</option>
-                <option>Peru</option>
-                <option>Venezuela</option>
-                <option>Chile</option>
-                <option>Ecuador</option>
-                <option>Guatemala</option>
-                <option>Cuba</option>
-                <option>Bolivia</option>
-                <option>Dominican Republic</option>
-                <option>Honduras</option>
-                <option>Paraguay</option>
-                <option>El Salvador</option>
-                <option>Nicaragua</option>
-                <option>Costa Rica</option>
-                <option>Puerto Rico</option>
-                <option>Uruguay</option>
-                <option>Panama</option>
-                <option>Jamaica</option>
-                <option>Trinidad and Tobago</option>
-                  {/* Agregar más países según sea necesario */}
-                </Select>
-              </FormControl>
-
+                <FormControl isRequired mt={4}>
+                  <FormLabel>Team</FormLabel>
+                  <Input id="team" name="team" value={formData.team} onChange={handleChange} placeholder="List all team members, their positions, specialty and LinkedIn profile if applicable." />
+                </FormControl>
               <Button type="submit" mt={4} colorScheme="teal">
                 Submit
               </Button>

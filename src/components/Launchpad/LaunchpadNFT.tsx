@@ -17,6 +17,7 @@ import MushroomFoundersBoceto from "../../assets/MushroomFoundersBoceto.png"
 import EONNFTboceto from "../../assets/EONNFTboceto.png"
 import favicon from "../../assets/favicon.ico"
 import MpFavicon  from '../../assets/MpFavicon.png' 
+import DashboardSidebar from "../DashboardSidebar";
 
 const LaunchpadNFT = () => {
   const navigate = useNavigate();
