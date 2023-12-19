@@ -41,7 +41,13 @@ const client = createClient({
     },
   })  
 
-
+  const estadoContext = useContext(EstadoContext);
+  if (!estadoContext) {
+    throw new Error('El componente debe estar dentro de un estadoContext');
+  }
+  
+  const { estado, setEstado } = estadoContext;
+  
 function App() {
   //const [estado, setEstado] = useState('');
   //  const [loading, setLoading] = useState(false);
@@ -49,10 +55,16 @@ function App() {
 const { isConnected, principal, activeProvider } = useConnect({
   onConnect: () => {
     // Signed in
-
+   /* if (principal)
+    {
+    const principalConectado: string = principal;
+    setEstado(principalConectado);
+    alert(principalConectado);
+    }*/
   },
   onDisconnect: () => {
     // Signed out
+    
   }
 });
   // @connect2ic
@@ -67,10 +79,11 @@ const { isConnected, principal, activeProvider } = useConnect({
   
 
   return ( 
-    <>
-    
+    <>    
     <EstadoProvider>
-    <RouterProvider router={router}/>    
+    <ConnectDialog dark={true}/>
+        <h1 className="h1 text-center border-b border-gray-500 pb-2">Hi {principal ? principal : ", connect with Internet Identity to continue"}!</h1>  
+    <RouterProvider router={router}/>
      </EstadoProvider>
      </>
   )  
