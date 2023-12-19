@@ -15,7 +15,7 @@ import {
   Card, Stack, Heading, Button, IconButton,
 } from "@chakra-ui/react";
 import { FaLinkedin } from "react-icons/fa";
-import TokenomicsNathera from "/home/udo/Front/BaseMushRoomProtocol/src/assets/TokenomicsNathera.png"
+import TokenomicsNathera from "../../assets/TokenomicsNathera.png"
 import Natheralogo from "../../assets/Natheralogo.png"
 import NatheraTeamAA from "../../assets/NatheraTeamAA.jpg"
 import NatheraTeamPO from "../../assets/NatheraTeamPO.jpg"

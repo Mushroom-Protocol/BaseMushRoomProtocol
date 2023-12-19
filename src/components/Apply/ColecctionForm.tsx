@@ -30,8 +30,42 @@ import { backend } from "../../declarations/backend";
 const ColecctionForm = () => {
   const { isOpen, onToggle } = useDisclosure();
   const toast = useToast();
+ 
+  interface FormData {
+    collectionName: string;
+    shortStorytelling: string;
+    storytellingCollection: string;
+    totalSupply: string;
+    distribution: string;
+    utilities: string[];
+    tokenPrices: string;
+    documents: string;
+    typesImages: string;
+    nftImages: string;
+    creator: string;
+    collectionStatus: string;
+  }
+  
+  const initialFormData: FormData = {
+    collectionName: "",
+    shortStorytelling: "",
+    storytellingCollection: "",
+    totalSupply: "",
+    distribution: "",
+    utilities: [],
+    tokenPrices: "",
+    documents: "",
+    typesImages: "",
+    nftImages: "",
+    creator: "",
+    collectionStatus: "",
+  };
+  
+  const [formData, setFormData] = useState<FormData>(initialFormData);
 
-  const [formData, setFormData] = useState({
+
+
+  /*const [formData, setFormData] = useState({
     collectionName: "",
     shortStorytelling: "",
     storytellingCollection: "",
@@ -44,7 +78,7 @@ const ColecctionForm = () => {
     nftImages: "",
     creator: "",
     collectionStatus: "",
-  });
+  });*/
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -54,20 +88,14 @@ const ColecctionForm = () => {
     }));
   };
 
-  const handleSelectChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    const { name, value } = e.target;
-    setFormData((prevData) => ({
-      ...prevData,
-      [name]: value,
-    }));
-  };
-
-  const handleCheckboxChange = (checkedValues: string[]) => {
+    const handleCheckboxChange = (checkedValues: string[]) => {
     setFormData({
       ...formData,
       utilities: checkedValues,
     });
   };
+
+ 
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
