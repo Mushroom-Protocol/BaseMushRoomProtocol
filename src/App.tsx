@@ -41,6 +41,7 @@ const client = createClient({
     },
   })  
 
+<<<<<<< HEAD
   // const estadoContext = useContext(EstadoContext);
   // if (!estadoContext) {
   //   throw new Error('El componente debe estar dentro de un estadoContext');
@@ -49,18 +50,24 @@ const client = createClient({
   // const { estado, setEstado } = estadoContext;
   
 function App() {
+=======
+  
+  
+function App() {
+  /*const estadoContext = useContext(EstadoContext);
+  if (!estadoContext) {
+    throw new Error('El componente debe estar dentro de un estadoContext');
+  }
+  
+  const { estado, setEstado } = estadoContext;*/
+>>>>>>> c73b13e9ae56e6af29ca915d27f0bb3c98394a43
   //const [estado, setEstado] = useState('');
   //  const [loading, setLoading] = useState(false);
   // @connect2ic
 const { isConnected, principal, activeProvider } = useConnect({
   onConnect: () => {
     // Signed in
-   /* if (principal)
-    {
-    const principalConectado: string = principal;
-    setEstado(principalConectado);
-    alert(principalConectado);
-    }*/
+   // alert(principal);
   },
   onDisconnect: () => {
     // Signed out
