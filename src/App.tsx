@@ -41,26 +41,22 @@ const client = createClient({
     },
   })  
 
-  const estadoContext = useContext(EstadoContext);
+  
+  
+function App() {
+  /*const estadoContext = useContext(EstadoContext);
   if (!estadoContext) {
     throw new Error('El componente debe estar dentro de un estadoContext');
   }
   
-  const { estado, setEstado } = estadoContext;
-  
-function App() {
+  const { estado, setEstado } = estadoContext;*/
   //const [estado, setEstado] = useState('');
   //  const [loading, setLoading] = useState(false);
   // @connect2ic
 const { isConnected, principal, activeProvider } = useConnect({
   onConnect: () => {
     // Signed in
-   /* if (principal)
-    {
-    const principalConectado: string = principal;
-    setEstado(principalConectado);
-    alert(principalConectado);
-    }*/
+   // alert(principal);
   },
   onDisconnect: () => {
     // Signed out
