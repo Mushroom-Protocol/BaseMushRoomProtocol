@@ -29,7 +29,7 @@ import MpFavicon  from './../assets/MpFavicon.png'
 import { useEffect, useState } from 'react';
 import React, { useContext } from 'react';
 import { EstadoContext } from './utils/estadoContex'; 
-import { backend } from '../declarationsx/backend';
+import { backend } from '../declarations/backend';
 interface Props {
   children: React.ReactNode
 }

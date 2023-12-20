@@ -31,16 +31,16 @@ actor Mushroom {
 
   //---- stable data --------
   //stable var startupArray : [P] = []; //Consider the convenience of not generating a canister for each startup
-  
-  stable var whiteList: [(Principal, Text)] = [];
-  stable var requestId: Nat = 0;
-  stable var incomingStartup : [(Principal,IncommingStartUp)] = []; // Array of startup applicants for admission.
-  stable var approvedStartUp : [ApprovedStartUp] = [];  // Array of approved startups
-  stable var startUpId: Nat = 0;
+
+  stable var whiteList : [(Principal, Text)] = [];
+  stable var requestId : Nat = 0;
+  stable var incomingStartup : [(Principal, IncommingStartUp)] = []; // Array of startup applicants for admission.
+  stable var approvedStartUp : [ApprovedStartUp] = []; // Array of approved startups
+  stable var startUpId : Nat = 0;
   stable var projectArray : [Project] = [];
   stable var collections = List.nil<Principal>();
   stable var minterUser : [Principal] = [];
-  stable var profilesCanisterId = Principal.fromText("aaaaa-aa"); 
+  stable var profilesCanisterId = Principal.fromText("aaaaa-aa");
 
   //----------- Management of the main Canister (this)-----------
   func safeUpdateControllers(controllers : [Principal], mode : Mode) : async Bool {
@@ -79,18 +79,18 @@ actor Mushroom {
     await ic.update_settings({ canister_id; settings });
     return true;
   };
-    //For the next group of functions to be executed successfully, the Principal must be added
-    //this same canister to the list of controllers, from the dfx CLI and using the identity with which it was deployed
-    //the canister. The following command: "dfx canister update-settings --add-controller <canisterID> <canisterID>"
-    //adds the main of the canister to its own list of controllers and that allows the function to be executed
-    //private safeUpdateControllers()
+  //For the next group of functions to be executed successfully, the Principal must be added
+  //this same canister to the list of controllers, from the dfx CLI and using the identity with which it was deployed
+  //the canister. The following command: "dfx canister update-settings --add-controller <canisterID> <canisterID>"
+  //adds the main of the canister to its own list of controllers and that allows the function to be executed
+  //private safeUpdateControllers()
 
   public shared ({ caller }) func addController(controllers : [Principal]) : async Bool {
-   // assert(Principal.isController(caller));
+    assert (Principal.isController(caller));
     await safeUpdateControllers(controllers, #Add);
   };
   public shared ({ caller }) func removeControllers(controllers : [Principal]) : async Bool {
-   // assert(Principal.isController(caller));
+    assert (Principal.isController(caller));
     await safeUpdateControllers(controllers, #Remove);
   };
   //----------------------------------------------------------------
@@ -100,31 +100,33 @@ actor Mushroom {
     tempBuffer.add(elem);
     Buffer.toArray(tempBuffer);
   };
-  func removeFromArray<T>(arr: [T], index: Nat): [T]{
+  func removeFromArray<T>(arr : [T], index : Nat) : [T] {
     var tempBuffer = Buffer.fromArray<T>(arr);
     ignore tempBuffer.remove(index);
     Buffer.toArray<T>(tempBuffer);
   };
-// -----------------------------------------------------------
-  public shared ({caller}) func whoami():async Text{Principal.toText(caller)};
+  // -----------------------------------------------------------
+  public shared ({ caller }) func whoami() : async Text {
+    Principal.toText(caller);
+  };
 
-  public shared ({caller}) func whatami():async (Principal, Text){ 
-    assert not Principal.isAnonymous(caller); 
+  public shared ({ caller }) func whatami() : async (Principal, Text) {
+    assert not Principal.isAnonymous(caller);
     let userType = getUserType(caller);
     (caller, userType);
   };
-  func getUserType(p: Principal): Text{
-   // if(Principal.isController(p)){ return "Controller"};
-    for(user in approvedStartUp.vals()){
-      if(user.owner == p){return "Startup"}
+  func getUserType(p : Principal) : Text {
+    if (Principal.isController(p)) { return "Controller" };
+    for (user in approvedStartUp.vals()) {
+      if (user.owner == p) { return "Startup" };
     };
-    for(user in minterUser.vals()){
-      if(user == p){return "MinterUser"}
+    for (user in minterUser.vals()) {
+      if (user == p) { return "MinterUser" };
     };
-    for(req in incomingStartup.vals()){
-      if(req.0 == p){ return "Requester"}
+    for (req in incomingStartup.vals()) {
+      if (req.0 == p) { return "Requester" };
     };
-    return "Visitor"
+    return "Visitor";
   };
 
   // func getUserType(p: Principal): UserType{
@@ -154,42 +156,44 @@ actor Mushroom {
     Cycles.add(cycles); //13_846_199_230
     let newStartupCanister = await Startup.Startup(data);
     let startupCanisterId = Principal.fromActor(newStartupCanister);
-    startupArray := addToArray<Principal>(startupArray, startupCanisterId);    
+    startupArray := addToArray<Principal>(startupArray, startupCanisterId);
     incomingStartup := Buffer.toArray(tempBuffer);
     ?Principal.toText(startupCanisterId);
   };
   */
 
-  public shared ({caller}) func approveStartUp(indexIncomming : Nat, data: ApprovedStartUp): async Text{
+  public shared ({ caller }) func approveStartUp(indexIncomming : Nat, data : ApprovedStartUp) : async Text {
     //Esta funcion, en una instancia posterior del proyecto, deberá ser ejecutada únicamente desde el principal Id
     //de una DAO desarrollada para dicho proposio y luego de ser aprovado el correspondiente proyecto por votación
     //Evaluar el tipo de retorno para un mejor manejo de los resultados
     //assert( caller == DAO);
-  //  assert Principal.isController(caller);
-    if(incomingStartup[indexIncomming].0 != data.owner){
-      return "Inconsistencia de datos"
+    assert Principal.isController(caller);
+    if (incomingStartup[indexIncomming].0 != data.owner) {
+      return "Inconsistencia de datos";
     };
     incomingStartup := removeFromArray(incomingStartup, indexIncomming);
-    approvedStartUp := addToArray<ApprovedStartUp>(approvedStartUp, data); 
+    approvedStartUp := addToArray<ApprovedStartUp>(approvedStartUp, data);
     startUpId += 1;
     return "StartUp aprobada: Id -> " # Nat.toText(startUpId -1);
   };
 
   // With this function, Startup profile requests will be recorded for later
   // approval and creation of the corresponding registry (or eventually your own Canister)
-  public shared ({ caller }) func signUpStartup(data: IncommingStartUp) : async Text{
+  public shared ({ caller }) func signUpStartup(data : IncommingStartUp) : async Text {
     //Evaluate the return of an index instead of Text
-   // assert not Principal.isAnonymous(caller);
+    // assert not Principal.isAnonymous(caller);
     var i = 0;
-    for(req in incomingStartup.vals()){
-      if(req.0 == caller){return "Usted ya tiene pendiente una solicitud, y se encuentra en espera en la posicion " # Nat.toText(i)};
+    for (req in incomingStartup.vals()) {
+      if (req.0 == caller) {
+        return "Usted ya tiene pendiente una solicitud, y se encuentra en espera en la posicion " # Nat.toText(i);
+      };
       i += 1;
     };
-    incomingStartup := addToArray<(Principal,IncommingStartUp)>(incomingStartup, (caller,data));
-    "Su solicitud ha sido ingresada exitosamente, en los próximos días será contactado por email"
+    incomingStartup := addToArray<(Principal, IncommingStartUp)>(incomingStartup, (caller, data));
+    "Su solicitud ha sido ingresada exitosamente, en los próximos días será contactado por email";
   };
 
-  public shared ({caller}) func incomingProject(data: Project):async (){
+  public shared ({ caller }) func incomingProject(data : Project) : async () {
     assert not Principal.isAnonymous(caller);
     assert getUserType(caller) == "Startup";
     // Verification of possible duplicate request according to similarity of fields
@@ -198,31 +202,31 @@ actor Mushroom {
   };
 
   // ----------------------- White List----------------------------------------------------------------
-  public shared ({caller}) func addMeToWhiteList(email: Text): async Bool{
+  public shared ({ caller }) func addMeToWhiteList(email : Text) : async Bool {
     assert not Principal.isAnonymous(caller);
-    if(await inWhiteList(caller)) return true;
+    if (await inWhiteList(caller)) return true;
     whiteList := addToArray(whiteList, (caller, email));
     return true;
   };
-  public shared ({caller}) func iAmInWhiteList(): async Bool{
+  public shared ({ caller }) func iAmInWhiteList() : async Bool {
     return await inWhiteList(caller);
   };
-  func inWhiteList(user: Principal): async Bool{
-    for(i in whiteList.vals()){
-      if(i.0 == user) return true;
+  func inWhiteList(user : Principal) : async Bool {
+    for (i in whiteList.vals()) {
+      if (i.0 == user) return true;
     };
     return false;
   };
-//------------------------------------------------------------------------------------------------------
-//  public shared ({ caller }) func addProject(p : Project) : async ?Nat {
-   //if (not Principal.isController(caller)) { return null };
-   // projectArray := addToArray<Project>(projectArray, p); 
+  //------------------------------------------------------------------------------------------------------
+  //  public shared ({ caller }) func addProject(p : Project) : async ?Nat {
+  //if (not Principal.isController(caller)) { return null };
+  // projectArray := addToArray<Project>(projectArray, p);
   //  ?Array.size(projectArray);
   //};
 
   //------------------ Public Getters -------------------------
 
-  public query func usersInWhiteList(): async Nat{whiteList.size()};
+  public query func usersInWhiteList() : async Nat { whiteList.size() };
 
   public query func getProjectsApproved() : async [Project] {
     Array.filter<Project>(projectArray, func p = p.status == #approved);
@@ -232,37 +236,41 @@ actor Mushroom {
     Array.filter<Project>(projectArray, func p = p.status == #presented);
   };
 
-  public query func getProjectArray() : async [Project] {projectArray};
+  public query func getProjectArray() : async [Project] { projectArray };
 
-  public func getRandomNFTCollection(collectionId: Nat): async [Nft]{
-    let collection = switch(List.get<Principal>(collections,collectionId)){
-      case null{return []};
-      case (?value){value};
+  public func getRandomNFTCollection(collectionId : Nat) : async [Nft] {
+    let collection = switch (List.get<Principal>(collections, collectionId)) {
+      case null { return [] };
+      case (?value) { value };
     };
-    let remoteCollection = actor (Principal.toText(collection)) : actor { getSamples : shared () -> async [Nft]; };
+    let remoteCollection = actor (Principal.toText(collection)) : actor {
+      getSamples : shared () -> async [Nft];
+    };
     let samples = await remoteCollection.getSamples();
     return samples;
   };
 
-  public query func getCollections() : async [Principal] {List.toArray(collections)};
-  
+  public query func getCollections() : async [Principal] {
+    List.toArray(collections);
+  };
+
   //-----------------  Only Controllers Getters ------------------
 
-  public shared ({caller}) func getWhiteList():async [(Principal, Text)]{
-   // assert Principal.isController(caller);
+  public shared ({ caller }) func getWhiteList() : async [(Principal, Text)] {
+    assert Principal.isController(caller);
     whiteList;
   };
 
-  public shared ({caller}) func getIncomingStartup() : async [(Principal,IncommingStartUp)]/*ver typo de retorno*/ {
-   // assert Principal.isController(caller);
+  public shared ({ caller }) func getIncomingStartup() : async [(Principal, IncommingStartUp)] /*ver typo de retorno*/ {
+    assert Principal.isController(caller);
     incomingStartup;
   };
-  public query func getStartups() : async [ApprovedStartUp] {approvedStartUp};
+  public query func getStartups() : async [ApprovedStartUp] { approvedStartUp };
 
   //-------- Modify Status Projects ---------------
   public shared ({ caller }) func setStatus(IDProject : Nat, s : ProjectStatus) : async Bool {
-    //assert Principal.isController(caller);
-   // assert IDProject >= Array.size(projectArray);
+    assert Principal.isController(caller);
+    assert IDProject >= Array.size(projectArray);
 
     var tempBuffer = Buffer.fromArray<Project>(projectArray);
     let currentProject = tempBuffer.remove(IDProject);
@@ -285,9 +293,10 @@ actor Mushroom {
   //This function will be responsible for deploying the canister for the profileNFT collection and will only take effect
   //the first time it is executed, in subsequent calls it will be limited to returning the principal of said collection
 
-  public shared ({ caller }) func createCollectionProfile(cycles: Nat, _logo: Logo, _name: Text, _symbol: Text): async Principal {
-    //assert Principal.isController(caller);
-    if (profilesCanisterId != Principal.fromText("aaaaa-aa")) {//Singleton Pattern
+  public shared ({ caller }) func createCollectionProfile(cycles : Nat, _logo : Logo, _name : Text, _symbol : Text) : async Principal {
+    assert Principal.isController(caller);
+    if (profilesCanisterId != Principal.fromText("aaaaa-aa")) {
+      //Singleton Pattern
       return profilesCanisterId;
     };
     Cycles.add(cycles); //Fee to create the canister 7_692_307_692 + 6_153_891_538 + 3_150
@@ -298,7 +307,7 @@ actor Mushroom {
   //---------------------------------------------------------------------------
   //------------- Function to create a collection of research NFT MP ----------
   public shared ({ caller }) func createCollectionNFT(cycles : Nat, project : Project, metadata : TypesProjectNft.Metadata) : async Principal {
-  // assert Principal.isController(caller);
+    assert Principal.isController(caller);
     //(to : Principal, data : Types.Metadata)
     Cycles.add(cycles);
     let collectionCanister = await projectCollection.MushroomNFTProject(project.owner, metadata);
@@ -307,21 +316,25 @@ actor Mushroom {
     return collectionCanisterId;
   };
 
-  public shared ({caller}) func mintNftCollection(project: Principal, qty: Nat): async Result<[Nat], Text>{
-    if(Principal.isAnonymous(caller)) return #err("Sign in");
-    if(qty > 10) return #err("The maximum amount per mining operation is 10 NFT"); //remove the 10 and put a variable 
-    
-    let remoteCollection = actor (Principal.toText(project)) : actor { mint : shared (Principal, Nat) -> async [Nat]; };
+  public shared ({ caller }) func mintNftCollection(project : Principal, qty : Nat) : async Result<[Nat], Text> {
+    if (Principal.isAnonymous(caller)) return #err("Sign in");
+    if (qty > 10) return #err("The maximum amount per mining operation is 10 NFT"); //remove the 10 and put a variable
+
+    let remoteCollection = actor (Principal.toText(project)) : actor {
+      mint : shared (Principal, Nat) -> async [Nat];
+    };
     let remoteProfiles = actor (Principal.toText(profilesCanisterId)) : actor {
       getTokenIdForUser : shared (Principal) -> async ?TypesSoulbound.TokenId;
-      mint : shared (Principal, TypesSoulbound.Metadata) -> async Result<Nat, Text>; 
-      addPower : shared (TypesSoulbound.TokenId,Nat) -> ()
+      mint : shared (Principal, TypesSoulbound.Metadata) -> async Result<Nat, Text>;
+      addPower : shared (TypesSoulbound.TokenId, Nat) -> ();
     };
-    let mintedNft = await remoteCollection.mint(caller, qty); 
+    let mintedNft = await remoteCollection.mint(caller, qty);
     let user = await remoteProfiles.getTokenIdForUser(caller);
-    switch(user){
-      case (null) {ignore await remoteProfiles.mint(caller, {name = null; image = null; power = qty})};
-      case (?user) {remoteProfiles.addPower(user, qty)};
+    switch (user) {
+      case (null) {
+        ignore await remoteProfiles.mint(caller, { name = null; image = null; power = qty });
+      };
+      case (?user) { remoteProfiles.addPower(user, qty) };
     };
     return #ok(mintedNft);
 

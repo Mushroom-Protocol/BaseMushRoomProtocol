@@ -28,7 +28,7 @@ const client = createClient({
    },*/
     providers: [
       new InternetIdentity({ 
-        providerUrl: "http://127.0.0.1:4943/?canisterId=br5f7-7uaaa-aaaaa-qaaca-cai"
+        providerUrl: "http://127.0.0.1:4943/?canisterId=b77ix-eeaaa-aaaaa-qaada-cai"
         //providerUrl: "https://identity.ic0.app/"
       })
     ],
@@ -41,12 +41,12 @@ const client = createClient({
     },
   })  
 
-  const estadoContext = useContext(EstadoContext);
-  if (!estadoContext) {
-    throw new Error('El componente debe estar dentro de un estadoContext');
-  }
+  // const estadoContext = useContext(EstadoContext);
+  // if (!estadoContext) {
+  //   throw new Error('El componente debe estar dentro de un estadoContext');
+  // }
   
-  const { estado, setEstado } = estadoContext;
+  // const { estado, setEstado } = estadoContext;
   
 function App() {
   //const [estado, setEstado] = useState('');

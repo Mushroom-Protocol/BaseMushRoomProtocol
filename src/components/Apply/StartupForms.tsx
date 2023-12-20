@@ -23,6 +23,8 @@ import { BsFillRocketTakeoffFill } from "react-icons/bs";
 import { IoInformationCircleOutline } from "react-icons/io5";
 import { backend } from "../../declarations/backend";
 
+
+
 const StartupForms = () => {
   const { isOpen, onToggle } = useDisclosure();
   const toast = useToast();
