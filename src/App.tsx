@@ -23,12 +23,12 @@ import { Alert,AlertIcon } from '@chakra-ui/react';
 import { EstadoProvider, EstadoContext } from './components/utils/estadoContex';
 
 const client = createClient({
-  /*  canisters: {
+ /*   canisters: {
       backend,
    },*/
     providers: [
       new InternetIdentity({ 
-        providerUrl: "http://127.0.0.1:4943/?canisterId=b77ix-eeaaa-aaaaa-qaada-cai"
+        providerUrl: "http://127.0.0.1:4943/?canisterId=br5f7-7uaaa-aaaaa-qaaca-cai"
         //providerUrl: "https://identity.ic0.app/"
       })
     ],

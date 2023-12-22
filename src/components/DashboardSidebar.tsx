@@ -22,6 +22,11 @@ import {
   MenuList,
 } from '@chakra-ui/react';
 import { FiHome, FiTrendingUp, FiCompass, FiStar, FiSettings, FiMenu, FiBell, FiChevronDown } from 'react-icons/fi';
+import { BsCollection } from "react-icons/bs";
+import { BsFillRocketTakeoffFill } from "react-icons/bs";
+import { MdOutlineHowToVote } from "react-icons/md";
+import { GiMicroscope } from "react-icons/gi";
+import { RiAdminFill } from "react-icons/ri";
 import { IconType } from 'react-icons';
 import { ReactText } from 'react';
 import LogoNegro from "../assets/LogoNegro.png"
@@ -34,10 +39,11 @@ interface LinkItemProps {
 
 const LinkItems: Array<LinkItemProps> = [
   { name: 'Dashboard', icon: FiHome },
-  { name: 'Portfolio', icon: FiTrendingUp },
-  { name: 'Launchpad', icon: FiCompass },
-  { name: 'FungiDAO', icon: FiStar },
-  { name: 'For Researcher', icon: FiStar },
+  { name: 'Portfolio', icon: BsCollection},
+  { name: 'Launchpad', icon: BsFillRocketTakeoffFill },
+  { name: 'FungiDAO', icon: MdOutlineHowToVote },
+  { name: 'For Researcher', icon: GiMicroscope },
+  { name: 'Admin', icon: RiAdminFill },
   { name: 'Settings', icon: FiSettings },
 ];
 
@@ -45,7 +51,7 @@ export default function DashboardSidebar({ children }: { children: ReactNode }) 
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   return (
-    <Box minH="150vh" bg="#000000">
+    <Box minH="100vh" bg="#000000">
       <SidebarContent onClose={onClose} display={{ base: 'none', md: 'block' }} />
       <Drawer
         autoFocus={false}
@@ -86,7 +92,7 @@ const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
       h="full"
       {...rest}
     >
-      <Flex h="24" alignItems="center" mx="8" justifyContent="space-between">
+      <Flex h="20" alignItems="center" mx="10" justifyContent="space-between">
         <Image
             src={LogoNegro}
             alt="Profile"
@@ -184,7 +190,7 @@ const MobileNav = ({ onOpen, ...rest }: MobileProps) => {
               _focus={{ boxShadow: 'none' }}>
               <HStack>
                 <Avatar
-                  size={'lg'}
+                  size={'md'}
                   src={NatheraTeamAA}
                 />
                 <VStack
@@ -192,9 +198,9 @@ const MobileNav = ({ onOpen, ...rest }: MobileProps) => {
                   alignItems="flex-start"
                   spacing="1px"
                   ml="2">
-                  <Text fontSize="lg">Justina Clark</Text>
-                  <Text fontSize="md" color="gray.600">
-                    Admin
+                  <Text fontSize="md">Justina Clark</Text>
+                  <Text fontSize="sm" color="gray.600">
+                    Team Leader
                   </Text>
                 </VStack>
                 <Box display={{ base: 'none', md: 'flex' }}>
@@ -203,13 +209,14 @@ const MobileNav = ({ onOpen, ...rest }: MobileProps) => {
               </HStack>
             </MenuButton>
             <MenuList
-              bg={useColorModeValue('white', 'gray.900')}
-              borderColor={useColorModeValue('gray.200', 'gray.700')}>
+              bg="#000000"
+              borderColor="#000000"
+              textColor="#FFFFFF">
               <MenuItem>Profile</MenuItem>
+              <MenuItem>Badges</MenuItem>
               <MenuItem>Settings</MenuItem>
-              <MenuItem>Billing</MenuItem>
               <MenuDivider />
-              <MenuItem>Sign out</MenuItem>
+              <MenuItem>Disconnect</MenuItem>
             </MenuList>
           </Menu>
         </Flex>
