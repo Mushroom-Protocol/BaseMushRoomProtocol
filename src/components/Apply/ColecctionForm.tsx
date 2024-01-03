@@ -1,33 +1,155 @@
-import React from 'react';
+import React, { useState } from "react";
 import {
   Box,
   Center,
   Flex,
   Button,
-  Tooltip,
   Text,
   Heading,
   Icon,
-  Fade,
   useDisclosure,
   FormControl,
+  CheckboxGroup,
   FormLabel,
   Collapse,
   Input,
   Select,
-  Textarea,
   FormHelperText,
+  Checkbox,
+  Textarea,
+  InputGroup,
+  InputRightElement,
+  Tooltip,
+  useToast,
 } from '@chakra-ui/react';
 import { AiFillPicture } from "react-icons/ai";
 import { IoInformationCircleOutline } from "react-icons/io5";
+import { backend } from "../../declarations/backend";
 
 
 const ColecctionForm = () => {
   const { isOpen, onToggle } = useDisclosure();
+  const toast = useToast();
+ 
+  interface FormData {
+    collectionName: string;
+    shortStorytelling: string;
+    storytellingCollection: string;
+    totalSupply: string;
+    distribution: string;
+    utilities: string[];
+    tokenPrices: string;
+    documents: string;
+    typesImages: string;
+    nftImages: string;
+    creator: string;
+    collectionStatus: string;
+  }
+  
+  const initialFormData: FormData = {
+    collectionName: "",
+    shortStorytelling: "",
+    storytellingCollection: "",
+    totalSupply: "",
+    distribution: "",
+    utilities: [],
+    tokenPrices: "",
+    documents: "",
+    typesImages: "",
+    nftImages: "",
+    creator: "",
+    collectionStatus: "",
+  };
+  
+  const [formData, setFormData] = useState<FormData>(initialFormData);
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+
+
+  /*const [formData, setFormData] = useState({
+    collectionName: "",
+    shortStorytelling: "",
+    storytellingCollection: "",
+    totalSupply: "",
+    distribution: "",
+    utilities: [], // 
+    tokenPrices: "",
+    documents: "",
+    typesImages: "",
+    nftImages: "",
+    creator: "",
+    collectionStatus: "",
+  });*/
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
+
+    const handleCheckboxChange = (checkedValues: string[]) => {
+    setFormData({
+      ...formData,
+      utilities: checkedValues,
+    });
+  };
+
+ 
+
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    // Aquí puedes agregar la lógica para manejar la presentación del formulario
+  
+    let loadingToastId: string | number | undefined;
+  
+    try {
+      // Muestra un toast de carga con formato sólido y color azul
+      loadingToastId = toast({
+        title: 'Submitting Form',
+        status: 'loading', // 'loading' es el status para el estilo de carga
+        duration: null,
+        isClosable: false,
+        variant: 'solid',
+      });
+  
+  
+      ///////////// CORREGIR LLAMADO AL BACKEND FUNCION DE REGISTRO PROYECTO /////////////////////////
+      //const response = await backend.signUpStartup(formData);
+  
+      // Cierra el toast de carga cuando la acción se completa
+      if (loadingToastId !== undefined) {
+        toast.close(loadingToastId);
+      }
+  
+      // Muestra un toast de éxito con formato sólido y color verde
+      toast({
+        title: 'Successful Submission',
+        description: 'Your form was submitted successfully.',
+        status: 'success', // 'success' es el status para el estilo de éxito
+        duration: 5000,
+        isClosable: true,
+        variant: 'solid',
+      });
+  
+    /////////////  console.log(response); // ACTIVA TOAST DE MENSAJE DE SUBMIT ////////////////////////
+    } catch (error) {
+      // Cierra el toast de carga cuando la acción falla
+      if (loadingToastId !== undefined) {
+        toast.close(loadingToastId);
+      }
+  
+      // Muestra un toast de error con formato sólido y color rojo
+      toast({
+        title: 'Submission Error',
+        description: 'There was an error submitting the form. Please try again.',
+        status: 'error', // 'error' es el status para el estilo de error
+        duration: 5000,
+        isClosable: true,
+        variant: 'solid',
+      });
+  
+      console.error(error);
+    }
   };
 
   return (
@@ -75,116 +197,80 @@ const ColecctionForm = () => {
 
           >
             <Heading>Collection Register Form</Heading>
+            <Text>*Enlists a collection of IP-NFTs and accesses fundraising in a decentralized fashion.</Text>
             <br />
             <form onSubmit={handleSubmit}>
-              <FormControl isRequired>
-                <FormLabel>Start-Up Name</FormLabel>
-                <Input placeholder="Fantasy Name" />
-              </FormControl>
+            <FormControl isRequired>
+                  <FormLabel>Collection Name</FormLabel>
+                  <Input id="collectionName" name="collectionName" value={formData.collectionName} onChange={handleChange} placeholder="Collection fantasy name" />
+                </FormControl>
 
-              <FormControl isRequired mt={4}>
-                <FormLabel>Company Email</FormLabel>
-                <Input type="email" placeholder="Email" />
-              </FormControl>
+                <FormControl isRequired mt={4}>
+                  <FormLabel>Short Storytelling</FormLabel>
+                  <Input id="shortStorytelling " name="shortStorytelling " value={formData.shortStorytelling } onChange={handleChange} placeholder="Short Storytelling Description" />
+                </FormControl>
 
-              <FormControl mt={4}>
-                <FormLabel>Website or Social Media Profile</FormLabel>
-                <Input placeholder="Website/Profile URL" />
-              </FormControl>
+                <FormControl isRequired mt={4}>
+                  <FormLabel>Storytelling Collection</FormLabel>
+                  <Input id="storytellingCollection" name="storytellingCollection" value={formData.storytellingCollection} onChange={handleChange} placeholder="Detailed Story Collection" />
+                </FormControl>
 
-              <FormControl isRequired mt={4}>
-                <FormLabel>Short Description</FormLabel>
-                <Textarea placeholder="Describe what your startup does in one sentence" />
-              </FormControl>
+                <FormControl isRequired mt={4}>
+                  <FormLabel>Total Supply</FormLabel>
+                  <Input id="totalSupply" name="totalSupply" value={formData.totalSupply} onChange={handleChange} placeholder="Tokenomics: Total number of tokens issued" />
+                </FormControl>
 
-              <FormControl isRequired mt={4}>
-                <FormLabel>Startup Slogan</FormLabel>
-                <Input placeholder="Short Slogan" />
-              </FormControl>
+                <FormControl isRequired mt={4}>
+                  <FormLabel>Distribution</FormLabel>
+                  <Input id="distribution" name="distribution" value={formData.distribution} onChange={handleChange} placeholder="Tokenomics: Percentage or amount of tokens assigned to each item" />
+                </FormControl>
 
-              <FormControl isRequired mt={4}>
-                <FormLabel>Startup Status</FormLabel>
-                <Select placeholder="Select status">
-                  <option>Early Start-Up</option>
-                  <option>Pre-seed</option>
-                  <option>Seed</option>
-                </Select>
-              </FormControl>
-              {/* Campo para Madurez tecnológica */}
-              <FormControl isRequired mt={4}>
-                <FormLabel>Technology Readiness Level (TRL)</FormLabel>
-                <Select placeholder="Select TRL">
-                  <option>TRL-1: Basic principles</option>
-                  <option>TRL-2: Technology concept formulated</option>
-                  <option>TRL-3: Experimental proof of concept</option>
-                  <option>TRL-4: Technology validated in lab</option>
-                  <option>TRL-5: Technology validated in relevant environment</option>
-                  <option>TRL-6 or higher</option>
-                </Select>
-                <FormHelperText>
-                  Please describe the TRL level for your technology.
-                </FormHelperText>
-              </FormControl>
+                <FormControl isRequired mt={4}>
+                <FormLabel>Utilities</FormLabel>
+                  <CheckboxGroup
+                    colorScheme="teal" // ajusta según tus preferencias
+                    value={formData.utilities}
+                    onChange={handleCheckboxChange}
+                  >
+                    <Checkbox value="Governance">Governance</Checkbox>
+                    <br />
+                    <Checkbox value="IPNFT">IP-NFT</Checkbox>
+                    <br />
+                    <Checkbox value="Membership">Membership</Checkbox>
+                    <br />
+                    <Checkbox value="DeFiServices">DeFi Services</Checkbox>
+                    {/* Agrega más opciones según sea necesario */}
+                  </CheckboxGroup>
+                </FormControl>
 
-              {/* Campo para Nombre del representante o team leader */}
-              <FormControl isRequired mt={4}>
-                <FormLabel>Full Name of Legal Representative / Team Leader</FormLabel>
-                <Input placeholder="Full Name" />
-              </FormControl>
+                {/* Campo para Nombre del representante o team leader */}
+                <FormControl isRequired mt={4}>
+                  <FormLabel>Token Prices</FormLabel>
+                  <Input id="tokenPrices" name="tokenPrices" value={formData.tokenPrices} onChange={handleChange} placeholder="Amount in $USD" />
+                </FormControl>
 
-              {/* Campo para Detalles del representante o team leader */}
-              <FormControl mt={4}>
-                <FormLabel>Specialization Legal Representative / Team Leader</FormLabel>
-                <Input placeholder="Specialization" />
-              </FormControl>
+                {/* Campo para Detalles del representante o team leader */}
+                <FormControl isRequired mt={4}>
+                  <FormLabel>Documents to be tokenized</FormLabel>
+                  <Input id="documents" name="documents" value={formData.documents} onChange={handleChange} type="file" placeholder="Upload documents" />
+                </FormControl>
 
-              {/* Campo para Perfil de Linkedin o similar */}
-              <FormControl isRequired mt={4}>
-                <FormLabel>LinkedIn Profile of Legal Representative / Team Leader</FormLabel>
-                <Input placeholder="LinkedIn Profile URL" />
-              </FormControl>
+                {/* Campo para Perfil de Linkedin o similar */}
+                <FormControl isRequired mt={4}>
+                  <FormLabel>Type of images</FormLabel>
+                  <Input id="typesImages" name="typesImages" value={formData.typesImages} onChange={handleChange} placeholder="Full images o Generated programmatically" />
+                </FormControl>
 
-              {/* Campo para Industria / sector productivo */}
-              <FormControl isRequired mt={4}>
-                <FormLabel>Industry / Productive Sector</FormLabel>
-                <Select placeholder="Select Industry">
-                  <option>HealthTech</option>
-                  <option>Agro-FoodTech</option>
-                  <option>GreenTech</option>
-                  <option>SyntheticTech</option>
-                  <option>MiningTech</option>
-                </Select>
-              </FormControl>
+                <FormControl isRequired mt={4}>
+                  <FormLabel>Upload images</FormLabel>
+                  <Input id="nftImages" name="nftImages" value={formData.nftImages} onChange={handleChange} type="file" placeholder="Load full images or attributes." />
+                </FormControl>
 
-              {/* Campo para País de origen */}
-              <FormControl isRequired mt={4}>
-                <FormLabel>Country of Origin</FormLabel>
-                <Select placeholder="Select Country">
-                <option>Argentina</option>
-                <option>Brazil</option>
-                <option>Mexico</option>
-                <option>Colombia</option>
-                <option>Peru</option>
-                <option>Venezuela</option>
-                <option>Chile</option>
-                <option>Ecuador</option>
-                <option>Guatemala</option>
-                <option>Cuba</option>
-                <option>Bolivia</option>
-                <option>Dominican Republic</option>
-                <option>Honduras</option>
-                <option>Paraguay</option>
-                <option>El Salvador</option>
-                <option>Nicaragua</option>
-                <option>Costa Rica</option>
-                <option>Puerto Rico</option>
-                <option>Uruguay</option>
-                <option>Panama</option>
-                <option>Jamaica</option>
-                <option>Trinidad and Tobago</option>
-                </Select>
-              </FormControl>
-
+                <FormControl isRequired mt={4}>
+                  <FormLabel>Creator</FormLabel>
+                  <Input id="creator" name="creator" value={formData.creator} onChange={handleChange} placeholder="Name, nickname or entity of the creator of the collection." />
+                </FormControl>
+                
               <Button type="submit" mt={4} colorScheme="teal">
                 Submit
               </Button>

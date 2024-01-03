@@ -1,4 +1,5 @@
-import React, { ReactNode } from 'react';
+import React, { ReactNode, useState } from 'react';
+import { Link as RouterLink, useNavigate } from 'react-router-dom';
 import {
   Avatar,
   Box,
@@ -8,7 +9,7 @@ import {
   Flex,
   Text,
   IconButton,
-  Link,
+  Link as ChakraLink,
   Drawer,
   DrawerContent,
   VStack,
@@ -22,48 +23,57 @@ import {
   MenuList,
 } from '@chakra-ui/react';
 import { FiHome, FiTrendingUp, FiCompass, FiStar, FiSettings, FiMenu, FiBell, FiChevronDown } from 'react-icons/fi';
+import { BsCollection } from 'react-icons/bs';
+import { BsFillRocketTakeoffFill } from 'react-icons/bs';
+import { MdOutlineHowToVote } from 'react-icons/md';
+import { GiMicroscope } from 'react-icons/gi';
+import { RiAdminFill } from 'react-icons/ri';
 import { IconType } from 'react-icons';
 import { ReactText } from 'react';
-import LogoNegro from "../assets/LogoNegro.png"
-import NatheraTeamAA from "../assets/NatheraTeamAA.jpg"
+import LogoNegro from '../assets/LogoNegro.png';
+import NatheraTeamAA from '../assets/NatheraTeamAA.jpg';
+import AdminPage from '../pages/AdminPage';
 
 interface LinkItemProps {
   name: string;
   icon: IconType;
+  to?: string;
 }
 
 const LinkItems: Array<LinkItemProps> = [
-  { name: 'Dashboard', icon: FiHome },
-  { name: 'Portfolio', icon: FiTrendingUp },
-  { name: 'Launchpad', icon: FiCompass },
-  { name: 'FungiDAO', icon: FiStar },
-  { name: 'For Researcher', icon: FiStar },
-  { name: 'Settings', icon: FiSettings },
+  { name: 'Dashboard', icon: FiHome, to: '/Dashboard' },
+  { name: 'Portfolio', icon: BsCollection, to: '/Portfolio' },
+  { name: 'Launchpad', icon: BsFillRocketTakeoffFill, to: '/Launchpad' },
+  { name: 'FungiDAO', icon: MdOutlineHowToVote, to: '/FungiDAO' },
+  { name: 'For Researcher', icon: GiMicroscope, to: '/ForResearcher' },
+  { name: 'Admin', icon: RiAdminFill, to: '/Dashboard/Admin' },
 ];
 
 export default function DashboardSidebar({ children }: { children: ReactNode }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const [selectedPage, setSelectedPage] = useState<string | null>(null);
+ 
+  const handleItemClick = (to?: string) => {
+    if (to) {
+      setSelectedPage(to);
+      onClose();
+    }
+  };
 
   return (
-    <Box minH="150vh" bg="#000000">
-      <SidebarContent onClose={onClose} display={{ base: 'none', md: 'block' }} />
-      <Drawer
-        autoFocus={false}
-        isOpen={isOpen}
-        placement="left"
-        onClose={onClose}
-        returnFocusOnClose={false}
-        onOverlayClick={onClose}
-        size="full"
-      >
+    <Box minH="100vh" bg="#000000">
+      <SidebarContent onClose={onClose} display={{ base: 'none', md: 'block' }} handleItemClick={handleItemClick} />
+      <Drawer autoFocus={false} isOpen={isOpen} placement="left" onClose={onClose} returnFocusOnClose={false} onOverlayClick={onClose} size="full">
         <DrawerContent>
-          <SidebarContent onClose={onClose} />
+          <SidebarContent onClose={onClose} handleItemClick={handleItemClick} />
         </DrawerContent>
       </Drawer>
       {/* mobilenav */}
-      <MobileNav onOpen={onOpen} />
+      <MobileNav onOpen={onOpen} handleItemClick={handleItemClick} />
       <Box ml={{ base: 0, md: 60 }} p="4">
         {children}
+        {/* Mostrar el contenido de AdminPage dentro del sidebar si está seleccionado */}
+        {selectedPage === '/Dashboard/Admin' && <AdminPage />}
       </Box>
     </Box>
   );
@@ -72,9 +82,10 @@ export default function DashboardSidebar({ children }: { children: ReactNode }) 
 interface SidebarProps {
   onClose: () => void;
   display?: { base: string; md: string };
+  handleItemClick: (to?: string) => void;
 }
 
-const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
+const SidebarContent = ({ onClose, handleItemClick, ...rest }: SidebarProps) => {
   return (
     <Box
       transition="3s ease"
@@ -86,16 +97,12 @@ const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
       h="full"
       {...rest}
     >
-      <Flex h="24" alignItems="center" mx="8" justifyContent="space-between">
-        <Image
-            src={LogoNegro}
-            alt="Profile"
-
-            />
+      <Flex h="20" alignItems="center" mx="10" justifyContent="space-between">
+        <Image src={LogoNegro} alt="Profile" />
         <CloseButton display={{ base: 'flex', md: 'none' }} onClick={onClose} />
       </Flex>
       {LinkItems.map((link) => (
-        <NavItem key={link.name} icon={link.icon}>
+        <NavItem key={link.name} icon={link.icon} to={link.to} onClick={() => handleItemClick(link.to)}>
           {link.name}
         </NavItem>
       ))}
@@ -106,18 +113,22 @@ const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
 interface NavItemProps {
   icon: IconType;
   children: ReactText;
+  to?: string;
+  onClick?: () => void;
 }
 
-const NavItem = ({ icon, children, ...rest }: NavItemProps) => {
+const NavItem = ({ icon, children, to, onClick, ...rest }: NavItemProps) => {
   return (
-    <Link href="#" style={{ textDecoration: 'none' }} _focus={{ boxShadow: 'none' }}>
+    <ChakraLink as={RouterLink} to={to} style={{ textDecoration: 'none' }} _focus={{ boxShadow: 'none' }}>
       <Flex
         align="center"
+        marginTop="4"
         p="4"
         mx="8"
         borderRadius="lg"
         role="group"
         cursor="pointer"
+        onClick={onClick}
         _hover={{
           bg: '#1FAFC8',
           color: '#000000',
@@ -136,15 +147,16 @@ const NavItem = ({ icon, children, ...rest }: NavItemProps) => {
         )}
         {children}
       </Flex>
-    </Link>
+    </ChakraLink>
   );
 };
 
 interface MobileProps {
   onOpen: () => void;
+  handleItemClick: (to?: string) => void;
 }
 
-const MobileNav = ({ onOpen, ...rest }: MobileProps) => {
+const MobileNav = ({ onOpen, handleItemClick, ...rest }: MobileProps) => {
   return (
     <Flex
       ml={{ base: 0, md: 60 }}
@@ -165,36 +177,21 @@ const MobileNav = ({ onOpen, ...rest }: MobileProps) => {
         icon={<FiMenu />}
       />
 
-      <Text
-        display={{ base: 'flex', md: 'none' }}
-        fontSize="2xl"
-        fontFamily="monospace"
-        fontWeight="bold"
-      >
+      <Text display={{ base: 'flex', md: 'none' }} fontSize="2xl" fontFamily="monospace" fontWeight="bold">
         Logo
       </Text>
 
       <HStack spacing={{ base: '0', md: '6' }}>
         <IconButton size="lg" variant="ghost" aria-label="open menu" icon={<FiBell />} />
         <Flex alignItems={'center'}>
-        <Menu>
-            <MenuButton
-              py={2}
-              transition="all 0.3s"
-              _focus={{ boxShadow: 'none' }}>
+          <Menu>
+            <MenuButton py={2} transition="all 0.3s" _focus={{ boxShadow: 'none' }}>
               <HStack>
-                <Avatar
-                  size={'lg'}
-                  src={NatheraTeamAA}
-                />
-                <VStack
-                  display={{ base: 'none', md: 'flex' }}
-                  alignItems="flex-start"
-                  spacing="1px"
-                  ml="2">
-                  <Text fontSize="lg">Justina Clark</Text>
-                  <Text fontSize="md" color="gray.600">
-                    Admin
+                <Avatar size={'md'} src={NatheraTeamAA} />
+                <VStack display={{ base: 'none', md: 'flex' }} alignItems="flex-start" spacing="1px" ml="2">
+                  <Text fontSize="md">Justina Clark</Text>
+                  <Text fontSize="sm" color="gray.600">
+                    Team Leader
                   </Text>
                 </VStack>
                 <Box display={{ base: 'none', md: 'flex' }}>
@@ -202,14 +199,12 @@ const MobileNav = ({ onOpen, ...rest }: MobileProps) => {
                 </Box>
               </HStack>
             </MenuButton>
-            <MenuList
-              bg={useColorModeValue('white', 'gray.900')}
-              borderColor={useColorModeValue('gray.200', 'gray.700')}>
-              <MenuItem>Profile</MenuItem>
-              <MenuItem>Settings</MenuItem>
-              <MenuItem>Billing</MenuItem>
+            <MenuList bg="#000000" borderColor="#000000" textColor="#FFFFFF">
+              <MenuItem onClick={() => handleItemClick('/Dashboard')}>Dashboard</MenuItem>
+              <MenuItem onClick={() => handleItemClick('/Portfolio')}>Portfolio</MenuItem>
+              <MenuItem onClick={() => handleItemClick('/Edit')}>Edit</MenuItem>
               <MenuDivider />
-              <MenuItem>Sign out</MenuItem>
+              <MenuItem onClick={() => handleItemClick('/Disconnect')}>Disconnect</MenuItem>
             </MenuList>
           </Menu>
         </Flex>

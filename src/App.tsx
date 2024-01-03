@@ -23,7 +23,7 @@ import { Alert,AlertIcon } from '@chakra-ui/react';
 import { EstadoProvider, EstadoContext } from './components/utils/estadoContex';
 
 const client = createClient({
-  /*  canisters: {
+ /*   canisters: {
       backend,
    },*/
     providers: [
@@ -42,17 +42,25 @@ const client = createClient({
   })  
 
 
+  
 function App() {
+  /*const estadoContext = useContext(EstadoContext);
+  if (!estadoContext) {
+    throw new Error('El componente debe estar dentro de un estadoContext');
+  }
+  
+  const { estado, setEstado } = estadoContext;*/
   //const [estado, setEstado] = useState('');
   //  const [loading, setLoading] = useState(false);
   // @connect2ic
 const { isConnected, principal, activeProvider } = useConnect({
   onConnect: () => {
     // Signed in
-
+   // alert(principal);
   },
   onDisconnect: () => {
     // Signed out
+    
   }
 });
   // @connect2ic
@@ -67,10 +75,11 @@ const { isConnected, principal, activeProvider } = useConnect({
   
 
   return ( 
-    <>
-    
+    <>    
     <EstadoProvider>
-    <RouterProvider router={router}/>    
+    <ConnectDialog dark={true}/>
+        <h1 className="h1 text-center border-b border-gray-500 pb-2">Hi {principal ? principal : ", connect with Internet Identity to continue"}!</h1>  
+    <RouterProvider router={router}/>
      </EstadoProvider>
      </>
   )  
