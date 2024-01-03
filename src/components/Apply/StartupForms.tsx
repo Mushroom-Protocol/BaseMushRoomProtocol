@@ -21,7 +21,32 @@ import {
 import { Tooltip } from '@chakra-ui/react';
 import { BsFillRocketTakeoffFill } from "react-icons/bs";
 import { IoInformationCircleOutline } from "react-icons/io5";
-import { backend } from "../../declarations/backend";
+import { backend} from "../../declarations/backend";
+// import {Industry} from "../../declarations/backend";
+
+
+//--------------------- funciones para codificar y decodificar imagenes entre base64 y Blob -----------------
+function base64ToBlob(dataUrl: String) {
+  var base64Content = dataUrl.split(',')[1];  // Extraer el contenido codificado en base64 de la URL de datos
+  var byteCharacters = atob(base64Content);   // Convertir el contenido base64 a un array de bytes (Uint8Array)
+  var byteArray = new Uint8Array(byteCharacters.length);
+  for (var i = 0; i < byteCharacters.length; i++) {
+      byteArray[i] = byteCharacters.charCodeAt(i);
+  }
+  return byteArray;
+};
+
+function blobToBase64(buffer: Uint8Array) {
+  var binary = '';
+  var bytes = new Uint8Array(buffer);
+  var len = bytes.byteLength;
+  for (var i = 0; i < len; i++) {
+      binary += String.fromCharCode(bytes[i]);
+  }
+  return btoa(binary);
+};
+// -----------------------------------------------------------------------------------------------------------
+
 
 const StartupForms = () => {
   const { isOpen, onToggle } = useDisclosure();
@@ -33,13 +58,13 @@ const StartupForms = () => {
     website: "",
     startUpSlogan: "",
     shortDes: "",
-    logo: "", // Asegúrate de proporcionar un array válido aquí
+    logo:  [] || [Uint8Array], // Asegúrate de proporcionar un array válido aquí
     status: "",
     tlr: "",
     fullNameTl: "",
     specializationTL: "",
     linkedinTL: "",
-    industry: "",
+    industry: { 'MiningTech' : null },
     country: "",
   });
 
@@ -79,11 +104,25 @@ const StartupForms = () => {
         ...formData,
         website: formData.website || "",
         startUpSlogan: formData.startUpSlogan || "", // Asigna un valor por defecto en caso de que sea null
-        logo: formData.logo || "",
+        logo: formData.logo || [],
       };
   
       // Intenta realizar la acción de envío
-      const response = await backend.signUpStartup(formDataToSend);
+      const response = await backend.signUpStartup(
+            {startUpName : "",
+            email : "",
+            website : "",
+            startUpSlogan : "",
+            shortDes : "",
+            logo :  [[1,2,34,5]],
+            status : "",
+            tlr : "",
+            fullNameTl : "",
+            specializationTL : "",
+            linkedinTL : "",
+            industry :{ 'MiningTech' : null },
+            country : "" } 
+      );
   
       // Cierra el toast de carga cuando la acción se completa
       if (loadingToastId !== undefined) {
@@ -254,7 +293,7 @@ const StartupForms = () => {
                 {/* Campo para Industria / sector productivo */}
                 <FormControl isRequired mt={4}>
                   <FormLabel>Industry / Productive Sector</FormLabel>
-                  <Select id="industry" name="industry" value={formData.industry} onChange={handleSelectChange} placeholder="Select Industry">
+                  <Select id="industry" name="industry" onChange={handleSelectChange} placeholder="Select Industry">
                     <option value="HealthTech" selected>HealthTech</option>
                     <option value="Agri-FoodTech">Agri-foodTech</option>
                     <option value="GreenTech">GreenTech</option>

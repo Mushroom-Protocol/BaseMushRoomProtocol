@@ -59,9 +59,9 @@ module{
         website: Text;
         startUpSlogan: Text;
         shortDes: Text;
-        logo: Text;
-        status: Text;
-        tlr: Text;
+        logo: Blob;
+        startupStatus: Text;
+        tlr: Nat;
         fullNameTl: Text;
         specializationTL: Text;
         linkedinTL: Text;
@@ -97,8 +97,24 @@ module{
     //     email: Text;         //Verificación requerida
     // };
     public type Project = {
+            startupID: Nat;
+            projectTitle: Text;
+            problemSolving: Text;
+            yoursolution: Text;
+            impact: Text;
+            productStatus: Text;
+            fundsRequired: Nat;
+            projectDuration: Nat; //Número de meses
+            implementation: Text;
+            milestones: [Text];
+            budget: [Text];
+            team: [Text]; //Miembros del equipo
+
+        /*
+        projectID: Nat;
+
         owner: Principal;
-        startup: Nat;           //ID de startup
+        startupID: Nat;           //ID de startup
         title: Text;
         area: Text;             //Posible uso de enumeraciones
         description: Text;
@@ -107,6 +123,7 @@ module{
         status: ProjectStatus;
         assessment: ?Nat;        //valoración del monto de financiamiento en caso de estar aprovado el proyecto
         //Otros campos
+        */
     };
 
     public type UserType = {
