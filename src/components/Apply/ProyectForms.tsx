@@ -183,7 +183,7 @@ const ProyectForms = () => {
                 </FormControl>
 
                 <FormControl isRequired mt={4}>
-                  <FormLabel>Product Statu</FormLabel>
+                  <FormLabel>Product Status</FormLabel>
                   <Select id="productStatus" name="productStatus" value={formData.productStatus} onChange={handleSelectChange} placeholder="Select Status">
                     <option value="ResearchPhase" selected>Research Phase</option>
                     <option value="ProductPrototype">Product Prototype</option>
@@ -208,17 +208,24 @@ const ProyectForms = () => {
                 {/* Campo para Perfil de Linkedin o similar */}
                 <FormControl isRequired mt={4}>
                   <FormLabel>Implementation Plan</FormLabel>
-                  <Input id="implementation" name="implementation" value={formData.implementation} onChange={handleChange} placeholder="Objectives to be met during the stages of the project" />
+                  <Input id="implementation" name="implementation" value={formData.implementation} onChange={handleChange} placeholder="Objectives to be achieved during the project" />
+                </FormControl>
+
+                <FormControl isRequired mt={4}>
+                  <FormLabel>Milestones</FormLabel>
+                  <Input id="milestones" name="milestones" value={formData.milestones} onChange={handleChange} placeholder="2-3 milestones indicating the expected value and date.
+
+" />
                 </FormControl>
 
                 <FormControl isRequired mt={4}>
                   <FormLabel>Budget</FormLabel>
-                  <Input id="budget" name="budget" value={formData.budget} onChange={handleChange} placeholder="Allocate percentage of resources to: Research, Technology, Product, Marketing, Administration and IP." />
+                  <Input id="budget" name="budget" value={formData.budget} onChange={handleChange} placeholder="Allocate percentage of resources." />
                 </FormControl>
 
                 <FormControl isRequired mt={4}>
                   <FormLabel>Team</FormLabel>
-                  <Input id="team" name="team" value={formData.team} onChange={handleChange} placeholder="List all team members, their positions, specialty and LinkedIn profile if applicable." />
+                  <Input id="team" name="team" value={formData.team} onChange={handleChange} placeholder="List all team members, positions, specialty and LinkedIn." />
                 </FormControl>
               <Button type="submit" mt={4} colorScheme="teal">
                 Submit

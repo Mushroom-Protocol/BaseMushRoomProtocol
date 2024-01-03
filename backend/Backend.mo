@@ -262,7 +262,7 @@ actor Mushroom {
   };
 
   public shared ({ caller }) func getIncomingStartup() : async [(Principal, IncommingStartUp)] /*ver typo de retorno*/ {
-    assert Principal.isController(caller);
+  assert Principal.isController(caller);
     incomingStartup;
   };
   public query func getStartups() : async [ApprovedStartUp] { approvedStartUp };
