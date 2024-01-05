@@ -61,12 +61,12 @@ const StartupForms = () => {
     startUpSlogan: "",
     shortDes: "",
     logo:  [] || [Uint8Array], // Asegúrate de proporcionar un array válido aquí
-    status: "",
+    startupStatus: "",
     tlr: "",
     fullNameTl: "",
     specializationTL: "",
     linkedinTL: "",
-    industry: { 'MiningTech' : null },
+    industry: 'MiningTech',
     country: "",
   });
 
@@ -107,24 +107,25 @@ const StartupForms = () => {
         website: formData.website || "",
         startUpSlogan: formData.startUpSlogan || "", // Asigna un valor por defecto en caso de que sea null
         logo: formData.logo || [],
+        tlr: BigInt(formData.tlr),
       };
   
       // Intenta realizar la acción de envío
-      const response = await backend.signUpStartup(
-            {startUpName : "",
+      const response = await backend.signUpStartup(formDataToSend);
+           /* {startUpName : "",
             email : "",
             website : "",
             startUpSlogan : "",
             shortDes : "",
-            logo :  [[1,2,34,5]],
-            status : "",
-            tlr : "",
+            logo :  [1],
+            startupStatus : "",
+            tlr : BigInt("1"),
             fullNameTl : "",
             specializationTL : "",
             linkedinTL : "",
-            industry :{ 'MiningTech' : null },
-            country : "" } 
-      );
+            industry :'MiningTech',
+            country : "" } */
+     // );
   
       // Cierra el toast de carga cuando la acción se completa
       if (loadingToastId !== undefined) {
@@ -250,7 +251,7 @@ const StartupForms = () => {
 
                 <FormControl isRequired mt={4}>
                   <FormLabel>Startup Status</FormLabel>
-                  <Select id="startupStatus" name="status" value={formData.status} onChange={handleSelectChange} placeholder="Select status">
+                  <Select id="startupStatus" name="startupStatus" value={formData.startupStatus} onChange={handleSelectChange} placeholder="Select status">
                     <option value="ResearchStage" selected>Research stage</option>
                     <option value="EarlyStartUp">Early Start-Up</option>
                     <option value="PreSeed" >Pre-seed</option>

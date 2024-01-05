@@ -188,7 +188,7 @@ actor Mushroom {
   public shared ({ caller }) func signUpStartup(data : IncommingStartUp) : async Text {
     //Se recomienda comprimir/recortar en el front la imagen correspondiente al campo logo a un formato de 250x250 px
     //y la misma se debe enviar en formato Blob
-    assert not Principal.isAnonymous(caller);
+    //assert not Principal.isAnonymous(caller);
     var i = 0;
     for (req in incomingStartup.vals()) {
       if (req.0 == caller) {
