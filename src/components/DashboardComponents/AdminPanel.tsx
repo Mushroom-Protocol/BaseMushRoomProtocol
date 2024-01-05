@@ -57,7 +57,7 @@ const AdminPanel: React.FC = () => {
             <Button backgroundColor="#1FAFC8" textColor="#000000" variant="solid" borderRadius="10px"_hover={{bg: '#01B994'}}
            // onClick={onOpen} // Abre modal de confirmación de minted
           >
-            Approved
+            Approve
           </Button>
             </Flex>
           </TabPanel>
