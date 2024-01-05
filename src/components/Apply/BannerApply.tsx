@@ -57,10 +57,9 @@ const BannerApply = () => {
       can also support research-stage projects. Anyone with a lab-tested idea is welcome to apply
       and receive a funding campaign for a grant of between $10,000 and $100,000.
       You can read more information about the process in our{' '}
-      <ChakraLink href="url_del_enlace" color="#1FAFC8" textDecoration="underline">
+      <ChakraLink href={GitbookApplyLink} color="#1FAFC8" textDecoration="underline" target="_blank" rel="noopener noreferrer">
         application guide
       </ChakraLink>
-      .
     </Text>
       </Stack>
       

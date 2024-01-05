@@ -295,7 +295,7 @@ actor Mushroom {
   public shared ({ caller }) func getIncomingStartup() : async [(Principal, IncommingStartUp)] /*ver typo de retorno*/ {
     //contract: ic0.msg_reply_data_append: application payload size cannot be larger than 2097152
     //comprimir imagenes para evitar exceder el limite de carga util
-    assert Principal.isController(caller);
+   //assert Principal.isController(caller);
 
     incomingStartup;
   };

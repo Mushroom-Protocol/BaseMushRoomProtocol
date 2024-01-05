@@ -112,20 +112,6 @@ const StartupForms = () => {
   
       // Intenta realizar la acción de envío
       const response = await backend.signUpStartup(formDataToSend);
-           /* {startUpName : "",
-            email : "",
-            website : "",
-            startUpSlogan : "",
-            shortDes : "",
-            logo :  [1],
-            startupStatus : "",
-            tlr : BigInt("1"),
-            fullNameTl : "",
-            specializationTL : "",
-            linkedinTL : "",
-            industry :'MiningTech',
-            country : "" } */
-     // );
   
       // Cierra el toast de carga cuando la acción se completa
       if (loadingToastId !== undefined) {

@@ -90,8 +90,6 @@ const SidebarContent = ({ onClose, handleItemClick, ...rest }: SidebarProps) => 
     <Box
       transition="3s ease"
       bg="#000000"
-      borderRight="1px"
-      borderRightColor={useColorModeValue('gray.200', 'gray.700')}
       w={{ base: 'full', md: 60 }}
       pos="fixed"
       h="full"
@@ -164,7 +162,6 @@ const MobileNav = ({ onOpen, handleItemClick, ...rest }: MobileProps) => {
       height="24"
       alignItems="center"
       bg="#000000"
-      borderBottomWidth="1px"
       borderBottomColor={useColorModeValue('gray.200', 'gray.700')}
       justifyContent={{ base: 'space-between', md: 'flex-end' }}
       {...rest}
