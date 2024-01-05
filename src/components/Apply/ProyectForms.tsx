@@ -30,6 +30,7 @@ const ProyectForms = () => {
   const toast = useToast();
 
   const [formData, setFormData] = useState({
+    startupID: "",
     projectTitle: "",
     problemSolving: "",
     yoursolution: "",
@@ -45,9 +46,10 @@ const ProyectForms = () => {
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
+  
     setFormData((prevData) => ({
       ...prevData,
-      [name]: value,
+      [name]: name === 'projectDuration' ? value : value,
     }));
   };
 
@@ -73,10 +75,19 @@ const ProyectForms = () => {
         isClosable: false,
         variant: 'solid',
       });
+      
+      const formDataToSend = {
+        ...formData,
+        projectDuration: BigInt(formData.projectDuration),
+        startupID: BigInt(formData.startupID),
+        fundsRequired: BigInt(formData.fundsRequired),
+        team: [formData.team],
+        budget: [formData.budget],
+        milestones: [formData.milestones],
+      };
   
-  
-      ///////////// CORREGIR LLAMADO AL BACKEND FUNCION DE REGISTRO PROYECTO /////////////////////////
-      //const response = await backend.signUpStartup(formData);
+    // Intenta realizar la acción de envío
+    const response = await backend.newProjectRequest(formDataToSend);
   
       // Cierra el toast de carga cuando la acción se completa
       if (loadingToastId !== undefined) {
